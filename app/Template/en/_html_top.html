@@ -1,0 +1,49 @@
+<?php
+use \Tipui\Builtin\Helpers\HTML as Helper;
+
+echo Helper\HTML::AddDocType( 'strict' )
+. PHP_EOL .  Helper\HTML::AddOpenTag( 'english' )
+. PHP_EOL .  Helper\HTML::AddHead()
+. PHP_EOL .  Helper\HTML::AddTitle()
+. PHP_EOL .  Helper\HTML::AddMetatag( 'name', 'description' )
+. PHP_EOL .  Helper\HTML::AddMetatag( 'name', 'keywords' )
+. PHP_EOL .  Helper\HTML::AddMetatag( 'name', 'owner', 'tipui.com' )
+. PHP_EOL .  Helper\HTML::AddMetatag( 'name', 'author', 'Daniel Omine' )
+. PHP_EOL .  Helper\HTML::AddMetatag( 'name', 'rating', 'general' )
+. PHP_EOL .  Helper\HTML::AddMetatag( 'name', 'robots', 'index,follow' )
+. PHP_EOL .  Helper\HTML::AddMetatag( 'http-equiv', 'content-type', 'text/html; charset=UTF-8' )
+. PHP_EOL .  Helper\HTML::AddMetatag( 'http-equiv', 'content-language', 'pt-br' );
+?>
+
+    <link rel="stylesheet" type="text/css" href="/css/Styles.css" />
+	<link rel="stylesheet" type="text/css" href="/css/Layout.css" />
+    <link rel="stylesheet" type="text/css" href="/css/Commons.css" />
+	<script type="text/javascript" src="/js/jquery/1.8.3/jquery.min.js"></script>
+
+<?php
+if( isset( $L['html']['head']['css'] ) )
+{
+	foreach( $L['html']['head']['css'] as $v )
+	{
+	?>
+		<link rel="stylesheet" type="text/css" href="/<?php echo $v;?>" />
+	<?php
+	}
+}
+if( isset( $L['html']['head']['js'] ) )
+{
+	foreach( $L['html']['head']['js'] as $v )
+	{
+	?>
+		<script type="text/javascript" src="/<?php echo $v;?>"></script>
+	<?php
+	}
+}
+
+echo Helper\HTML::closeHead();
+?>
+<body>
+<div id="container_top">
+container_top
+</div>
+<div id="container_middle">

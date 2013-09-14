@@ -1,0 +1,1 @@
+Tipui::Core::IsCliMode|b:0;Tipui::Core::Request|a:1:{s:3:"URI";s:0:"";}Tipui::Core::Routing|a:2:{s:4:"path";s:58:"C:/_w/vhosts/dev-fw.tipui.com/public\..\app\Model\Home.php";s:5:"class";s:4:"Home";}

@@ -1,0 +1,78 @@
+<?php
+
+// HTML Elements and tags
+$L['html'] = array(
+                    'title' => 'TIPUI Home Module',
+                    'meta'  => array(
+                                    'description' => '',
+                                    'keywords'    => '',
+                                ),
+					'head'  => array(
+									'css' => array(
+											//'css/Home.css',
+											),
+								),
+                );
+
+// header/top
+include '_html_top.html';
+
+// main content
+
+echo 'ClassName: ' . $T['ClassName'];
+echo '<br /><br />';
+echo '<div style="text-align:left;">';
+
+echo '<div style="font-weight:bold;">get_declared_classes()</div>';
+foreach( $T['get_declared_classes'] as $v )
+{
+	if( strpos( $v, 'Tipui\\' ) === 0 )
+	{
+		echo '<br />&nbsp;&nbsp;&nbsp;' . $v . '<br />';
+		$methods = get_class_methods( '\\' . $v );
+		foreach( $methods as $m )
+		{
+			echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $m . '<br />';
+		}
+	}
+}
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">get_called_class()</div><br />';
+echo $T['get_called_class'] . '<br />';
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Browse::GetData</div><br />';
+foreach( $T['browse'] as $k => $v )
+{
+	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+}
+
+/*
+echo '<br /><br />';
+foreach( $T['debug_backtrace'] as $v )
+{
+	foreach( $v as $m )
+	{
+		if( is_string( $m ) )
+		{
+			echo $m . '<br />';
+		}else{
+			if( is_array( $m ) )
+			{
+				foreach( $m as $v2 )
+				{
+					echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $v2 . '<br />';
+				}
+			}else{
+				var_dump( $m ) . '<br />';
+			}
+		}
+	}
+}
+*/
+
+echo '</div>';
+// bottom
+include '_html_bottom.html';
+?>

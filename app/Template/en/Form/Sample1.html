@@ -1,0 +1,149 @@
+<?php
+
+/**
+* @file   Sample1.html
+* @brief  Form/Sample1 Module template.
+* @date   2013-08-31 23:35:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-09-13 00:28:00
+*/
+
+/* Alias to HTML Helper path
+*
+*/
+use \Tipui\Builtin\Helpers\HTML as Helper;
+
+/* HTML headers
+*
+*/
+Helper\HTML::SetTitle( 'TIPUI Form/Sample 1 Module' );
+Helper\HTML::SetMetatag( 'name', 'description', '' );
+Helper\HTML::SetMetatag( 'name', 'keywords', '' );
+
+
+
+/* header/top
+*
+*/
+include '_html_top.html';
+
+
+/* main content
+*
+*/
+
+
+
+// Form object
+echo PHP_EOL . Helper\Form::AddForm();
+
+
+
+// Input hidden
+echo PHP_EOL . Helper\Form::AddField( 'id' );
+
+
+
+// Input radio
+$options = Helper\Form::AddField( 'option' );
+$labels  = Helper\Form::GetFieldProperty( 'option', 'options' );
+echo PHP_EOL . '<br /><br /><br />options: ';
+foreach( $options as $k => $v )
+{
+	echo PHP_EOL . '<label>' . $v . ' ' . $labels[$k] . '</label>';
+}
+
+
+
+// Input radio, array
+Helper\Form::AddFieldKey( 'foo' );
+$options = Helper\Form::AddField( 'array_option' );
+$labels  = Helper\Form::GetFieldProperty( 'array_option', 'options' );
+echo PHP_EOL . '<br /><br /><br />array options: ';
+foreach( $options as $k => $v )
+{
+	echo PHP_EOL . '<label>' . $v . ' ' . $labels[$k] . '</label>';
+}
+
+
+
+// Input radio, array
+Helper\Form::AddFieldKey( array('foo','bar') );
+$options = Helper\Form::AddField( 'array_multi_option' );
+$labels  = Helper\Form::GetFieldProperty( 'array_option', 'options' );
+echo PHP_EOL . '<br /><br /><br />array multi options: ';
+foreach( $options as $k => $v )
+{
+	echo PHP_EOL . '<label>' . $v . ' ' . $labels[$k] . '</label>';
+}
+
+
+
+// Input checkbox single
+echo PHP_EOL . '<br /><br /><br /><label>choice ' . Helper\Form::AddField( 'ok' ) . '</label>';
+// Input text
+echo PHP_EOL . '<br /><br /><br />email: ' . Helper\Form::AddField( 'email' );
+// Input textarea
+echo PHP_EOL . '<br /><br /><br />message: ' . Helper\Form::AddField( 'message' );
+
+
+
+// Input checkbox multiple choices
+$options = Helper\Form::AddField( 'choices' );
+$labels  = Helper\Form::GetFieldProperty( 'choices', 'options' );
+echo PHP_EOL . '<br /><br /><br />choices: ';
+foreach( $options as $k => $v )
+{
+	echo PHP_EOL . '<label>' . $v . ' ' . $labels[$k] . '</label>';
+}
+
+
+
+// Input multiple choices, array
+Helper\Form::AddFieldKey( 'foo' );
+$options = Helper\Form::AddField( 'array_choices' );
+$labels  = Helper\Form::GetFieldProperty( 'array_choices', 'options' );
+echo PHP_EOL . '<br /><br /><br />array choices: ';
+foreach( $options as $k => $v )
+{
+	echo PHP_EOL . '<label>' . $v . ' ' . $labels[$k] . '</label>';
+}
+
+
+
+// Input multiple choices, multidimensional array
+Helper\Form::AddFieldKey( array('foo','bar') );
+$options = Helper\Form::AddField( 'array_multi_choices' );
+$labels  = Helper\Form::GetFieldProperty( 'array_multi_choices', 'options' );
+echo PHP_EOL . '<br /><br /><br />array multi choices: ';
+foreach( $options as $k => $v )
+{
+	echo PHP_EOL . '<label>' . $v . ' ' . $labels[$k] . '</label>';
+}
+unset( $options, $labels );
+
+
+
+// Select box
+echo PHP_EOL . '<br /><br /><br />select simple: ' . Helper\Form::AddField( 'select' );
+// Select box optgroup
+echo PHP_EOL . '<br /><br /><br />select optgroup: ' . Helper\Form::AddField( 'select_optgroup' );
+
+
+
+// Input file (upload)
+echo PHP_EOL . '<br /><br /><br />image: ' . Helper\Form::AddField( 'img' );
+
+
+
+// close form tag
+echo PHP_EOL . '</form>';
+
+
+
+/* bottom
+*
+*/
+include '_html_bottom.html';
