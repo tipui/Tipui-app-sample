@@ -143,6 +143,24 @@ echo PHP_EOL . '</form>';
 
 
 
+echo '<br /><br />';
+echo '<div style="text-align:left;">';
+
+echo '<div style="font-weight:bold;">get_declared_classes()</div>';
+foreach( $T['get_declared_classes'] as $v )
+{
+	if( strpos( $v, 'Tipui\\' ) === 0 )
+	{
+		echo '<br />&nbsp;&nbsp;&nbsp;' . $v . '<br />';
+		$methods = get_class_methods( '\\' . $v );
+		foreach( $methods as $m )
+		{
+			echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $m . '<br />';
+		}
+	}
+}
+
+
 /* bottom
 *
 */

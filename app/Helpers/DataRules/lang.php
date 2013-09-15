@@ -8,5 +8,5 @@ $rs = array (
 	'value'          => '',
 	'default'        => LANG_DEFAULT,
 	'options'        => LanguagesLabels::Get(),
-	'pre-filter'     => array( array( 'Strings', 'Escape' ), array( false ) ),
+	'pre-filter'     => array( array( '\Tipui\Builtin\Libs\Strings', 'Escape' ), array( false ) ),
 );

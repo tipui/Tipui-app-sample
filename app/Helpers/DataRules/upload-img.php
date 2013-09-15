@@ -9,5 +9,5 @@ $rs = array (
 	'content_types'  => array('jpg', 'gif', 'png'),
 	'validation'     => 'upload',
 	'value'          => '',
-	'pre-filter'     => array( array( 'Strings', 'Escape' ), array( false ) ),
+	'pre-filter'     => array( array( '\Tipui\Builtin\Libs\Strings', 'Escape' ), array( false ) ),
 );

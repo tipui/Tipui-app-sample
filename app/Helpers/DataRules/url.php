@@ -7,5 +7,5 @@ $rs = array (
 	'validation'     => 'text',
 	'value'          => '',
 	'default'        => '',
-	'pre-filter'     => array( array( 'Strings', 'Escape' ), array( false ) ),
+	'pre-filter'     => array( array( '\Tipui\Builtin\Libs\Strings', 'Escape' ), array( false ) ),
 );

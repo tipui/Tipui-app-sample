@@ -65,6 +65,7 @@ class Sample1
     {
 
 		return array( 
+			'get_declared_classes' => get_declared_classes(),
 			//'ClassName' => __CLASS__
 		);
 

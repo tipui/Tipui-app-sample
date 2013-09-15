@@ -6,5 +6,5 @@ $rs = array (
 	'validation'     => 'number',
 	'value'          => null,
 	'default'        => null,
-	'pre-filter'     => array( array( 'Strings', 'NumbersOnly' ) ),
+	'pre-filter'     => array( array( '\Tipui\Builtin\Libs\Strings', 'NumbersOnly' ) ),
 );

@@ -7,5 +7,5 @@ $rs = array (
 	'value'          => '',
 	'default'        => '1',
 	'options'        => array(1 => 'option 1', 2 => 'option 2'),
-	'pre-filter'     => array( array( 'Strings', 'NumbersOnly' ) ),
+	'pre-filter'     => array( array( '\Tipui\Builtin\Libs\Strings', 'NumbersOnly' ) ),
 );

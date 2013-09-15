@@ -10,5 +10,5 @@ $rs = array (
 							'g1' => array( 'optgroup' => 'group 1', 'options' => array( 1 => 'g1 option 1', 2 => 'g1 option 2') ),
 							'g2' => array( 'optgroup' => 'group 2', 'options' => array( 3 => 'g2 option 1', 4 => 'g2 option 2') )
 						),
-	'pre-filter'     => array( array( 'Strings', 'NumbersOnly' ) ),
+	'pre-filter'     => array( array( '\Tipui\Builtin\Libs\Strings', 'NumbersOnly' ) ),
 );
