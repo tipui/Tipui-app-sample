@@ -1,20 +1,46 @@
 <?php
 
-// HTML Elements and tags
-$L['html'] = array(
-                    'title' => 'TIPUI Error Page',
-                    'meta'  => array(
-                                    'description' => '',
-                                    'keywords'    => '',
-                                ),
-                );
+/**
+* @file   Error.html
+* @brief  Error Module template.
+* @date   2013-08-31 23:35:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-09-16 15:30:00
+*/
 
-// header/top
+/* Alias to HTML Helper path
+*
+*/
+use \Tipui\Builtin\Helpers\HTML as Helper;
+
+/* HTML headers
+*
+*/
+Helper\HTML::SetTitle( 'TIPUI PHP Framework - Error' );
+Helper\HTML::SetMetatag( 'name', 'description', '' );
+Helper\HTML::SetMetatag( 'name', 'keywords', '' );
+
+
+
+/* header/top
+*
+*/
 include '_html_top.html';
 
-// main content
+
+/* main content
+*
+*/
+
+
+
 echo '<b>' . $T['ClassName'] . '</b>';
 
-// bottom
+
+
+/* bottom
+*
+*/
 include '_html_bottom.html';
-?>

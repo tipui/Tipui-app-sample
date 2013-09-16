@@ -24,12 +24,18 @@ class Home
 	private $browse;
 
 	/**
+	* Handles strings Lib instance.
+	*/
+	private $strings;
+
+	/**
 	* @brief Model logic
 	*/
     public function Prepare()
     {
 
-		$this -> browse = new Libs\Browse;
+		$this -> browse  = new Libs\Browse;
+		$this -> strings = new Libs\Strings;
 
     }
 
@@ -43,9 +49,12 @@ class Home
 			'ClassName' => __CLASS__,
 			'get_declared_classes' => get_declared_classes(),
 			'get_called_class' => get_called_class(),
-			'browse' => $this -> browse -> GetData(),
-			//'core_data' => $this -> core_data,
-			//'core_data' => Core -> GetCoreCachedData(),
+			'browse::GetHTTPInfo' => Libs\Browse::GetHTTPInfo(),
+			'browse->GetHTTPInfo' => $this -> browse -> GetHTTPInfo(),
+			'browse->GetUserNavigation' => $this -> browse -> GetUserNavigation(),
+			'browse->GetRemoteInfo' => $this -> browse -> GetRemoteInfo(),
+			'Strings->Trim' => $this -> strings -> Trim(' foo '),
+			'Strings::Trim' => Libs\Strings::Trim(' foo '),
 			//'debug_backtrace' => debug_backtrace(),
 		);
 

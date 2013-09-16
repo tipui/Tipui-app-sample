@@ -1,23 +1,40 @@
 <?php
 
-// HTML Elements and tags
-$L['html'] = array(
-                    'title' => 'TIPUI Home Module',
-                    'meta'  => array(
-                                    'description' => '',
-                                    'keywords'    => '',
-                                ),
-					'head'  => array(
-									'css' => array(
-											//'css/Home.css',
-											),
-								),
-                );
+/**
+* @file   Home.html
+* @brief  Home Module template.
+* @date   2013-08-31 23:35:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-09-16 15:30:00
+*/
 
-// header/top
+/* Alias to HTML Helper path
+*
+*/
+use \Tipui\Builtin\Helpers\HTML as Helper;
+
+/* HTML headers
+*
+*/
+Helper\HTML::SetTitle( 'TIPUI PHP Framework - Home' );
+Helper\HTML::SetMetatag( 'name', 'description', '' );
+Helper\HTML::SetMetatag( 'name', 'keywords', '' );
+
+
+
+/* header/top
+*
+*/
 include '_html_top.html';
 
-// main content
+
+/* main content
+*
+*/
+
+
 
 echo 'ClassName: ' . $T['ClassName'];
 echo '<br /><br />';
@@ -42,11 +59,40 @@ echo '<div style="font-weight:bold;">get_called_class()</div><br />';
 echo $T['get_called_class'] . '<br />';
 
 echo '<br /><br />';
-echo '<div style="font-weight:bold;">Browse::GetData</div><br />';
-foreach( $T['browse'] as $k => $v )
+echo '<div style="font-weight:bold;">Browse::GetHTTPInfo</div><br />';
+foreach( $T['browse::GetHTTPInfo'] as $k => $v )
 {
 	echo $k . ': ' . $v . '<br />' . PHP_EOL;
 }
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Browse->GetHTTPInfo</div><br />';
+foreach( $T['browse->GetHTTPInfo'] as $k => $v )
+{
+	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+}
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Browse->GetUserNavigation</div><br />';
+foreach( $T['browse->GetUserNavigation'] as $k => $v )
+{
+	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+}
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Browse->GetRemoteInfo</div><br />';
+foreach( $T['browse->GetRemoteInfo'] as $k => $v )
+{
+	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+}
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Strings->Trim(\' foo \')</div>';
+echo $T['Strings->Trim'] . '<br />';
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Strings::Trim(\' foo \')</div>';
+echo $T['Strings::Trim'] . '<br />';
 
 /*
 echo '<br /><br />';
@@ -73,6 +119,10 @@ foreach( $T['debug_backtrace'] as $v )
 */
 
 echo '</div>';
-// bottom
+
+
+
+/* bottom
+*
+*/
 include '_html_bottom.html';
-?>
