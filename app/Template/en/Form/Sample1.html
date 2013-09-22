@@ -7,20 +7,21 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-09-13 00:28:00
+* @updated: 2013-09-22 20:05:00
 */
 
 /* Alias to HTML Helper path
 *
 */
-use \Tipui\Builtin\Helpers\HTML as Helper;
+use \Tipui\Builtin\Helpers\HTML\Elements as HTML;
+use \Tipui\Builtin\Helpers\HTML\Form as Form;
 
 /* HTML headers
 *
 */
-Helper\HTML::SetTitle( 'TIPUI Form/Sample 1 Module' );
-Helper\HTML::SetMetatag( 'name', 'description', '' );
-Helper\HTML::SetMetatag( 'name', 'keywords', '' );
+HTML::SetTitle( 'TIPUI Form/Sample 1 Module' );
+HTML::SetMetatag( 'name', 'description', '' );
+HTML::SetMetatag( 'name', 'keywords', '' );
 
 
 
@@ -37,18 +38,18 @@ include '_html_top.html';
 
 
 // Form object
-echo PHP_EOL . Helper\Form::AddForm();
+echo PHP_EOL . Form::AddForm();
 
 
 
 // Input hidden
-echo PHP_EOL . Helper\Form::AddField( 'id' );
+echo PHP_EOL . Form::AddField( 'id' );
 
 
 
 // Input radio
-$options = Helper\Form::AddField( 'option' );
-$labels  = Helper\Form::GetFieldProperty( 'option', 'options' );
+$options = Form::AddField( 'option' );
+$labels  = Form::GetFieldProperty( 'option', 'options' );
 echo PHP_EOL . '<br /><br /><br />options: ';
 foreach( $options as $k => $v )
 {
@@ -58,9 +59,9 @@ foreach( $options as $k => $v )
 
 
 // Input radio, array
-Helper\Form::AddFieldKey( 'foo' );
-$options = Helper\Form::AddField( 'array_option' );
-$labels  = Helper\Form::GetFieldProperty( 'array_option', 'options' );
+Form::AddFieldKey( 'foo' );
+$options = Form::AddField( 'array_option' );
+$labels  = Form::GetFieldProperty( 'array_option', 'options' );
 echo PHP_EOL . '<br /><br /><br />array options: ';
 foreach( $options as $k => $v )
 {
@@ -70,9 +71,9 @@ foreach( $options as $k => $v )
 
 
 // Input radio, array
-Helper\Form::AddFieldKey( array('foo','bar') );
-$options = Helper\Form::AddField( 'array_multi_option' );
-$labels  = Helper\Form::GetFieldProperty( 'array_option', 'options' );
+Form::AddFieldKey( array('foo','bar') );
+$options = Form::AddField( 'array_multi_option' );
+$labels  = Form::GetFieldProperty( 'array_option', 'options' );
 echo PHP_EOL . '<br /><br /><br />array multi options: ';
 foreach( $options as $k => $v )
 {
@@ -82,17 +83,17 @@ foreach( $options as $k => $v )
 
 
 // Input checkbox single
-echo PHP_EOL . '<br /><br /><br /><label>choice ' . Helper\Form::AddField( 'ok' ) . '</label>';
+echo PHP_EOL . '<br /><br /><br /><label>choice ' . Form::AddField( 'ok' ) . '</label>';
 // Input text
-echo PHP_EOL . '<br /><br /><br />email: ' . Helper\Form::AddField( 'email' );
+echo PHP_EOL . '<br /><br /><br />email: ' . Form::AddField( 'email' );
 // Input textarea
-echo PHP_EOL . '<br /><br /><br />message: ' . Helper\Form::AddField( 'message' );
+echo PHP_EOL . '<br /><br /><br />message: ' . Form::AddField( 'message' );
 
 
 
 // Input checkbox multiple choices
-$options = Helper\Form::AddField( 'choices' );
-$labels  = Helper\Form::GetFieldProperty( 'choices', 'options' );
+$options = Form::AddField( 'choices' );
+$labels  = Form::GetFieldProperty( 'choices', 'options' );
 echo PHP_EOL . '<br /><br /><br />choices: ';
 foreach( $options as $k => $v )
 {
@@ -102,9 +103,9 @@ foreach( $options as $k => $v )
 
 
 // Input multiple choices, array
-Helper\Form::AddFieldKey( 'foo' );
-$options = Helper\Form::AddField( 'array_choices' );
-$labels  = Helper\Form::GetFieldProperty( 'array_choices', 'options' );
+Form::AddFieldKey( 'foo' );
+$options = Form::AddField( 'array_choices' );
+$labels  = Form::GetFieldProperty( 'array_choices', 'options' );
 echo PHP_EOL . '<br /><br /><br />array choices: ';
 foreach( $options as $k => $v )
 {
@@ -114,9 +115,9 @@ foreach( $options as $k => $v )
 
 
 // Input multiple choices, multidimensional array
-Helper\Form::AddFieldKey( array('foo','bar') );
-$options = Helper\Form::AddField( 'array_multi_choices' );
-$labels  = Helper\Form::GetFieldProperty( 'array_multi_choices', 'options' );
+Form::AddFieldKey( array('foo','bar') );
+$options = Form::AddField( 'array_multi_choices' );
+$labels  = Form::GetFieldProperty( 'array_multi_choices', 'options' );
 echo PHP_EOL . '<br /><br /><br />array multi choices: ';
 foreach( $options as $k => $v )
 {
@@ -127,14 +128,14 @@ unset( $options, $labels );
 
 
 // Select box
-echo PHP_EOL . '<br /><br /><br />select simple: ' . Helper\Form::AddField( 'select' );
+echo PHP_EOL . '<br /><br /><br />select simple: ' . Form::AddField( 'select' );
 // Select box optgroup
-echo PHP_EOL . '<br /><br /><br />select optgroup: ' . Helper\Form::AddField( 'select_optgroup' );
+echo PHP_EOL . '<br /><br /><br />select optgroup: ' . Form::AddField( 'select_optgroup' );
 
 
 
 // Input file (upload)
-echo PHP_EOL . '<br /><br /><br />image: ' . Helper\Form::AddField( 'img' );
+echo PHP_EOL . '<br /><br /><br />image: ' . Form::AddField( 'img' );
 
 
 

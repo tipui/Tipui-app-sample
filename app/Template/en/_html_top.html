@@ -1,48 +1,92 @@
 <?php
-use \Tipui\Builtin\Helpers\HTML as Helper;
 
-echo Helper\HTML::AddDocType( 'strict' )
-. PHP_EOL .  Helper\HTML::AddOpenTag( 'english' )
-. PHP_EOL .  Helper\HTML::AddHead()
-. PHP_EOL .  Helper\HTML::AddTitle()
-. PHP_EOL .  Helper\HTML::AddMetatag( 'name', 'description' )
-. PHP_EOL .  Helper\HTML::AddMetatag( 'name', 'keywords' )
-. PHP_EOL .  Helper\HTML::AddMetatag( 'name', 'owner', 'tipui.com' )
-. PHP_EOL .  Helper\HTML::AddMetatag( 'name', 'author', 'Daniel Omine' )
-. PHP_EOL .  Helper\HTML::AddMetatag( 'name', 'rating', 'general' )
-. PHP_EOL .  Helper\HTML::AddMetatag( 'name', 'robots', 'index,follow' )
-. PHP_EOL .  Helper\HTML::AddMetatag( 'http-equiv', 'content-type', 'text/html; charset=UTF-8' )
-. PHP_EOL .  Helper\HTML::AddMetatag( 'http-equiv', 'content-language', 'pt-br' );
+/**
+* @file   _html_top.html
+* @brief  Home headers and top layout template.
+* @date   2013-08-31 23:35:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-09-23 01:08:00
+*/
+
+use \Tipui\Builtin\Helpers\HTML\Elements as HTML;
+
+echo HTML::AddDocType( 'strict' )
+. PHP_EOL . HTML::AddOpenTag( 'english' )
+
+/**
+* Open head tag
+* This is optional. Of course, for performance reasons, its unnecessary. Just type <head>
+*/
+//. PHP_EOL . HTML::AddHead()
+. PHP_EOL . '<head>'
+
+. PHP_EOL . HTML::AddTitle(). PHP_EOL . HTML::AddMetatag( 'name', 'description' )
+. PHP_EOL . HTML::AddMetatag( 'name', 'keywords' )
+. PHP_EOL . HTML::AddMetatag( 'name', 'owner', null, 'tipui.com' )
+. PHP_EOL . HTML::AddMetatag( 'name', 'author', null, 'Daniel Omine' )
+. PHP_EOL . HTML::AddMetatag( 'name', 'rating', null, 'general' )
+. PHP_EOL . HTML::AddMetatag( 'name', 'robots', null, 'index,follow' )
+
+// [review:low] Consider if must check for model Template override settings, if exists
+. PHP_EOL . HTML::AddMetatag( 'name', 'language', null, 'english' )
+
+/**
+* The charset parameter can be changed by the model on Template() method.
+* HTML::GetCharset() is optional. For performance reasons, its unnecessary if don't need control charset dynamically. Just type the charset directly or use the environment config.
+*/
+//. PHP_EOL . HTML::AddMetatag( 'http-equiv', 'content-type', 'text/html; charset=' . HTML::GetCharset() )
+//. PHP_EOL . HTML::AddMetatag( 'http-equiv', 'content-type', 'text/html; charset=' . \Tipui\Core::GetConf() -> BOOTSTRAP -> CHARSET )
+. PHP_EOL . HTML::AddMetatag( 'http-equiv', 'content-type', 'text/html; charset=' . 'UTF-8' )
+
+. PHP_EOL . HTML::Stylesheets() -> Add( 'Styles.css' )
+. PHP_EOL . HTML::Stylesheets() -> Add( 'Layout.css' )
+. PHP_EOL . HTML::Stylesheets() -> Add( 'Commons.css' );
+//. PHP_EOL . HTML::JSFiles() -> Add( 'jquery/1.8.3/jquery.min.js' );
+
+/**
+[important]
+remember to add method to add optional things into <header>[add]</header>
+*/
+
+/**
+* Add array of (css) stylesheets
+*
+* Sample code in model template
+[code]HTML::Stylesheets() -> SetArray()( array( array( 'file' => 'Styles.css' ), array( 'file' => 'Layout.css' ), array( 'file' => 'Commons.css' ) ) );[/code]
+*
+* [code]HTML::Stylesheets() -> AddArray();[/code] will dispatch all.
+*/
+HTML::Stylesheets() -> AddArray();
+
+
+
+/**
+* Add array of (css) stylesheets
+*
+* Sample code in model template
+[code]HTML::JSFiles() -> SetArray( array( array( 'file' => 'foo.js' ), array( 'file' => 'bar.js' ), array( 'file' => 'other.js' ) ) );[/code]
+*
+* [code]HTML::JSFiles() -> AddArray();[/code] will dispatch all.
+*/
+HTML::JSFiles() -> AddArray();
+
+/**
+* Close head tag
+* This is optional. Of course, for performance reasons, its unnecessary. Just type </head>
+*/
+//echo PHP_EOL . HTML::AddHead( 'close' );
+echo PHP_EOL . '</head>';
+
+/**
+* Open body tag
+* Recommended to use only if necessary. For performance reasons, the better way is type directly the tag <body>.
+* The reason to use HTML Helper is for the cases when need to add distinct parameters to body tag dynamically.
+*/
+//echo PHP_EOL . HTML::AddBody();
+echo PHP_EOL . '<body>';
 ?>
-
-    <link rel="stylesheet" type="text/css" href="/css/Styles.css" />
-	<link rel="stylesheet" type="text/css" href="/css/Layout.css" />
-    <link rel="stylesheet" type="text/css" href="/css/Commons.css" />
-	<script type="text/javascript" src="/js/jquery/1.8.3/jquery.min.js"></script>
-
-<?php
-if( isset( $L['html']['head']['css'] ) )
-{
-	foreach( $L['html']['head']['css'] as $v )
-	{
-	?>
-		<link rel="stylesheet" type="text/css" href="/<?php echo $v;?>" />
-	<?php
-	}
-}
-if( isset( $L['html']['head']['js'] ) )
-{
-	foreach( $L['html']['head']['js'] as $v )
-	{
-	?>
-		<script type="text/javascript" src="/<?php echo $v;?>"></script>
-	<?php
-	}
-}
-
-echo Helper\HTML::closeHead();
-?>
-<body>
 <div id="container_top">
 container_top
 </div>

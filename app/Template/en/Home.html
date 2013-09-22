@@ -7,34 +7,40 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-09-16 15:30:00
+* @updated: 2013-09-22 20:05:00
 */
 
-/* Alias to HTML Helper path
-*
+/** Alias to HTML Elements Helper path
 */
-use \Tipui\Builtin\Helpers\HTML as Helper;
+use \Tipui\Builtin\Helpers\HTML\Elements as HTML;
 
-/* HTML headers
-*
+
+
+/** HTML headers
 */
-Helper\HTML::SetTitle( 'TIPUI PHP Framework - Home' );
-Helper\HTML::SetMetatag( 'name', 'description', '' );
-Helper\HTML::SetMetatag( 'name', 'keywords', '' );
+HTML::SetTitle( 'TIPUI PHP Framework - Home' );
+HTML::SetMetatag( 'name', 'description', '' );
+HTML::SetMetatag( 'name', 'keywords', '' );
+/** Metatag Samples
+*/
+//HTML::SetMetatag( 'name', 'language', 'portuguese' );
+//HTML::SetMetatag( 'name', 'robots', 'noindex' );
+
+/** CSS and JavaScript Samples
+*/
+//HTML::Stylesheets()->SetArray( array( array( 'file' => 'Styles.css' ), array( 'file' => 'Layout.css' ), array( 'file' => 'Commons.css' ) ) );
+//HTML::JSFiles() -> SetArray( array( array( 'file' => 'foo.js' ), array( 'file' => 'bar.js' ), array( 'file' => 'other.js' ) ) );
+//HTML::JSFiles() -> SetArray( array( array( 'file' => 'jquery/1.8.3/jquery.min.js' ) ) );
 
 
 
-/* header/top
-*
+/** header/top
 */
 include '_html_top.html';
 
 
-/* main content
-*
+/** main content
 */
-
-
 
 echo 'ClassName: ' . $T['ClassName'];
 echo '<br /><br />';
@@ -87,6 +93,25 @@ foreach( $T['browse->GetRemoteInfo'] as $k => $v )
 }
 
 echo '<br /><br />';
+echo '<div style="font-weight:bold;">Core->GetMethodDataCache->IsCliMode</div><br />';
+var_dump( $T['Core->GetMethodDataCache->IsCliMode'] );
+echo '<br />';
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Core->GetMethodDataCache->Request</div><br />';
+foreach( $T['Core->GetMethodDataCache->Request'] as $k => $v )
+{
+	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+}
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Core->GetMethodDataCache->Routing</div><br />';
+foreach( $T['Core->GetMethodDataCache->Routing'] as $k => $v )
+{
+	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+}
+
+echo '<br /><br />';
 echo '<div style="font-weight:bold;">Strings->Trim(\' foo \')</div>';
 echo $T['Strings->Trim'] . '<br />';
 
@@ -94,7 +119,7 @@ echo '<br /><br />';
 echo '<div style="font-weight:bold;">Strings::Trim(\' foo \')</div>';
 echo $T['Strings::Trim'] . '<br />';
 
-/*
+/**
 echo '<br /><br />';
 foreach( $T['debug_backtrace'] as $v )
 {
@@ -122,7 +147,6 @@ echo '</div>';
 
 
 
-/* bottom
-*
+/** bottom
 */
 include '_html_bottom.html';

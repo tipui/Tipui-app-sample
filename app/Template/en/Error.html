@@ -7,31 +7,27 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-09-16 15:30:00
+* @updated: 2013-09-22 20:05:00
 */
 
-/* Alias to HTML Helper path
-*
+/** Alias to HTML Helper path
 */
-use \Tipui\Builtin\Helpers\HTML as Helper;
+use \Tipui\Builtin\Helpers\HTML\Elements as HTML;
 
-/* HTML headers
-*
+/** HTML headers
 */
-Helper\HTML::SetTitle( 'TIPUI PHP Framework - Error' );
-Helper\HTML::SetMetatag( 'name', 'description', '' );
-Helper\HTML::SetMetatag( 'name', 'keywords', '' );
+HTML::SetTitle( 'TIPUI PHP Framework - Error' );
+HTML::SetMetatag( 'name', 'description', '' );
+HTML::SetMetatag( 'name', 'keywords', '' );
 
 
 
-/* header/top
-*
+/** header/top
 */
 include '_html_top.html';
 
 
-/* main content
-*
+/** main content
 */
 
 
@@ -40,7 +36,6 @@ echo '<b>' . $T['ClassName'] . '</b>';
 
 
 
-/* bottom
-*
+/** bottom
 */
 include '_html_bottom.html';
