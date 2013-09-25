@@ -9,6 +9,7 @@
 */
 
 $array = array( 
+	'APP_VERSION'    => '1.0',
 	'DOMAIN'         => 'tipui.com',
 	'SUBDOMAIN'      => 'dev-fw.',
 	'CHARSET'        => 'UTF-8',
@@ -23,6 +24,12 @@ $array = array(
 	* sqlite: save in sqlite (not available)
 	*/
 	'CORE_METHODS_CACHE_STORAGE_MODE' => 'cookie',
+
+	/**
+	* Encryption settings
+	*/
+	'ENCRYPTION_LIBRARY' => array( 'LIB' => 'MCrypt', 'KEY' => '9a*U~m+I>z8#&¨w7K', 'CYPHER' => MCRYPT_RIJNDAEL_256, 'MODE' => MCRYPT_MODE_CBC ),
+
 );
 
 

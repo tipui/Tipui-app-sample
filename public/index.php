@@ -7,7 +7,9 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-09-08 17:35:00
+* @updated: 2013-09-25 21:39:00
+*
+* Git: https://github.com/tipui/Tipui-app-sample
 
 * Settings files
 * Enviroment names: /app/config/env/ENV.json

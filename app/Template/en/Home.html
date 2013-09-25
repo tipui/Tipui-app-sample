@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-09-22 20:05:00
+* @updated: 2013-09-26 03:59:00
 */
 
 /** Alias to HTML Elements Helper path
@@ -118,6 +118,14 @@ echo $T['Strings->Trim'] . '<br />';
 echo '<br /><br />';
 echo '<div style="font-weight:bold;">Strings::Trim(\' foo \')</div>';
 echo $T['Strings::Trim'] . '<br />';
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Encryption::' . $T['encryption_lib'] . '()->Encode(\' foo \')</div>';
+echo $T['Encryption::(lib)->Encode'] . '<br />';
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Encryption::' . $T['encryption_lib'] . '()->Decode([encrypted string above])</div>';
+echo $T['Encryption::(lib)->Decode'] . '<br />';
 
 /**
 echo '<br /><br />';
