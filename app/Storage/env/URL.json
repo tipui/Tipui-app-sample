@@ -1,1 +1,1 @@
-{"MODE":"mod_rewrite","HREF_BASE":"\/","PFS":"\/","FOLDER_LEVELS":10,"PARAM_NAME":"p","PARAM_ARGUMENTOR":"?","PARAM_SEPARATOR":"&","FORM_ACTION":"\/"}
+{"MODE":"mod_rewrite","PROTOCOL":"http:\/\/","HREF_BASE":"\/","PFS":"\/","FOLDER_LEVELS":10,"PARAM_NAME":"p","PARAM_ARGUMENTOR":"?","PARAM_SEPARATOR":"&","FORM_ACTION":"\/"}

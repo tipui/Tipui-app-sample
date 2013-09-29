@@ -1,13 +1,13 @@
-span.bold{font-weight:bold;}
+.bold{font-weight:bold;}
+
 a{color:#a80000; text-decoration:  none;}
 a:hover{text-decoration:underline;}
-span.WarnMark{color:#ff0000;}
-span.brln{display: block;}
-table.full{width: 100%;}
-
 a.nll{text-decoration:none;color:#000000;}
 a.nll:hover{text-decoration:none;color:#ef4850;}
 
+.full_width{width:100%;}
+
+.block{display:block}
 .inline{display:inline}
 /*.spacer{background:url('/images/Layout/spacer.gif') 0 0 repeat-x transparent;}*/
 .cusor_hand{cursor:hand;cursor:pointer;}
@@ -19,17 +19,8 @@ a.nll:hover{text-decoration:none;color:#ef4850;}
 .va_middle{vertical-align:middle;}
 .va_top{vertical-align:top;}
 
-.tb{
-	display:table;
-}
-.tb_row{
-	display:table-row;
-}
-.tb_cell{
-	display:table-cell;
-}
+.tb{display:table;}
+.tb_row{display:table-row;}
+.tb_cell{display:table-cell;}
 
-span.word_break{
-word-break: break-all;
-word-wrap: break-word;
-}
+.word_break{word-break: break-all;word-wrap: break-word;}

@@ -13,6 +13,11 @@ $array = array(
 	'MODE'              => 'mod_rewrite',
 
 	/**
+	* URL protocol (http, https)
+	*/
+	'PROTOCOL'          => 'http://',
+
+	/**
 	* URL Base of parameters
 	* the object $this came from Core
 	* @see Core::LoadSettings()

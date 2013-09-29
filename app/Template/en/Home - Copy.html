@@ -1,0 +1,164 @@
+<?php
+
+/**
+* @file   Home.html
+* @brief  Home Module template.
+* @date   2013-08-31 23:35:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-09-26 03:59:00
+*/
+
+/** Alias to HTML Helper path
+*/
+use \Tipui\Builtin\Helpers\HTML as HTML;
+
+
+
+/** HTML headers
+*/
+HTML\Elements::SetTitle( 'TIPUI PHP' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Lightweight PHP Framework' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'practical concept, simple development' );
+/** Metatag Samples
+*/
+//HTML::SetMetatag( 'name', 'language', 'portuguese' );
+//HTML::SetMetatag( 'name', 'robots', 'noindex' );
+
+/** CSS and JavaScript Samples
+*/
+//HTML::Stylesheets()->SetArray( array( array( 'file' => 'Styles.css' ), array( 'file' => 'Layout.css' ), array( 'file' => 'Commons.css' ) ) );
+//HTML::JSFiles() -> SetArray( array( array( 'file' => 'foo.js' ), array( 'file' => 'bar.js' ), array( 'file' => 'other.js' ) ) );
+//HTML::JSFiles() -> SetArray( array( array( 'file' => 'jquery/1.8.3/jquery.min.js' ) ) );
+
+
+/** HTML header additional stuffs
+*/
+//HTML\Miscellaneous::Append() -> Set( PHP_EOL . '<script>alert( "hello world" )</script>' );
+
+
+/** header/top
+*/
+include '_html_top.html';
+
+
+/** main content
+*/
+
+echo 'ClassName: ' . $T['ClassName'];
+echo '<br /><br />';
+echo '<div style="text-align:left;">';
+
+echo '<div style="font-weight:bold;">get_declared_classes()</div>';
+foreach( $T['get_declared_classes'] as $v )
+{
+	if( strpos( $v, 'Tipui\\' ) === 0 )
+	{
+		echo '<br />&nbsp;&nbsp;&nbsp;' . $v . '<br />';
+		$methods = get_class_methods( '\\' . $v );
+		foreach( $methods as $m )
+		{
+			echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $m . '<br />';
+		}
+	}
+}
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">get_called_class()</div><br />';
+echo $T['get_called_class'] . '<br />';
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Browse::GetHTTPInfo</div><br />';
+foreach( $T['browse::GetHTTPInfo'] as $k => $v )
+{
+	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+}
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Browse->GetHTTPInfo</div><br />';
+foreach( $T['browse->GetHTTPInfo'] as $k => $v )
+{
+	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+}
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Browse->GetUserNavigation</div><br />';
+foreach( $T['browse->GetUserNavigation'] as $k => $v )
+{
+	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+}
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Browse->GetRemoteInfo</div><br />';
+foreach( $T['browse->GetRemoteInfo'] as $k => $v )
+{
+	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+}
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Core->GetMethodDataCache->IsCliMode</div><br />';
+var_dump( $T['Core->GetMethodDataCache->IsCliMode'] );
+echo '<br />';
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Core->GetMethodDataCache->Request</div><br />';
+foreach( $T['Core->GetMethodDataCache->Request'] as $k => $v )
+{
+	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+}
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Core->GetMethodDataCache->Routing</div><br />';
+foreach( $T['Core->GetMethodDataCache->Routing'] as $k => $v )
+{
+	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+}
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Strings->Trim(\' foo \')</div>';
+echo $T['Strings->Trim'] . '<br />';
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Strings::Trim(\' foo \')</div>';
+echo $T['Strings::Trim'] . '<br />';
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Encryption::' . $T['encryption_lib'] . '()->Encode(\' foo \')</div>';
+echo '<span class="word_break">' . $T['Encryption::(lib)->Encode'] . '</span><br />';
+
+echo '<br /><br />';
+echo '<div style="font-weight:bold;">Encryption::' . $T['encryption_lib'] . '()->Decode([encrypted string above])</div>';
+echo $T['Encryption::(lib)->Decode'] . '<br />';
+
+/**
+echo '<br /><br />';
+foreach( $T['debug_backtrace'] as $v )
+{
+	foreach( $v as $m )
+	{
+		if( is_string( $m ) )
+		{
+			echo $m . '<br />';
+		}else{
+			if( is_array( $m ) )
+			{
+				foreach( $m as $v2 )
+				{
+					echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $v2 . '<br />';
+				}
+			}else{
+				var_dump( $m ) . '<br />';
+			}
+		}
+	}
+}
+*/
+
+echo '</div>';
+
+
+
+/** bottom
+*/
+include '_html_bottom.html';

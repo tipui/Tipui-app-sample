@@ -53,9 +53,9 @@ ini_set( 'upload_tmp_dir', $array['UPLOAD_PATH'] );
 */
 
 /**
-* Default PHP session.name is PHPSESSID. This name can be changed.
-* The main reasons is to not conflict with others URL parameters when session.use_trans_sid is TRUE or 1.
-* Another reason is to increase security with server information in browser headers
+* Default PHP session.name is PHPSESSID.
+* The main reasons is to not conflict with others URL parameters when session.use_trans_sid is enabled.
+* Another reason is to increase security about server information in browser headers.
 */
 ini_set( 'session.name', 'SID' );
 
