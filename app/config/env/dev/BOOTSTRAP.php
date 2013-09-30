@@ -11,7 +11,7 @@
 $array = array( 
 	'APP_VERSION'    => '1.0',
 	'DOMAIN'         => 'tipui.com',
-	'SUBDOMAIN'      => 'dev-fw.',
+	'SUBDOMAIN'      => 'dev-php.',
 	'CHARSET'        => 'UTF-8',
 	'PUBLIC_FOLDER'  => '/',
 	'PUBLIC_FOLDER_IMAGES'  => 'images',
