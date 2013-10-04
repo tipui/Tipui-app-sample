@@ -1,0 +1,55 @@
+<?php
+
+/**
+* @file   Routing.html
+* @brief  Routing Tests/Core/GetMethodDataCache module template.
+* @date   2013-10-04 03:08:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-10-04 14:21:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Tests Browse GetHTTPInfo()' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Displays builtin Core/GetMethodDataCache property Routing results.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'unit tests, framework php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+
+echo '<div class="ha_left">';
+
+echo '<h1 class="container_padding">\Tipui\Core</h1>';
+
+echo '<br />';
+echo '<h2 class="code_sample block bold container_padding">/** static */<br /> Core::GetConf()->GetMethodDataCache(\'Routing\')</h2>';
+echo '<div class="code_returns container_padding word_break">';
+foreach( $T['Core::GetConf()->GetMethodDataCache(Routing)'] as $k => $v )
+{
+	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+}
+echo '</div>';
+
+echo '<br />';
+echo '<h2 class="code_sample block bold container_padding">/** instance */<br /> Core->GetMethodDataCache(\'Routing\')</h2>';
+echo '<div class="code_returns container_padding word_break">';
+foreach( $T['Core->GetMethodDataCache(Routing)'] as $k => $v )
+{
+	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+}
+echo '</div>';
+
+echo '</div>';
+
+/** bottom */
+Layout::Bottom();

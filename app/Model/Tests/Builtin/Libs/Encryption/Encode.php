@@ -1,21 +1,21 @@
 <?php
 
 /**
-* @class  Home
-* @file   Home.php
-* @brief  Home Module.
-* @date   2013-06-22 04:07:00
+* @class  Encode
+* @file   Encode.php
+* @brief  Encode Builtin/Libs/Encryption Module.
+* @date   2013-10-04 03:08:00
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-09-26 03:59:00
+* @updated: 2013-10-04 03:08:00
 */
 
-namespace Tipui\App\Model;
+namespace Tipui\App\Model\Tests\Builtin\Libs\Encryption;
 
 use \Tipui\Builtin\Libs as Libs;
 
-class Home
+class Encode
 {
 
 	/**
@@ -29,19 +29,11 @@ class Home
 	private $encryption_lib;
 
 	/**
-	* Handles Browse Lib instance.
-	*/
-	private $browse;
-
-	/**
-	* Handles strings Lib instance.
-	*/
-	private $strings;
-
-	/**
 	* Handles Core instance.
 	*/
 	private $core;
+
+
 
 	/**
 	* @brief Model logic
@@ -49,8 +41,6 @@ class Home
     public function Prepare()
     {
 
-		$this -> browse      = new Libs\Browse;
-		$this -> strings     = new Libs\Strings;
 		$this -> core        = new \Tipui\Core;
 		$this -> encryption  = new Libs\Encryption;
 
@@ -81,7 +71,8 @@ class Home
 		exit;
 		*/
 
-    }
+		return null;
+	}
 
 	/**
 	* @brief Data to be rendered
@@ -89,45 +80,14 @@ class Home
     public function View()
     {
 
-		$encrypted = $this -> encryption -> Encode( 'foo' );
+		//$encrypted = $this -> encryption -> Encode( 'foo' );
 
-		return array( 
-			'ClassName' => __CLASS__,
-			'get_declared_classes' => get_declared_classes(),
-			'get_called_class' => get_called_class(),
-			'browse::GetHTTPInfo' => Libs\Browse::GetHTTPInfo(),
-			'browse->GetHTTPInfo' => $this -> browse -> GetHTTPInfo(),
-			'browse->GetUserNavigation' => $this -> browse -> GetUserNavigation(),
-			'browse->GetRemoteInfo' => $this -> browse -> GetRemoteInfo(),
-			'Core->GetMethodDataCache->IsCliMode' => $this -> core -> GetMethodDataCache( 'IsCliMode' ),
-			'Core->GetMethodDataCache->Request' => $this -> core -> GetMethodDataCache( 'Request' ),
-			'Core->GetMethodDataCache->Routing' => $this -> core -> GetMethodDataCache( 'Routing' ),
-			'Strings->Trim' => $this -> strings -> Trim(' foo '),
-			'Strings::Trim' => Libs\Strings::Trim(' foo '),
+		return array(
 			'encryption_lib'            => $this -> encryption_lib,
-			'Encryption::(lib)->Encode' => $encrypted,
-			'Encryption::(lib)->Decode' => $this -> encryption -> Decode( $encrypted ),
-			//'debug_backtrace' => debug_backtrace(),
+			'Encryption::(lib)->Encode' => $this -> encryption -> Encode( 'foo' ),
+			//'Encryption::(lib)->Decode' => $this -> encryption -> Decode( $encrypted ),
 		);
 
     }
-
-	/**
-	* @brief Template settings overriding
-	*/
-	/*
-    public function Template()
-    {
-
-        return array( 
-			'language'     => 'en',
-			'charset'      => 'UTF-8',
-			'content_type' => 'text/html',
-			'dir'          => 'Foo' . DIRECTORY_SEPARATOR,
-			'file'         => 'Test.html',
-		);
-
-    }
-	*/
 
 }

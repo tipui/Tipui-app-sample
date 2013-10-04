@@ -1,7 +1,10 @@
-.container_default_width{min-width:240px;max-width:928px;padding:10px;}
+.container_default_width{min-width:240px;max-width:928px;}
+.container_padding{padding:10px;}
 #container_top{background-color:#24bdf6;color:#ffffff;min-height:4%;}
-#container_middle{background-color:#f6f3e4;min-height:85.5%;}
+#container_middle{background-color:#f6f3e4;min-height:90.5%;}
 #container_footer{background-color:#24bdf6;color:#ffffff;min-height:4%;}
 
 #footer_notice{color:#333333;font-size:80%;}
-h1{color:#ffffff;font-size:150%;}
+#container_top_header, #container_top_header>a{color:#ffffff;font-size:130%;}
+#container_top_slogan{color:#ffffff;font-size:12px;}
+h1, h1>a{color:#000000;font-size:120%;}

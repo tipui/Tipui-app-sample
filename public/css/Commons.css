@@ -19,6 +19,13 @@ a.nll:hover{text-decoration:none;color:#ef4850;}
 .va_middle{vertical-align:middle;}
 .va_top{vertical-align:top;}
 
+.fl_left{float:left;}
+.fl_right{float:right;}
+
+.cl_left{clear:left;}
+.cl_right{clear:right;}
+.cl_both{clear:both;}
+
 .tb{display:table;}
 .tb_row{display:table-row;}
 .tb_cell{display:table-cell;}

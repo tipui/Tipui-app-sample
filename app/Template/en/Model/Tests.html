@@ -1,0 +1,48 @@
+<?php
+
+/**
+* @file   Tests.html
+* @brief  Tests Module template.
+* @date   2013-10-04 15:25:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-10-04 15:25:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Lightweight PHP Framework' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'practical concept, simple development' );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="container_padding ha_left">
+
+<h1><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Tests' );?>">Tests Samples</a></h1>
+<br />
+
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Tests/PHP/get_declared_classes' );?>">PHP->get_declared_classes()</a>
+<br /><br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Tests/Builtin/Libs/Browse/GetHTTPInfo' );?>">Builtin/Libs/Browse->GetHTTPInfo()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Tests/Builtin/Libs/Browse/GetUserNavigation' );?>">Builtin/Libs/Browse->GetUserNavigation()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Tests/Builtin/Libs/Browse/GetRemoteInfo' );?>">Builtin/Libs/Browse->GetRemoteInfo()</a>
+<br /><br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Tests/Core/GetMethodDataCache/IsCliMode' );?>">Core->GetMethodDataCache->IsCliMode()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Tests/Core/GetMethodDataCache/Request' );?>">Core->GetMethodDataCache->Request()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Tests/Core/GetMethodDataCache/Routing' );?>">Core->GetMethodDataCache->Routing()</a>
+<br /><br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Tests/Builtin/Libs/Strings/Trim' );?>">Builtin/Libs/Strings->Trim()</a>
+<br /><br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Tests/Builtin/Libs/Encryption/Encode' );?>">Builtin/Libs/Encryption->Encode()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Tests/Builtin/Libs/Encryption/Decode' );?>">Builtin/Libs/Encryption->Decode()</a>
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

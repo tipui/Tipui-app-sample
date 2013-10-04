@@ -1,0 +1,47 @@
+<?php
+
+/**
+* @file   Home.html
+* @brief  Home Module template.
+* @date   2013-08-31 23:35:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-10-04 17:01:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Lightweight PHP Framework' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'practical concept, simple development' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'Model/home.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="container_padding ha_left">
+
+<h2><a href="https://github.com/tipui/Tipui-PHP" target="_blank">Engine source</a></h2>
+The main framework engine on Github. (Core, Start and Builtin classes)
+<br /><br />
+<h2><a href="https://github.com/tipui/Tipui-app-sample" target="_blank">App Sample source</a></h2>
+Simple app (this website) on Github. (Models, Templates, HTML Helpers, Override, Environment Settings, etc)
+<br /><br />
+<h2><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Tests' );?>">Tests Samples</a></h2>
+Some testing samples about usage.
+<br /><br />
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

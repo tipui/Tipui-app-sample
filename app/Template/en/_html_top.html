@@ -13,15 +13,28 @@
 use \Tipui\Builtin\Helpers\HTML\Elements as Elements;
 use \Tipui\Builtin\Helpers\HTML as HTML;
 
-echo Elements::AddDocType( 'strict' )
-. PHP_EOL . Elements::AddOpenTag( 'english' )
+/**
+* Declares the DTD document type
+* This is optional.
+* For performance reasons, is unnecessary. Is better type directly
+*/
+//echo Elements::AddDocType( 'strict' );
+echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
 
 /**
 * Open head tag
-* This is optional. Of course, for performance reasons, its unnecessary. Just type <head>
+* This is optional.
+* For performance reasons, is unnecessary. Is better type directly
+*/
+//echo PHP_EOL . Elements::AddOpenTag( 'english' );
+echo PHP_EOL . '<html lang="english" xmlns="http://www.w3.org/1999/xhtml">';
+
+/**
+* Open head tag
+* This is optional. Of course, for performance reasons is unnecessary. Just type <head>
 */
 //. PHP_EOL . Elements::AddHead()
-. PHP_EOL . '<head>'
+echo PHP_EOL . '<head>'
 
 . PHP_EOL . Elements::AddTitle(). PHP_EOL . Elements::AddMetatag( 'name', 'description' )
 . PHP_EOL . Elements::AddMetatag( 'name', 'keywords' )
@@ -35,15 +48,15 @@ echo Elements::AddDocType( 'strict' )
 
 /**
 * The charset parameter can be changed by the model on Template() method.
-* Elements::GetCharset() is optional. For performance reasons, its unnecessary if don't need control charset dynamically. Just type the charset directly or use the environment config.
+* Elements::GetCharset() is optional. For performance reasons is unnecessary if don't need control charset dynamically. Just type the charset directly or use the environment config.
 */
 //. PHP_EOL . Elements::AddMetatag( 'http-equiv', 'content-type', 'text/html; charset=' . Elements::GetCharset() )
 //. PHP_EOL . Elements::AddMetatag( 'http-equiv', 'content-type', 'text/html; charset=' . \Tipui\Core::GetConf() -> BOOTSTRAP -> CHARSET )
 . PHP_EOL . Elements::AddMetatag( 'http-equiv', 'content-type', 'text/html; charset=UTF-8' )
 
 . PHP_EOL . Elements::Stylesheets() -> Add( 'reset.css' )
-. PHP_EOL . Elements::Stylesheets() -> Add( 'layout.css' )
-. PHP_EOL . Elements::Stylesheets() -> Add( 'commons.css' );
+. PHP_EOL . Elements::Stylesheets() -> Add( 'commons.css' )
+. PHP_EOL . Elements::Stylesheets() -> Add( 'layout.css' );
 //. PHP_EOL . Elements::JSFiles() -> Add( 'jquery/1.8.3/jquery.min.js' );
 //. PHP_EOL . Elements::JSFiles() -> Add( 'jquery/1.10.2/jquery.min.js' );
 
@@ -99,7 +112,10 @@ echo PHP_EOL . '</head>';
 //echo PHP_EOL . '<body>';
 ?>
 <body>
-<div id="container_top" class="container_default_width ha_center va_middle">
-<h1 class="inline">TIPUI PHP Framework</h1>
+<div id="container_top" class="container_default_width ha_center va_middle block">
+	<div class="container_padding">
+	<div id="container_top_header" class="fl_left"><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values();?>">TIPUI PHP</a></div>
+	<div id="container_top_slogan" class="fl_right">/** Lightweight PHP Framework.<br />From developers to developers. */</div>
+	</div><br clear="all" />
 </div>
 <div id="container_middle" class="container_default_width">
