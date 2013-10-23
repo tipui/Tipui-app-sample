@@ -19,30 +19,13 @@ class Routing
 {
 
 	/**
-	* Handles Core instance.
-	*/
-	private $core;
-
-	/**
-	* @brief Model logic
-	*/
-    public function Prepare()
-    {
-
-		$this -> core = new \Tipui\Core;
-
-		return null;
-	}
-
-	/**
 	* @brief Data to be rendered
 	*/
     public function View()
     {
 
 		return array(
-			'Core::GetConf()->GetMethodDataCache(Routing)' => \Tipui\Core::GetConf()->GetMethodDataCache( 'Routing' ),
-			'Core->GetMethodDataCache(Routing)' => $this -> core -> GetMethodDataCache( 'Routing' ),
+			'rs'   => \Tipui\Core::GetConf()->GetMethodDataCache( 'Routing' ),
 		);
 
     }

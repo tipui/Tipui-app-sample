@@ -1,0 +1,101 @@
+<?php
+
+/**
+* @file   Escape.html
+* @brief  Escape Builtin/Libs/Strings module template.
+* @date   2013-10-23 21:57:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-10-23 21:57:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Tests Builtin Library Strings Escape()' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Escape method usage.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'unit tests, framework php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\Libs\Strings::Escape()</h1>
+
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Static, all filters</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "&lt;?php echo Strings::Escape( '" . $T['str'] . "' );?>" ) );?>
+</div>
+<h2 class="code_sample block bold container_padding">Instance, all filters</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;?php
+$c = new Strings;
+echo $c -> Escape( \'' . $T['str'] . '\' );
+?>' ) );?>
+</div>
+<h2 class="code_sample block bold container_padding">Results (string)</h2>
+<div class="code_returns container_padding word_break">
+<?php echo htmlentities( $T['rs_all'] );?>
+</div>
+
+
+
+<br /><br />
+<h2 class="code_sample block bold container_padding">Filtering PHP tags only</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;?php
+echo Strings::Escape( \'' . $T['str'] . '\', array( \'php\' ) );
+?>' ) );?>
+</div>
+<h2 class="code_sample block bold container_padding">Results (string)</h2>
+<div class="code_returns container_padding word_break">
+<?php echo htmlentities( $T['rs_php'] );?>
+</div>
+
+
+<br /><br />
+<h2 class="code_sample block bold container_padding">Filtering PHP and HTML &lt;form> tags only</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;?php
+echo Strings::Escape( \'' . $T['str'] . '\', array( \'php\', \'form\' ) );
+?>' ) );?>
+</div>
+<h2 class="code_sample block bold container_padding">Results (string)</h2>
+<div class="code_returns container_padding word_break">
+<?php echo htmlentities( $T['rs_php_form'] );?>
+</div>
+
+
+
+<br /><br />
+<h2 class="code_sample block bold container_padding">Strip HTML tags with exceptions</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;?php
+echo Strings::Escape( \'' . $T['str'] . '\', array( \'strip_tags\' ), array( \'<b><i>\' ) );
+?>' ) );?>
+</div>
+<h2 class="code_sample block bold container_padding">Results (string)</h2>
+<div class="code_returns container_padding word_break">
+<?php echo htmlentities( $T['rs_strip_tags_except'] );?>
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

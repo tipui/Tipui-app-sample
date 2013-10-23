@@ -26,24 +26,47 @@ HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) )
 Layout::Top();
 
 /** main content */
+?>
 
-echo '<div class="ha_left">';
+<div class="ha_left">
 
-echo '<h1 class="container_padding">\Tipui\Core</h1>';
+<h1 class="container_padding">\Tipui\Core::GetConf()->GetMethodDataCache()</h1>
 
-echo '<br />';
-echo '<h2 class="code_sample block bold container_padding">/** static */<br />Core::GetConf()->GetMethodDataCache(\'IsCliMode\')</h2>';
-echo '<div class="code_returns container_padding word_break">';
-var_dump( $T['Core::GetConf()->GetMethodDataCache(IsCliMode)'] );
-echo '</div>';
+<br />
+<h2 class="code_sample block bold container_padding">Static</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;?php
+var_dump( \Tipui\Core::GetConf()->GetMethodDataCache(\'IsCliMode\') );
+?>' ) );
+?>
+</div>
 
-echo '<br />';
-echo '<h2 class="code_sample block bold container_padding">/** instance */<br />Core->GetMethodDataCache(\'IsCliMode\')</h2>';
-echo '<div class="code_returns container_padding word_break">';
-var_dump( $T['Core->GetMethodDataCache(IsCliMode)'] );
-echo '</div>';
+<br />
+<h2 class="code_sample block bold container_padding">Instance</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;?php
+$c = new \Tipui\Core;
+var_dump( $c -> GetConf()->GetMethodDataCache(\'IsCliMode\') );
+?>' ) );
+?>
+</div>
 
-echo '</div>';
 
+<br />
+<h2 class="code_sample block bold container_padding">Results (boolean)</h2>
+<div class="container_padding word_break">
+false: running from http
+<br />true: running from command line
+</div>
+<div class="code_returns container_padding word_break">
+<?php
+var_dump( $T['rs'] );
+?>
+</div>
+
+
+</div>
+
+<?php
 /** bottom */
 Layout::Bottom();

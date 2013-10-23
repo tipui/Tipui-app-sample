@@ -16,7 +16,7 @@ use \Tipui\app\Helpers\HTML\Layout as Layout;
 
 /** HTML headers */
 HTML\Elements::SetTitle( 'TIPUI PHP - Tests Builtin Library Browse GetHTTPInfo()' );
-HTML\Elements::SetMetatag( 'name', 'description', 'Displays builtin library Browser GetHTTPInfo method results.' );
+HTML\Elements::SetMetatag( 'name', 'description', 'GetHTTPInfo method usage' );
 HTML\Elements::SetMetatag( 'name', 'keywords', 'unit tests, framework php' );
 
 /** Add array of (css) stylesheets */
@@ -26,30 +26,54 @@ HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) )
 Layout::Top();
 
 /** main content */
+?>
 
-echo '<div class="ha_left">';
+<div class="ha_left">
 
-echo '<h1 class="container_padding">\Tipui\Builtin\Libs\Browse</h1>';
+<h1 class="container_padding">\Tipui\Builtin\Libs\Browse::GetHTTPInfo()</h1>
 
-echo '<br />';
-echo '<h2 class="code_sample block bold container_padding">/** static */<br />Browse::GetHTTPInfo</h2>';
-echo '<div class="code_returns container_padding word_break">';
-foreach( $T['browse::GetHTTPInfo'] as $k => $v )
+<br />
+<h2 class="code_sample block bold container_padding">Static</h2>
+<div class="code_returns container_padding word_break">
+
+<?php highlight_string( html_entity_decode( '&lt;?php
+$rs = Browse::GetHTTPInfo();
+foreach( $rs as $k => $v )
 {
-	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+	echo PHP_EOL . $k . \': \' . $v . \'<br />\' . PHP_EOL;
 }
-echo '</div>';
+?>' ) );?>
 
-echo '<br />';
-echo '<h2 class="code_sample block bold container_padding">/** instance */<br />Browse->GetHTTPInfo</h2>';
-echo '<div class="code_returns container_padding word_break">';
-foreach( $T['browse->GetHTTPInfo'] as $k => $v )
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Instance</h2>
+<div class="code_returns container_padding word_break">
+
+<?php highlight_string( html_entity_decode( '&lt;?php
+$c = new Browse;
+$rs = $c -> GetHTTPInfo();
+foreach( $rs as $k => $v )
 {
-	echo $k . ': ' . $v . '<br />' . PHP_EOL;
+	echo PHP_EOL . $k . \': \' . $v . \'<br />\' . PHP_EOL;
 }
-echo '</div>';
+?>' ) );?>
 
-echo '</div>';
+</div>
 
+<br />
+<h2 class="code_sample block bold container_padding">Results (array)</h2>
+<div class="code_returns container_padding word_break">
+<?php
+foreach( $T['rs'] as $k => $v )
+{
+	echo PHP_EOL . $k . ': ' . $v . '<br />' . PHP_EOL;
+}
+?>
+</div>
+
+</div>
+
+<?php
 /** bottom */
 Layout::Bottom();

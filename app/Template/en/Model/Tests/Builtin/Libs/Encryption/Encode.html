@@ -26,18 +26,48 @@ HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) )
 Layout::Top();
 
 /** main content */
+?>
 
-echo '<div class="ha_left">';
+<div class="ha_left">
 
-echo '<h1 class="container_padding">\Tipui\Builtin\Libs\Encryption</h1>';
+<h1 class="container_padding">\Tipui\Builtin\Libs\Encryption::Encode()</h1>
 
-echo '<br />';
-echo '<h2 class="code_sample block bold container_padding">Encryption::' . $T['encryption_lib'] . '()->Encode(\'foo\')</h2>';
-echo '<div class="code_returns container_padding word_break">';
-echo $T['Encryption::(lib)->Encode'];
-echo '</div>';
+<h2 class="code_sample block bold container_padding">BOOTSTRAP defined Encryption Library</h2>
+<div class="code_returns container_padding word_break">
+<?php echo $T['encryption_lib']['LIB'];?>
+</div>
 
-echo '</div>';
+<div class="container_padding word_break ha_center italic">
+The method <code class="line">Auto()</code>, executes automatically which encryption library is defined in <code class="line">app/config/env/BOOTSTRAP</code>
+</div>
 
+<h2 class="code_sample block bold container_padding">Static</h2>
+<div class="code_returns container_padding word_break">
+
+<?php highlight_string( html_entity_decode( '&lt;?php
+echo Encryption::Auto() -> Encode(\'' . $T['str'] . '\');
+?>' ) );?>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Instance</h2>
+<div class="code_returns container_padding word_break">
+
+<?php highlight_string( html_entity_decode( '&lt;?php
+$c = new Encryption;
+echo $c -> Auto() -> Encode(\'' . $T['str'] . '\');
+?>' ) );?>
+</div>
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Results (string)</h2>
+<div class="code_returns container_padding word_break">
+<?php echo $T['rs'];?>
+</div>
+
+</div>
+
+<?php
 /** bottom */
 Layout::Bottom();

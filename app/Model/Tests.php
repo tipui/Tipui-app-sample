@@ -13,19 +13,12 @@
 
 namespace Tipui\App\Model;
 
-use \Tipui\Builtin\Libs as Libs;
-
 class Tests
 {
 
 	/**
 	* @brief Data to be rendered
 	*/
-    public function View()
-    {
-
-		return null;
-
-    }
+	public function View(){}
 
 }

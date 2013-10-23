@@ -19,30 +19,13 @@ class GetHTTPInfo
 {
 
 	/**
-	* Handles Browse Lib instance.
-	*/
-	private $browse;
-
-	/**
-	* @brief Model logic
-	*/
-    public function Prepare()
-    {
-
-		$this -> browse = new Libs\Browse;
-
-		return null;
-	}
-
-	/**
 	* @brief Data to be rendered
 	*/
     public function View()
     {
 
 		return array(
-			'browse::GetHTTPInfo' => Libs\Browse::GetHTTPInfo(),
-			'browse->GetHTTPInfo' => $this -> browse -> GetHTTPInfo(),
+			'rs' => Libs\Browse::GetHTTPInfo(),
 		);
 
     }

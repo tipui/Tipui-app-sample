@@ -19,30 +19,13 @@ class GetUserNavigation
 {
 
 	/**
-	* Handles Browse Lib instance.
-	*/
-	private $browse;
-
-	/**
-	* @brief Model logic
-	*/
-    public function Prepare()
-    {
-
-		$this -> browse = new Libs\Browse;
-
-		return null;
-	}
-
-	/**
 	* @brief Data to be rendered
 	*/
     public function View()
     {
 
 		return array(
-			'browse::GetUserNavigation' => Libs\Browse::GetUserNavigation(),
-			'browse->GetUserNavigation' => $this -> browse -> GetUserNavigation(),
+			'rs' => Libs\Browse::GetUserNavigation(),
 		);
 
     }

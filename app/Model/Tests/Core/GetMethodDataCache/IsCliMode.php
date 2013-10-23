@@ -19,30 +19,13 @@ class IsCliMode
 {
 
 	/**
-	* Handles Core instance.
-	*/
-	private $core;
-
-	/**
-	* @brief Model logic
-	*/
-    public function Prepare()
-    {
-
-		$this -> core = new \Tipui\Core;
-
-		return null;
-	}
-
-	/**
 	* @brief Data to be rendered
 	*/
     public function View()
     {
 
 		return array(
-			'Core::GetConf()->GetMethodDataCache(IsCliMode)' => \Tipui\Core::GetConf()->GetMethodDataCache( 'IsCliMode' ),
-			'Core->GetMethodDataCache(IsCliMode)' => $this -> core -> GetMethodDataCache( 'IsCliMode' ),
+			'rs'   => \Tipui\Core::GetConf()->GetMethodDataCache( 'IsCliMode' ),
 		);
 
     }
