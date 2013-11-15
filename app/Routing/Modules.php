@@ -24,12 +24,12 @@ class Modules
 
 		$arr = array(
 			'Foo2/Bar' => array( 
-								'class'            => 'Tests\App\Routing\Modules\Foo\Bar',
+								'class'            => 'Docs\App\Routing\Modules\Foo\Bar',
 								'default_language' => 'en',
 								'force_language'   => false,
 							),
 			'ダミー'      => array( 
-								'class'            => 'Tests\App\Routing\Modules\Foo\Bar',
+								'class'            => 'Docs\App\Routing\Modules\Foo\Bar',
 								'default_language' => 'ja',
 								'force_language'   => true,
 							),

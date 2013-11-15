@@ -1,0 +1,105 @@
+<?php
+
+/**
+* @file   Make.html
+* @brief  Make Docs/Builtin/Helpers/HTML/URL module template.
+* @date   2013-10-23 13:56:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-10-23 13:56:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin HTML Helper URL' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Usage samples of builting URLs' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'unit tests, framework php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+<div class="ha_left">
+<h1 class="container_padding">\Tipui\Builtin\Helpers\HTML\URL</h1>
+
+<br />
+<h2 class="code_sample block bold container_padding">Simple, URL mode auto (normal or mod_rewrite defined on config/env)</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;a href="&lt;?php echo HTML\URL::Make() -> Parameters() -> Values( \'Docs/Builtin/Helpers/HTML/URL/Make\' );?>">result&lt;/a>' ) );?>
+<br />
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/URL/Make' );?>">result</a>
+<br />
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">URL Parameters, mode auto</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;a href="&lt;?php echo HTML\URL::Make() -> Parameters( \'id\' ) -> Values( \'Docs/Builtin/Helpers/HTML/URL/Make\', \'10\' );?>">result&lt;/a>' ) );?>
+<br />
+<a href="<?php echo HTML\URL::Make() -> Parameters( 'id' ) -> Values( 'Docs/Builtin/Helpers/HTML/URL/Make', '10' );?>">result</a>
+<br />
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">URL in normal mode</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;a href="&lt;?php echo HTML\URL::Make( \'normal\' ) -> Parameters( \'id\' ) -> Values( \'Docs/Builtin/Helpers/HTML/URL/Make\', \'10\' );?>">result&lt;/a>' ) );?>
+<br />
+<a href="<?php echo HTML\URL::Make( 'normal' ) -> Parameters( 'id' ) -> Values( 'Docs/Builtin/Helpers/HTML/URL/Make', '10' );?>">result</a>
+<br />
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">URL in mode rewrite (friendly url)</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;a href="&lt;?php echo HTML\URL::Make( \'mod_rewrite\' ) -> Parameters( \'id\' ) -> Values( \'Docs/Builtin/Helpers/HTML/URL/Make\', \'10\' );?>">result&lt;/a>' ) );?>
+<br />
+<a href="<?php echo HTML\URL::Make( 'mod_rewrite' ) -> Parameters( 'id' ) -> Values( 'Docs/Builtin/Helpers/HTML/URL/Make', '10' );?>">result</a>
+<br />
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">URL Base</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;a href="&lt;?php echo HTML\URL::Make( false, \'subfolder/\' ) -> Parameters() -> Values( \'Docs/Builtin/Helpers/HTML/URL/Make\' );?>">result&lt;/a>' ) );?>
+<br />
+<a href="<?php echo HTML\URL::Make( false, 'subfolder/' ) -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/URL/Make' );?>">result</a>
+<br /><br />
+
+<?php highlight_string( html_entity_decode( '&lt;a href="&lt;?php echo HTML\URL::Make( false, \'/subfolder/\' ) -> Parameters() -> Values( \'Docs/Builtin/Helpers/HTML/URL/Make\' );?>">result&lt;/a>' ) );?>
+<br />
+<a href="<?php echo HTML\URL::Make( false, '/subfolder/' ) -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/URL/Make' );?>">result</a>
+<br />
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Protocol HTTPS</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;a href="&lt;?php echo HTML\URL::Make( false, false, \'https://\' ) -> Parameters() -> Values( \'Docs/Builtin/Helpers/HTML/URL/Make\' );?>">result&lt;/a>' ) );?>
+<br />
+<a href="<?php echo HTML\URL::Make( false, false, 'https://' ) -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/URL/Make' );?>">result</a>
+<br />
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Protocol FTP</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;a href="&lt;?php echo HTML\URL::Make( false, false, \'ftp://\' ) -> Parameters() -> Values( \'Docs/Builtin/Helpers/HTML/URL/Make\' );?>">result&lt;/a>' ) );?>
+<br />
+<a href="<?php echo HTML\URL::Make( false, false, 'ftp://' ) -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/URL/Make' );?>">result</a>
+<br />
+</div>
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

@@ -1,0 +1,68 @@
+<?php
+
+/**
+* @file   Bar.html
+* @brief  Bar Docs/App/Routing/Modules/Foo module template.
+* @date   2013-10-23 20:32:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-10-23 20:32:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs App Routing Modules Foo/Bar' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Testing settings for modules aliases.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'unit tests, framework php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">App\Routing\Modules\Foo\Bar</h1>
+
+
+<div class="container_padding word_break ha_left">
+Module sample for tests of aliases defined in <code class="line">app/Routing/Modules<?php echo $T['file_extension'];?></code>.
+<br />Got to the main <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Routing/Modules' );?>">tests page here</a>.
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Routing results</h2>
+<div class="code_returns container_padding word_break">
+
+<?php
+foreach( $T['rs'] as $k => $v )
+{
+	echo '[' . $k . ']';
+	if( !is_array( $v ) )
+	{
+		echo $v;
+	}else{
+		foreach( $v as $k1 => $v1 )
+		{
+			echo PHP_EOL . '<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $k1 . ':' . $v1;
+		}
+	}
+	echo '<br />' . PHP_EOL;
+}
+?>
+
+</div>
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

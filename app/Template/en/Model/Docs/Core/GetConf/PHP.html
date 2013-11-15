@@ -1,0 +1,115 @@
+<?php
+
+/**
+* @file   PHP.html
+* @brief  PHP Docs/Core/GetConf module template.
+* @date   2013-10-27 03:16:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-10-27 03:16:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Core GetConf()->PHP' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Displays PHP settings usage.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'unit tests, framework php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Core::GetConf()->PHP</h1>
+
+<br />
+
+<h2 class="code_sample block bold container_padding">Static</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;?php
+$rs = \Tipui\Core::GetConf() -> PHP -> _all;
+
+foreach( $rs as $k => $v )
+{
+	echo \'[\' . $k . \']\';
+	if( !is_array( $v ) )
+	{
+		echo $v;
+	}else{
+		foreach( $v as $k1 => $v1 )
+		{
+			echo PHP_EOL . \'<br />&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;\' . $k1 . \':\' . $v1;
+		}
+	}
+	echo \'<br />\' . PHP_EOL;
+}
+
+?>' ) );
+?>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Instance</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;?php
+$c = new \Tipui\Core;
+$rs = $c -> GetConf() -> PHP -> _all;
+
+foreach( $rs as $k => $v )
+{
+	echo \'[\' . $k . \']\';
+	if( !is_array( $v ) )
+	{
+		echo $v;
+	}else{
+		foreach( $v as $k1 => $v1 )
+		{
+			echo PHP_EOL . \'<br />&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;\' . $k1 . \':\' . $v1;
+		}
+	}
+	echo \'<br />\' . PHP_EOL;
+}
+
+?>' ) );
+?>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Results (array)</h2>
+<div class="code_returns container_padding word_break">
+
+<?php
+foreach( $T['_all'] as $k => $v )
+{
+	echo '[' . $k . ']';
+	if( !is_array( $v ) )
+	{
+		echo $v;
+	}else{
+		foreach( $v as $k1 => $v1 )
+		{
+			echo PHP_EOL . '<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $k1 . ':' . $v1;
+		}
+	}
+	echo '<br />' . PHP_EOL;
+}
+?>
+
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

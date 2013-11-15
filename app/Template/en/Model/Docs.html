@@ -1,0 +1,88 @@
+<?php
+
+/**
+* @file   Docs.html
+* @brief  Docs Module template.
+* @date   2013-10-04 15:25:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-10-27 03:16:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Documentation' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Docs and Testing Samples of TIPUI PHP Framework' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'usage, core, libraries, templates, models, modules, overriding, config settings' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'Model/docs.css' ), array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding"><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs' );?>">Documentation</a></h1>
+<br />
+
+<h2 class="block bold container_padding">PHP</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/PHP/get_declared_classes' );?>">get_declared_classes()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/PHP/get_defined_constants' );?>">get_defined_constants()</a>
+</div>
+
+<h2 class="block bold container_padding">Core</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf' );?>">GetConf()</a>
+</div>
+
+<h2 class="block bold container_padding">Builtin/Libs</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Browse/GetHTTPInfo' );?>">Browse->GetHTTPInfo()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Browse/GetUserNavigation' );?>">Browse->GetUserNavigation()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Browse/GetRemoteInfo' );?>">Browse->GetRemoteInfo()</a>
+
+<br /><br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings/AlphaID' );?>">Strings->AlphaID()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings/ChunkSpaces' );?>">Strings->ChunkSpaces()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings/Escape' );?>">Strings->Escape()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings/EscapeJS' );?>">Strings->EscapeJS()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings/Highlight' );?>">Strings->Highlight()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings/IsJapaneseUTF8' );?>">Strings->IsJapaneseUTF8()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings/LimitStr' );?>">Strings->LimitStr()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings/MoneyFormat' );?>">Strings->MoneyFormat()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings/NumbersOnly' );?>">Strings->NumbersOnly()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings/StrBr' );?>">Strings->StrBr()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings/StripTags' );?>">Strings->StripTags()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings/StrLen' );?>">Strings->StrLen()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings/Trim' );?>">Strings->Trim()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings/ValidMailAddress' );?>">Strings->ValidMailAddress()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings/WordBreak' );?>">Strings->WordBreak()</a>
+
+<br /><br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Encryption/Encode' );?>">Encryption->Encode()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Encryption/Decode' );?>">Encryption->Decode()</a>
+</div>
+
+<h2 class="block bold container_padding">Builtin/Helpers/HTML</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/URL/Make' );?>">URL->Make()</a>
+</div>
+
+<h2 class="block bold container_padding">App/Routting</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Routing/Modules' );?>">Modules</a>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

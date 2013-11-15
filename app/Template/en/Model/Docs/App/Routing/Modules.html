@@ -1,0 +1,82 @@
+<?php
+
+/**
+* @file   Modules.html
+* @brief  Docs/App/Routing/Modules template.
+* @date   2013-10-23 20:32:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-10-23 20:32:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs App Routing Modules' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Testing settings for modules aliases.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'unit tests, framework php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">App\Routing\Modules</h1>
+
+
+<div class="container_padding word_break ha_center">
+The file <code class="line">app/Routing/Modules<?php echo $T['file_extension'];?></code> defines array of alias names for modules/models
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Array escope</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "array(
+	'alias_name' => array( 
+					'class'            => 'module_name',
+					'default_language' => 'language_code',
+					'force_language'   => (boolean),
+				),
+);
+" ) );?>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Sample</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "array(
+	'Foo2/Bar' => array( 
+					'class'            => 'Foo\Bar',
+					'default_language' => 'en',
+					'force_language'   => false,
+				),
+	'ダミー'      => array( 
+					'class'            => 'Foo\Bar',
+					'default_language' => 'ja',
+					'force_language'   => true,
+				),
+);
+" ) );?>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Testing links</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Foo2/Bar' );?>">Modules Routing / Alias (Foo2/Bar -> Foo/Bar)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'ダミー' );?>">Modules Routing / Alias (ダミー -> Foo/Bar)</a>
+</div>
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();
