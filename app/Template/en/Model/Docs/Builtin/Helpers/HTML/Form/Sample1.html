@@ -2,12 +2,12 @@
 
 /**
 * @file   Sample1.html
-* @brief  Form/Sample1 Module template.
+* @brief  Sample1 Docs/Builtin/Helpers/HTML/Form Module template.
 * @date   2013-08-31 23:35:00
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-10-04 14:21:00
+* @updated: 2013-11-16 12:27:00
 */
 
 /** Alias to HTML Helper path */
@@ -16,14 +16,35 @@ use \Tipui\Builtin\Helpers\HTML\Form as Form;
 use \Tipui\app\Helpers\HTML\Layout as Layout;
 
 /** HTML headers */
-HTML::SetTitle( 'TIPUI Form/Sample 1 Module' );
-HTML::SetMetatag( 'name', 'description', '' );
+HTML::SetTitle( 'TIPUI Form Sample 1 Module' );
+HTML::SetMetatag( 'name', 'description', 'Examples of how to use Form helpers' );
 HTML::SetMetatag( 'name', 'keywords', '' );
+
+/** Add array of (css) stylesheets */
+HTML::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ), 
+array( 'file' => 'Model/docs/builtin/helpers/html/form/elements/input.css' ),
+array( 'file' => 'Model/docs/builtin/helpers/html/form/elements/select.css' ),
+array( 'file' => 'Model/docs/builtin/helpers/html/form/elements/textarea.css' ) ) );
+
 
 /** header/top */
 Layout::Top();
 
 /** main content */
+?>
+
+<div class="ha_left">
+<h1 class="code_sample block bold container_padding">\Tipui\Builtin\HTML\Helpers\Form{} Sample 1</h1>
+<div class="container_padding word_break">All form field types.</div>
+<div class="code_returns container_padding word_break">
+code here
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Results</h2>
+<div class="code_returns container_padding word_break">
+
+<?php
 
 // Form object
 echo PHP_EOL . Form::AddForm();
@@ -38,7 +59,7 @@ echo PHP_EOL . Form::AddElement( 'id' );
 // Input radio
 $options = Form::AddElement( 'option' );
 $labels  = Form::GetElementProperty( 'option', 'options' );
-echo PHP_EOL . '<br /><br /><br />options: ';
+echo PHP_EOL . 'options: ';
 foreach( $options as $k => $v )
 {
 	echo PHP_EOL . '<label>' . $v . ' ' . $labels[$k] . '</label>';
@@ -125,30 +146,13 @@ echo PHP_EOL . '<br /><br /><br />select optgroup: ' . Form::AddElement( 'select
 // Input file (upload)
 echo PHP_EOL . '<br /><br /><br />image: ' . Form::AddElement( 'img' );
 
+?>
 
+</form>
 
-// close form tag
-echo PHP_EOL . '</form>';
+</div>
+</div>
 
-
-
-echo '<br /><br />';
-echo '<div style="text-align:left;">';
-
-echo '<div style="font-weight:bold;">get_declared_classes()</div>';
-foreach( $T['get_declared_classes'] as $v )
-{
-	if( strpos( $v, 'Tipui\\' ) === 0 )
-	{
-		echo '<br />&nbsp;&nbsp;&nbsp;' . $v . '<br />';
-		$methods = get_class_methods( '\\' . $v );
-		foreach( $methods as $m )
-		{
-			echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $m . '<br />';
-		}
-	}
-}
-echo PHP_EOL . '</div>';
-
+<?php
 /** bottom */
 Layout::Bottom();

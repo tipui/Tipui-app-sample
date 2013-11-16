@@ -1,0 +1,171 @@
+<?php
+
+/**
+* @file   Input.html
+* @brief  Input Docs/Builtin/Helpers/HTML/Form/Elements Module template.
+* @date   2013-08-31 23:35:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-11-16 12:27:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML\Elements as HTML;
+use \Tipui\Builtin\Helpers\HTML\Form as Form;
+use \Tipui\Builtin\Helpers\HTML\URL as URL;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML::SetTitle( 'TIPUI - Docs Builtin Helper HTML Form AddElement Input' );
+HTML::SetMetatag( 'name', 'description', 'Method to add form element input' );
+HTML::SetMetatag( 'name', 'keywords', '' );
+
+/** Add array of (css) stylesheets */
+HTML::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+<h1 class="code_sample block bold container_padding">\Tipui\Builtin\HTML\Helpers\Form->AddElement Input</h1>
+<div class="container_padding word_break">HTML Form Input Element</div>
+
+<h2 class="code_sample block bold container_padding">Input Types</h2>
+<div class="container_padding word_break">
+<a href="<?php echo URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/Elements/Input/Hidden' );?>">Hidden</a>
+<br /><a href="<?php echo URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/Elements/Input/Text' );?>">Text</a>
+<br /><a href="<?php echo URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/Elements/Input/Password' );?>">Password</a>
+</div>
+
+
+
+<h2 class="code_sample block bold container_padding">Escope usage</h2>
+
+<div class="container_padding word_break">Data Rules file</div>
+
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "&lt;?php
+\$rs = array (
+	/**
+	* @see \Tipui\Builtin\Helpers\HTML\Form::AddEntitie()
+	* values: hidden, text, password
+	*/
+	'type'           => (string)field_type,
+
+	/**
+	* Minimum character length required
+	*/
+	'MinLength'      => 5,
+
+	/**
+	* Maximum character length permitted
+	*/
+	'MaxLength'      => 25,
+
+	/**
+	* Element size
+	*/
+	'size'           => 25,
+
+	/**
+	* Validation type
+	* @see \Tipui\Builtin\Libs\DataValidation
+	* text, number, options
+	*/
+	'validation'     => (string)validation_type,
+
+	/**
+	* Element value property
+	*/
+	'value'          => '',
+
+	/**
+	* Default value for element value property
+	*/
+	'default'        => '',
+
+	/**
+	* Filter for entries (value property)
+	*
+	* Strings filter
+	* array( array( '\Tipui\Builtin\Libs\Strings', 'Escape' ), array( false ) )
+	*
+	* Numbers Only filter
+	* array( array( '\Tipui\Builtin\Libs\Strings', 'NumbersOnly' ) )
+	*/
+	'pre-filter'     => array( (array)[ [library class], [library class method] ], (array)[library class method arguments] ),
+);
+?>" ) );?>
+</div>
+
+<div class="container_padding word_break">Preparing the element on Module Form Rules</div>
+
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;?php
+
+/**
+* Namespace for Builtin Form Lib
+*/
+use \Tipui\Builtin\Libs\Form as Form;
+
+class ModelClass
+{
+
+	/**
+	* @brief Form rules
+	*/
+    public function Form()
+    {
+		/**
+		* @param field_name: field name
+		* @param rule_name: field rule name
+		* @see \Tipui\Builtin\Helpers\DataRules
+		* @see \Tipui\app\Helpers\DataRules
+		* @see \Tipui\app\Override\Builtin\Helpers\DataRules
+		*/
+		Form::SetField( (string)field_name, (string)data_name );
+		
+	}
+
+}
+
+?>' ) );?>
+</div>
+<div class="container_padding word_break">Displaying on template.
+</div>
+
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;?php
+
+/**
+* Namespace for Builtin Helper HTML Form
+*/
+use \Tipui\Builtin\Helpers\HTML\Form as Form;
+
+/**
+* Printing the element on template
+* @param field_name: field name
+*/
+echo Form::AddElement( (string)field_name );
+
+?>' ) );?>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Results</h2>
+<div class="code_returns container_padding word_break">
+
+<?php echo htmlentities( '<input type="(string)data_rule_type" name="(string)field_name" value="" />' );?>
+
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

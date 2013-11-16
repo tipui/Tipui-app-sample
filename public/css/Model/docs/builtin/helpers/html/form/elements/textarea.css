@@ -1,0 +1,18 @@
+textarea{
+    text-align:       left;
+
+	font-size:        16px;
+    background-color: #f1f1f1;
+    border-top:       solid 1px #fccfcc;
+    border-bottom:    solid 1px #fccfcc;
+    border-left:      solid 1px #fccfcc;
+    border-right:     solid 1px #fccfcc;
+
+	padding-top:      3px;
+    padding-bottom:   3px;
+	padding-left:     5px;
+    padding-right:    5px;
+
+    font-weight:      normal;
+	display:          inline;
+}

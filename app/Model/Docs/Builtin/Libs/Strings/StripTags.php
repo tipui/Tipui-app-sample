@@ -25,10 +25,10 @@ class StripTags
     {
 
 		return array(
-			'str'   => $str = '<b>Foo<b>',
+			'str'   => $str = '<b>Foo</b>',
 			'rs'    => Libs\Strings::StripTags( $str ),
 
-			'str2'  => $str2  = '<b>Foo<b>',
+			'str2'  => $str2  = '<b>Foo</b>',
 			'allow' => $allow = '<b>',
 			'rs2'   => Libs\Strings::StripTags( $str2, $allow ),
 		);

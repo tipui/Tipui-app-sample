@@ -1,0 +1,59 @@
+<?php
+
+/**
+* @file   AddElement.html
+* @brief  AddElement Docs/Builtin/Helpers/HTML/Form Module template.
+* @date   2013-08-31 23:35:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-11-16 12:27:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML\Elements as HTML;
+use \Tipui\Builtin\Helpers\HTML\Form as Form;
+use \Tipui\Builtin\Helpers\HTML\URL as URL;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML::SetTitle( 'TIPUI - Docs Builtin Helper HTML Form AddElement' );
+HTML::SetMetatag( 'name', 'description', 'Method to add form element' );
+HTML::SetMetatag( 'name', 'keywords', '' );
+
+/** Add array of (css) stylesheets */
+HTML::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+<h1 class="code_sample block bold container_padding">\Tipui\Builtin\HTML\Helpers\Form->AddElement</h1>
+<div class="container_padding word_break">Escope for add HTML Form Elements</div>
+
+<h2 class="code_sample block bold container_padding">Elements</h2>
+<div class="container_padding word_break">
+<a href="<?php echo URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/Elements/Input' );?>">Input</a>
+<br /><a href="<?php echo URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/Elements/Textarea' );?>">Textarea</a>
+<br /><a href="<?php echo URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/Elements/Select' );?>">Select</a>
+<br /><a href="<?php echo URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/Elements/Radio' );?>">Radio</a>
+<br /><a href="<?php echo URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/Elements/Checkbox' );?>">Checkbox</a>
+<br /><a href="<?php echo URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/Elements/File' );?>">File</a>
+</div>
+
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="container_padding word_break">
+<a href="<?php echo URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form' );?>">\Tipui\Builtin\Libs\Form</a>
+<br /><a href="<?php echo URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/DataRules' );?>">\Tipui\Builtin\Helpers\DataRules</a>
+<br /><a href="<?php echo URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataValidation' );?>">\Tipui\Builtin\Libs\DataValidation</a>
+<br /><a href="<?php echo URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML' );?>">\Tipui\Builtin\Helpers\HTML</a>
+</div>
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();
