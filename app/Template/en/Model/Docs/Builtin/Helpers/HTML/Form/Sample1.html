@@ -68,7 +68,7 @@ foreach( $options as $k => $v )
 
 
 // Input radio, array
-Form::SetElementKey( 'foo' );
+Form::SetNameAsArray( 'foo' );
 $options = Form::AddElement( 'array_option' );
 $labels  = Form::GetElementProperty( 'array_option', 'options' );
 echo PHP_EOL . '<br /><br /><br />array options: ';
@@ -80,7 +80,7 @@ foreach( $options as $k => $v )
 
 
 // Input radio, array
-Form::SetElementKey( array('foo','bar') );
+Form::SetNameAsArray( array('foo','bar') );
 $options = Form::AddElement( 'array_multi_option' );
 $labels  = Form::GetElementProperty( 'array_option', 'options' );
 echo PHP_EOL . '<br /><br /><br />array multi options: ';
@@ -112,7 +112,7 @@ foreach( $options as $k => $v )
 
 
 // Input multiple choices, array
-Form::SetElementKey( 'foo' );
+Form::SetNameAsArray( 'foo' );
 $options = Form::AddElement( 'array_choices' );
 $labels  = Form::GetElementProperty( 'array_choices', 'options' );
 echo PHP_EOL . '<br /><br /><br />array choices: ';
@@ -124,7 +124,7 @@ foreach( $options as $k => $v )
 
 
 // Input multiple choices, multidimensional array
-Form::SetElementKey( array('foo','bar') );
+Form::SetNameAsArray( array('foo','bar') );
 $options = Form::AddElement( 'array_multi_choices' );
 $labels  = Form::GetElementProperty( 'array_multi_choices', 'options' );
 echo PHP_EOL . '<br /><br /><br />array multi choices: ';

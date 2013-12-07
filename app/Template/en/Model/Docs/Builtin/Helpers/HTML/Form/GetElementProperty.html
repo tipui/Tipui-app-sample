@@ -1,0 +1,129 @@
+<?php
+
+/**
+* @file   GetElementProperty.html
+* @brief  GetElementProperty Docs/Builtin/Helpers/HTML/Form Module template.
+* @date   2013-11-16 12:27:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-04 02:56:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML\Elements as HTML;
+use \Tipui\Builtin\Helpers\HTML\Form as Form;
+use \Tipui\Builtin\Helpers\HTML\URL as URL;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML::SetTitle( 'TIPUI - Docs Builtin Helper HTML Form GetElementProperty' );
+HTML::SetMetatag( 'name', 'description', 'Method to get properties values of an form element' );
+HTML::SetMetatag( 'name', 'keywords', '' );
+
+/** Add array of (css) stylesheets */
+HTML::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+<h1 class="code_sample block bold container_padding">\Tipui\Builtin\HTML\Helpers\Form->GetElementProperty</h1>
+<div class="container_padding word_break">Retrieves the value of an form element property</div>
+
+<h2 class="code_sample block bold container_padding">Input type hidden</h2>
+<div class="container_padding word_break">Example to get some properties</div>
+
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "&lt;?php
+use \Tipui\Builtin\Helpers\HTML\Form as Form;
+
+\$type       = Form::GetElementProperty( 'foo', 'type' );
+\$value      = Form::GetElementProperty( 'foo', 'value' );
+\$validation = Form::GetElementProperty( 'foo', 'validation' );
+
+echo 'type: ' . \$type;
+echo '<br />value: ' . \$value;
+echo '<br />validation: ' . \$validation;
+
+echo '<br /><br />Retrieving all properties: <br />';
+\$properties = Form::GetElementProperty( 'foo' );
+var_dump( \$properties );" ) );
+?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Results (string or array)</h2>
+<div class="code_returns container_padding word_break">
+
+<?php 
+$type       = Form::GetElementProperty( 'foo', 'type' );
+$value      = Form::GetElementProperty( 'foo', 'value' );
+$validation = Form::GetElementProperty( 'foo', 'validation' );
+
+$f  = 'type: ' . $type;
+$f .= '<br />value: ' . $value;
+$f .= '<br />validation: ' . $validation;
+
+echo $f;
+
+echo '<br /><br />Retrieving all properties: <br />';
+$properties = Form::GetElementProperty( 'foo' );
+echo '<pre>';
+var_dump( $properties );
+echo '</pre>';
+?>
+
+</div>
+
+<br /><br />
+
+<h2 class="code_sample block bold container_padding">Input type radio</h2>
+<div class="container_padding word_break">Real world usage sample</div>
+
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "&lt;?php
+use \Tipui\Builtin\Helpers\HTML\Form as Form;
+
+// Input radio
+\$options = Form::AddElement( 'bar' );
+\$labels  = Form::GetElementProperty( 'bar', 'options' );
+echo PHP_EOL . 'options: ';
+foreach( \$options as \$k => \$v )
+{
+	echo PHP_EOL . '<label>' . \$v . ' ' . \$labels[\$k] . '</label>';
+}" ) );
+?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Results</h2>
+<div class="code_returns container_padding word_break">
+
+<?php 
+// Input radio
+$options = Form::AddElement( 'bar' );
+$labels  = Form::GetElementProperty( 'bar', 'options' );
+$f = 'options: ';
+foreach( $options as $k => $v )
+{
+    $f .= PHP_EOL . '<label>' . $v . ' ' . $labels[$k] . '</label>';
+}
+echo nl2br( htmlentities( $f ) );
+?>
+
+</div>
+<h2 class="code_sample block bold container_padding">Displays</h2>
+<div class="container_padding word_break">
+<?php 
+echo $f;
+?>
+
+</div>
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

@@ -1,0 +1,19 @@
+.foo{
+    text-align:       left;
+
+	font-size:        16px;
+	color:            #f6f4eb;
+    background-color: #6f5b15;
+    border-top:       solid 1px #4df073;
+    border-bottom:    solid 1px #f0c44c;
+    border-left:      solid 1px #4df073;
+    border-right:     solid 1px #f0c44c;
+
+	padding-top:      3px;
+    padding-bottom:   3px;
+	padding-left:     5px;
+    padding-right:    5px;
+
+    font-weight:      normal;
+	display:          inline;
+}

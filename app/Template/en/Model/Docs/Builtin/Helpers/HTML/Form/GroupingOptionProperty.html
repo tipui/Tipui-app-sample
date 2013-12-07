@@ -1,0 +1,104 @@
+<?php
+
+/**
+* @file   GroupingOptionProperty.html
+* @brief  GroupingOptionProperty Docs/Builtin/Helpers/HTML/Form Module template.
+* @date   2013-12-05 17:59:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-05 17:59:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML\Elements as HTML;
+use \Tipui\Builtin\Helpers\HTML\Form as Form;
+use \Tipui\Builtin\Helpers\HTML\URL as URL;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML::SetTitle( 'TIPUI - Docs Builtin Helper HTML Form GroupingOptionProperty' );
+HTML::SetMetatag( 'name', 'description', 'Method for internal builtin functions usage. Helps to group elements with multiple (array) properties like select, radio and checkbox.' );
+HTML::SetMetatag( 'name', 'keywords', '' );
+
+/** Add array of (css) stylesheets */
+HTML::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+<h1 class="code_sample block bold container_padding">\Tipui\Builtin\HTML\Helpers\Form->GroupingOptionProperty</h1>
+<div class="container_padding word_break">Grouping properties of elements with multiple values and options.<br />This method is for internal usage only, however, is accessible by any.
+<br /><br />See <a href="<?php echo \Tipui\Builtin\Helpers\HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/AddElement' );?>">Form->AddElement</a>.
+</div>
+
+<h2 class="code_sample block bold container_padding">Input type Checkbox</h2>
+<div class="container_padding word_break">Data Rules sample</div>
+
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "&lt;?php
+\$rs = array (
+	'type'           => 'checkbox',
+	'size'           => 1,
+	'validation'     => 'number',
+	'multiple'       => true, // indicates that field name must be array with unique indices
+	'options'        => array(1 => 'choice 1', 2 => 'choice 2'), // values and labels
+	'value'          => null,
+	'default'        => array( 1, 3 ),
+	'pre-filter'     => array( array( '\Tipui\Builtin\Libs\Strings', 'NumbersOnly' ) ),
+);" ) );
+?>
+</div>
+
+<div class="container_padding word_break">Model Form Rules SetFieldMultiValue() sample</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "&lt;?php
+Form::SetFieldMultiValue( 'foo', 'checkbox-array', array( 1 => 'choice 1', 2 => 'choice 2', 3 => 'choice 3', 4 => 'choice 4' ) );" ) );
+?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Template usage</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "&lt;?php
+\$options = Form::AddElement( 'foo' );
+\$labels  = Form::GetElementProperty( 'foo', 'options' );
+\$f = '';
+foreach( \$options as \$k => \$v )
+{
+	\$f .= '<label>' . \$v . ' ' . \$labels[\$k] . '</label>' . PHP_EOL;
+}
+echo \$f;" ) );
+?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Results (string or array)</h2>
+<div class="code_returns container_padding word_break">
+<?php 
+$options = Form::AddElement( 'foo' );
+$labels  = Form::GetElementProperty( 'foo', 'options' );
+$f = '';
+foreach( $options as $k => $v )
+{
+	$f .= '<label>' . $v . ' ' . $labels[$k] . '</label>' . PHP_EOL;
+}
+
+echo nl2br( htmlentities( $f ) );
+?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Displays</h2>
+<div class="container_padding word_break">
+<?php echo $f;?>
+</div>
+
+<br /><br />
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

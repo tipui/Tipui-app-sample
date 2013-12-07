@@ -1,0 +1,54 @@
+<?php
+
+/**
+* @file   Form.html
+* @brief  Form Docs/Builtin/Libs module template.
+* @date   2013-12-06 18:07:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-06 18:07:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Library Form' );
+HTML\Elements::SetMetatag( 'name', 'description', 'HTML Form Libs index.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, form, library, samples' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\HTML\Libs\Form{}</h1>
+
+<br />
+
+<h2 class="code_sample block bold container_padding">Form Libraries</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/SetAction' );?>">Form->SetAction</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/GetAction' );?>">Form->GetAction</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/SetField' );?>">Form->SetField</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/GetField' );?>">Form->GetField</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/GetParameter' );?>">Form->GetParameter</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/SetFieldProperty' );?>">Form->SetFieldProperty</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/SetFieldMultiValue' );?>">Form->SetFieldMultiValue</a>
+
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

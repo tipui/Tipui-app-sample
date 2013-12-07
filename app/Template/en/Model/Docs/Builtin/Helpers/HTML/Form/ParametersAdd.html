@@ -1,0 +1,45 @@
+<?php
+
+/**
+* @file   ParametersAdd.html
+* @brief  ParametersAdd Docs/Builtin/Helpers/HTML/Form Module template.
+* @date   2013-12-05 17:59:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-05 17:59:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML\Elements as HTML;
+use \Tipui\Builtin\Helpers\HTML\Form as Form;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML::SetTitle( 'TIPUI - Docs Builtin Helper HTML Form ParametersAdd' );
+HTML::SetMetatag( 'name', 'description', 'Auxiliary method to for SetTagParams method.' );
+HTML::SetMetatag( 'name', 'keywords', '' );
+
+/** Add array of (css) stylesheets */
+HTML::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ), 
+array( 'file' => 'Model/docs/builtin/helpers/html/form/elements/input.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+<h1 class="code_sample block bold container_padding">\Tipui\Builtin\HTML\Helpers\Form->ParametersAdd</h1>
+<div class="container_padding word_break">For general internal usage.<br />When <code class="line">\Tipui\Builtin\HTML\Helpers\Form::$tag_params</code> property is array, this method iterates it and returns as formatted string.
+<br /><br />See <a href="<?php echo \Tipui\Builtin\Helpers\HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/SetTagParams' );?>">Form->SetTagParams</a>.
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

@@ -1,0 +1,64 @@
+<?php
+
+/**
+* @file   SetCSSName.html
+* @brief  SetCSSName Docs/Builtin/Helpers/HTML/Form Module template.
+* @date   2013-12-05 17:59:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-05 17:59:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML\Elements as HTML;
+use \Tipui\Builtin\Helpers\HTML\Form as Form;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML::SetTitle( 'TIPUI - Docs Builtin Helper HTML Form SetCSSName' );
+HTML::SetMetatag( 'name', 'description', 'Method to set class name for an element.' );
+HTML::SetMetatag( 'name', 'keywords', '' );
+
+/** Add array of (css) stylesheets */
+HTML::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ), 
+array( 'file' => 'Model/docs/builtin/helpers/html/form/setcssname/input.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+<h1 class="code_sample block bold container_padding">\Tipui\Builtin\HTML\Helpers\Form->SetCSSName</h1>
+<div class="container_padding word_break">Usage sample</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "&lt;?php
+use \Tipui\Builtin\Helpers\HTML\Form as Form;
+
+Form::SetCSSName( 'foo' );
+echo Form::AddElement( 'foo' );
+" ) );?>
+</div>
+<h2 class="code_sample block bold container_padding">Results</h2>
+<div class="code_returns container_padding word_break">
+<?php
+Form::SetCSSName( 'foo' );
+$f = Form::AddElement( 'foo' );
+echo htmlentities( $f );
+?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Displays</h2>
+<div class="container_padding word_break">
+<?php echo $f;?>
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();
