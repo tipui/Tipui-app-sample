@@ -22,7 +22,7 @@ class Input
 	*/
     public function Form()
     {
-		Form::SetField( 'foo', 'input_hidden' );
+		Form::SetElement( 'foo', 'input_hidden' );
 	}
 
 	/**

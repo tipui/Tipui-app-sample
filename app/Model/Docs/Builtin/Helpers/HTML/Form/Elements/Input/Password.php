@@ -22,7 +22,7 @@ class Password
 	*/
     public function Form()
     {
-		Form::SetField( 'foo', 'input_password' );
+		Form::SetElement( 'foo', 'input_password' );
 	}
 
 	/**

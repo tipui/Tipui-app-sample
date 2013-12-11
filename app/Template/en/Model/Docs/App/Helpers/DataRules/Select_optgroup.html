@@ -1,0 +1,54 @@
+<?php
+
+/**
+* @file   Select_optgroup.html
+* @brief  Select_optgroup Docs/Builtin/Helpers/DataRules file template.
+* @date   2013-12-08 03:19:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-08 03:19:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin DataRules Helpers, select optgroup rule.' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Builtin DataRules helper Select Optgroup.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, DataRules, helper, documentation, select optgroup rule' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\Helpers\DataRules\Select_optgroup</h1>
+
+<br />
+
+
+<h2 class="code_sample block bold container_padding">Descrition</h2>
+<div class="code_returns container_padding word_break">
+Default builtin rule for Select Optgroup.
+</div>
+
+<h2 class="code_sample block bold container_padding">Code</h2>
+<div class="code_returns container_padding word_break">
+<?php echo $T['rule'];?>
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

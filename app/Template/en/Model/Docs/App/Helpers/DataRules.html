@@ -1,0 +1,64 @@
+<?php
+
+/**
+* @file   DataRules.html
+* @brief  DataRules Docs/App/Helpers module template.
+* @date   2013-12-12 03:26:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-12 03:26:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs App DataRules Helpers' );
+HTML\Elements::SetMetatag( 'name', 'description', 'App DataRules helpers index.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, DataRules, helper, documentation' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\App\Helpers\DataRules</h1>
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Customizing data rules for app</h2>
+<div class="container_padding word_break">
+Save the files in the folder: <code class="line">app/Helpers/DataRules/</code>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Overriding builtin data rules</h2>
+<div class="container_padding word_break">
+Save the files in the folder: <code class="line">apps/Override/Builtin/Helpers/DataRules/</code>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/DataRules' );?>">Docs/Builtin/Helpers/DataRules</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules' );?>">Docs/Builtin/Libs/DataRules</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form' );?>">Docs/Builtin/Helpers/HTML/Form</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form' );?>">Docs/Builtin/Libs/Form</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Override' );?>">Docs/App/Override</a>
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

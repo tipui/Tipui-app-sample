@@ -22,7 +22,7 @@ class AddElement
 	*/
     public function Form()
     {
-		Form::SetField( 'id', 'id' );
+		Form::SetElement( 'id', 'id' );
 	}
 
 	/**

@@ -42,7 +42,7 @@ Layout::Top();
 <div class="code_returns container_padding word_break">
 <?php highlight_string( html_entity_decode( "&lt;?php
 \$rs = array (
-	'type'           => 'checkbox',
+	'type'           => 'input_checkbox',
 	'size'           => 1,
 	'validation'     => 'number',
 	'multiple'       => true, // indicates that field name must be array with unique indices
@@ -54,10 +54,10 @@ Layout::Top();
 ?>
 </div>
 
-<div class="container_padding word_break">Model Form Rules SetFieldMultiValue() sample</div>
+<div class="container_padding word_break">Model Form Rules SetElementAsArray() sample</div>
 <div class="code_returns container_padding word_break">
 <?php highlight_string( html_entity_decode( "&lt;?php
-Form::SetFieldMultiValue( 'foo', 'checkbox-array', array( 1 => 'choice 1', 2 => 'choice 2', 3 => 'choice 3', 4 => 'choice 4' ) );" ) );
+Form::SetElement( 'foo', 'checkbox-array', false, array( 1 => 'choice 1', 2 => 'choice 2', 3 => 'choice 3', 4 => 'choice 4' ) );" ) );
 ?>
 </div>
 

@@ -22,7 +22,7 @@ class SetReadOnly
 	*/
     public function Form()
     {
-		Form::SetField( 'foo', 'input_text' );
+		Form::SetElement( 'foo', 'input_text' );
 	}
 
 	/**

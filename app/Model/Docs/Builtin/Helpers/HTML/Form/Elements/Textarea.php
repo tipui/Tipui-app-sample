@@ -22,7 +22,7 @@ class Textarea
 	*/
     public function Form()
     {
-		Form::SetField( 'foo', 'textarea' );
+		Form::SetElement( 'foo', 'textarea' );
 	}
 
 	/**

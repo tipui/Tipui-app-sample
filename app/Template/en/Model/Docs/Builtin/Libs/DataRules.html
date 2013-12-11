@@ -1,0 +1,65 @@
+<?php
+
+/**
+* @file   DataRules.html
+* @brief  DataRules Docs/Builtin/Libs module template.
+* @date   2013-12-08 03:19:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-08 03:19:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Library DataRules' );
+HTML\Elements::SetMetatag( 'name', 'description', 'DataRules Library methods index.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, DataRules, library, documentation' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\Libs\DataRules{}</h1>
+
+<br />
+
+<h2 class="code_sample block bold container_padding">DataRules Library</h2>
+<div class="container_padding word_break">
+Loads and handles the data rules of HTML form elements.
+</div>
+
+<h2 class="code_sample block bold container_padding">Builtin data rules</h2>
+<div class="container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/DataRules' );?>">Docs/Builtin/Helpers/DataRules</a>
+</div>
+
+<h2 class="code_sample block bold container_padding">App data rules</h2>
+<div class="container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Helpers/DataRules' );?>">Docs/App/Helpers/DataRules</a>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form' );?>">Docs/Builtin/Helpers/HTML/Form</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form' );?>">Docs/Builtin/Libs/Form</a>
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

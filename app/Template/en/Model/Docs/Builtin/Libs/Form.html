@@ -16,7 +16,7 @@ use \Tipui\app\Helpers\HTML\Layout as Layout;
 
 /** HTML headers */
 HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Library Form' );
-HTML\Elements::SetMetatag( 'name', 'description', 'HTML Form Libs index.' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Form Library methods index.' );
 HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, form, library, samples' );
 
 /** Add array of (css) stylesheets */
@@ -36,15 +36,17 @@ Layout::Top();
 
 <h2 class="code_sample block bold container_padding">Form Libraries</h2>
 <div class="code_returns container_padding word_break">
-<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/SetAction' );?>">Form->SetAction</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/GetAction' );?>">Form->GetAction</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/SetField' );?>">Form->SetField</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/GetField' );?>">Form->GetField</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/GetParameter' );?>">Form->GetParameter</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/SetFieldProperty' );?>">Form->SetFieldProperty</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/SetFieldMultiValue' );?>">Form->SetFieldMultiValue</a>
-
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/SetElement' );?>">Form->SetElement</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form/GetElement' );?>">Form->GetElement</a>
 </div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/AddForm' );?>">Docs/Builtin/Helpers/HTML/Form->AddForm</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form' );?>">Docs/Builtin/Helpers/HTML/Form</a>
+</div>
+
 
 
 </div>

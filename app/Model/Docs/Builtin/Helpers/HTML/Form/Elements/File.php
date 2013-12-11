@@ -22,7 +22,7 @@ class File
 	*/
     public function Form()
     {
-		Form::SetField( 'foo', 'file' );
+		Form::SetElement( 'foo', 'input_file' );
 	}
 
 	/**

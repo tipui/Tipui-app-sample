@@ -22,8 +22,8 @@ class GetElementProperty
 	*/
     public function Form()
     {
-		Form::SetField( 'foo', 'input_hidden' );
-		Form::SetFieldMultiValue( 'bar', 'radio' );
+		Form::SetElement( 'foo', 'input_hidden' );
+		Form::SetElement( 'bar', 'input_radio' );
 	}
 
 	/**

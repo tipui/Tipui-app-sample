@@ -14,6 +14,7 @@
 namespace Tipui\App\Model\Docs\Builtin\Helpers\HTML\Form;
 
 use \Tipui\Builtin\Libs\Form as Form;
+use \Tipui\Builtin\Libs\DataRules as DataRules;
 
 class GroupingOptionProperty
 {
@@ -22,7 +23,7 @@ class GroupingOptionProperty
 	*/
     public function Form()
     {
-		Form::SetFieldMultiValue( 'foo', 'checkbox-array', array( 1 => 'choice 1', 2 => 'choice 2', 3 => 'choice 3', 4 => 'choice 4' ) );
+		Form::SetElement( 'foo', 'checkbox-array', false, array( DataRules::OPTIONS => array( 1 => 'choice 1', 2 => 'choice 2', 3 => 'choice 3', 4 => 'choice 4' ) ) );
 	}
 
 	/**
