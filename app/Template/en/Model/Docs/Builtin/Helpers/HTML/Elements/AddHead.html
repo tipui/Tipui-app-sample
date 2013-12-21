@@ -1,0 +1,63 @@
+<?php
+
+/**
+* @file   AddHead.html
+* @brief  AddHead Docs/Builtin/Helpers/HTML/Elements module template.
+* @date   2013-12-19 02:48:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-19 02:48:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin HTML Elements Helper AddHead Class' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Builds and appends the header element' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'documentation, framework php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+<div class="ha_left">
+<h1 class="container_padding">\Tipui\Builtin\Helpers\HTML\Elements\AddHead</h1>
+
+<br />
+<h2 class="code_sample block bold container_padding">Parameters</h2>
+<div class="container_padding word_break">
+(bool:false)$close -> If <code class="line">true</code>, closes the header tag.
+</div>
+
+<h2 class="code_sample block bold container_padding">Usage sample</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+
+use \Tipui\Builtin\Helpers\HTML\Elements as Elements;
+
+echo Elements::AddHead();
+echo Elements::AddHead( true );
+" ) );?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Returns</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '<head>
+</head>
+' ) );?>
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

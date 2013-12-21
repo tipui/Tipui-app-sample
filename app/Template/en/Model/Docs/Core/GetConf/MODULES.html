@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-10-27 03:16:00
+* @updated: 2013-12-22 03:25:00
 */
 
 /** Alias to HTML Helper path */
@@ -36,51 +36,49 @@ Layout::Top();
 
 <h2 class="code_sample block bold container_padding">Static</h2>
 <div class="code_returns container_padding word_break">
-<?php highlight_string( html_entity_decode( '&lt;?php
-$rs = \Tipui\Core::GetConf() -> MODULES -> _all;
+<?php highlight_string( html_entity_decode( "<?php
+\$rs = \Tipui\Core::GetConf() -> MODULES -> _all;
 
-foreach( $rs as $k => $v )
+foreach( \$rs as \$k => \$v )
 {
-	echo \'[\' . $k . \']\';
-	if( !is_array( $v ) )
-	{
-		echo $v;
-	}else{
-		foreach( $v as $k1 => $v1 )
-		{
-			echo PHP_EOL . \'<br />&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;\' . $k1 . \':\' . $v1;
-		}
-	}
-	echo \'<br />\' . PHP_EOL;
+    echo '[' . \$k . ']';
+    if( !is_array( \$v ) )
+    {
+        echo \$v;
+    }else{
+        foreach( \$v as \$k1 => \$v1 )
+        {
+            echo PHP_EOL . '<br />&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;' . \$k1 . ':' . \$v1;
+        }
+    }
+    echo '<br />' . PHP_EOL;
 }
-
-?>' ) );
+" ) );
 ?>
 </div>
 
 <br />
 <h2 class="code_sample block bold container_padding">Instance</h2>
 <div class="code_returns container_padding word_break">
-<?php highlight_string( html_entity_decode( '&lt;?php
-$c = new \Tipui\Core;
-$rs = $c -> GetConf() -> MODULES -> _all;
+<?php highlight_string( html_entity_decode( "<?php
+\$c = new \Tipui\Core;
+\$rs = \$c -> GetConf() -> MODULES -> _all;
 
-foreach( $rs as $k => $v )
+foreach( \$rs as \$k => \$v )
 {
-	echo \'[\' . $k . \']\';
-	if( !is_array( $v ) )
-	{
-		echo $v;
-	}else{
-		foreach( $v as $k1 => $v1 )
-		{
-			echo PHP_EOL . \'<br />&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;\' . $k1 . \':\' . $v1;
-		}
-	}
-	echo \'<br />\' . PHP_EOL;
+    echo '[' . \$k . ']';
+    if( !is_array( \$v ) )
+    {
+        echo \$v;
+    }else{
+        foreach( \$v as \$k1 => \$v1 )
+        {
+            echo PHP_EOL . '<br />&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;' . \$k1 . ':' . \$v1;
+        }
+    }
+    echo '<br />' . PHP_EOL;
 }
-
-?>' ) );
+" ) );
 ?>
 </div>
 

@@ -1,0 +1,199 @@
+<?php
+
+/**
+* @file   Model.html
+* @brief  Docs/App/Model template.
+* @date   2013-12-12 03:26:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-12 03:26:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+use \Tipui\Builtin\Libs\Strings as Strings;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs App Model' );
+HTML\Elements::SetMetatag( 'name', 'description', 'App Model usage and functions' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'Model, MVC' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">App\Model</h1>
+<div class="container_padding word_break ha_left">
+The model is responsible for the app business logic, following the basics of <a href="http://en.wikipedia.org/wiki/Model–view–controller" target="_blank">MVC</a> design pattern.
+</div>
+<br />
+<h2 class="code_sample block bold container_padding">Folders Structure</h2>
+<div class="container_padding word_break ha_left">
+Base: <code class="line">app/Model/</code>
+<br />Methods: <code class="line">Form()</code>, <code class="line">Prepare()</code>, <code class="line">View()</code>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Model Clean Estructure</h2>
+<div class="code_returns container_padding word_break">
+<?php
+highlight_string( "<?php
+
+/**
+* @class  Model
+* @file   Model.php
+* @brief  Model Docs/App Module.
+* @date   2013-12-12 03:26:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Author Name <info@foo.bar>
+* @updated: 2013-12-12 03:26:00
+*/
+
+namespace Tipui\App\Model\Docs\App;
+
+class Model
+{
+
+}" );
+?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Model Namespace</h2>
+<div class="container_padding word_break">
+The namespace base is composed by
+<br />Framework name: <code class="line">Tipui\</code> +
+<br />App base folder name: <code class="line">App\</code> +
+<br />App Model folder name: <code class="line">Model\</code> +
+<br />Model folder path: <code class="line">Docs\App</code> +
+
+<br /><br />For this example, the Model folder path is <code class="line">Docs\App</code>, then,
+the full namespace is <code class="line">Tipui\App\Model\Docs\App</code>
+</div>
+
+<h2 class="code_sample block bold container_padding">Model Class name</h2>
+<div class="container_padding word_break">
+The class name is the model name, <code class="line">class Model{}</code>
+</div>
+
+
+<br /><br />
+<h2 class="code_sample block bold container_padding">View() method</h2>
+<div class="container_padding word_break">
+If wants to display results from this model, is necessary to declare the method <code class="line">View()</code>.
+<br />See the sumarized sample bellow:
+</div>
+<div class="code_returns container_padding word_break">
+<?php
+highlight_string( "<?php
+class Model
+{
+	public function View(){}
+}" );
+?>
+</div>
+<div class="container_padding word_break">
+This is required to enables the template file to output and displays. 
+<br />For passing values from model to view, see bellow:
+</div>
+<div class="code_returns container_padding word_break">
+<?php
+highlight_string( "<?php
+class Model
+{
+	public function View(){
+		return array( 'foo' => 'bar' );
+	}
+}" );
+?>
+</div>
+<div class="container_padding word_break">
+In the template file, call as the sample bellow:
+</div>
+<div class="code_returns container_padding word_break">
+<?php
+highlight_string( "<?php
+echo \$T['foo'];" );
+?>
+</div>
+<div class="container_padding word_break">
+For details about app templates, go to the page: <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Template' );?>">App/Template</a>
+</div>
+
+
+<br /><br />
+<h2 class="code_sample block bold container_padding">Prepare() method</h2>
+<div class="container_padding word_break">
+The business logic stuffs must be writen in this method, just to keep the codes organized in their proper layers.
+</div>
+<div class="code_returns container_padding word_break">
+<?php
+highlight_string( "<?php
+class Model
+{
+
+	private \$rs;
+
+    public function Prepare()
+    {
+		\$this->rs = 'Foo Bar';
+		return null;
+    }
+
+	public function View(){
+		return array( 'rs' => \$this->rs );
+	}
+
+}" );
+?>
+</div>
+
+
+<br /><br />
+<h2 class="code_sample block bold container_padding">Form() method</h2>
+<div class="container_padding word_break">
+Instantiates the Form, parameters rules and request method.
+</div>
+<div class="code_returns container_padding word_break">
+<?php
+highlight_string( "<?php
+class Model
+{
+
+	private \$rs;
+
+    public function Form()
+    {
+		Form::SetElement( 'field_sample', 'text' );
+	}
+
+    public function Prepare()
+    {
+		\$this->rs = 'Foo Bar';
+		return null;
+    }
+
+	public function View(){
+		return array( 'rs' => \$this->rs );
+	}
+
+}" );
+?>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

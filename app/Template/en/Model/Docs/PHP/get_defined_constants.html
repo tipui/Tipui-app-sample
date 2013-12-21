@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-10-27 03:16:00
+* @updated: 2013-12-22 03:25:00
 */
 
 /** Alias to HTML Helper path */
@@ -33,14 +33,14 @@ Layout::Top();
 <div class="container_padding word_break">Display all defined constants of TIPUI Framework engine and the application.<br />PHP native constants or third-party libraries constants are not included.</div>
 <div class="code_returns container_padding word_break">
 
-<?php highlight_string( html_entity_decode( '&lt;?php
-$rs = get_defined_constants(true);
+<?php highlight_string( html_entity_decode( "<?php
+\$rs = get_defined_constants( true );
 
-foreach( $rs[\'user\'] as $k => $v )
+foreach( \$rs['user'] as \$k => \$v )
 {
-	echo PHP_EOL . \'[\' . $k . \']\' . $v . \'<br />\';
+	echo PHP_EOL . '[' . \$k . ']' . \$v . '<br />';
 }
-?>' ) );?>
+" ) );?>
 </div>
 
 

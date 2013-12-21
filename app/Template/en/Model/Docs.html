@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-12-08 03:19:00
+* @updated: 2013-12-20 03:33:00
 */
 
 /** Alias to HTML Helper path */
@@ -42,6 +42,7 @@ Layout::Top();
 <h2 class="block bold container_padding">Core</h2>
 <div class="code_returns container_padding word_break">
 <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf' );?>">GetConf()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Tipui/Start' );?>">Tipui/Start</a>
 </div>
 
 <h2 class="block bold container_padding">Builtin/Libs</h2>
@@ -61,8 +62,16 @@ Layout::Top();
 
 <h2 class="block bold container_padding">App</h2>
 <div class="code_returns container_padding word_break">
-<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Routing/Modules' );?>">Routting/Modules</a>
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config' );?>">App Configuration Files</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Routing/Modules' );?>">Routting/Modules</a>
 <br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Override' );?>">Override</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Model' );?>">App/Model</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Template' );?>">App/Template</a>
+</div>
+
+<h2 class="block bold container_padding">Others</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Apache/Htaccess' );?>">Apache htaccess file</a>
 </div>
 
 

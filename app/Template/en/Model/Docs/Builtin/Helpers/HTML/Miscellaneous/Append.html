@@ -1,0 +1,72 @@
+<?php
+
+/**
+* @file   Append.html
+* @brief  Append Docs/Builtin/Helpers/HTML/Miscellaneous module template.
+* @date   2013-12-19 02:48:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-19 02:48:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin HTML Helper Miscellaneous Append method' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Appends codes to HTML' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'documentation, framework php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+<div class="ha_left">
+<h1 class="container_padding">\Tipui\Builtin\Helpers\HTML\Miscellaneous\Append</h1>
+
+<br />
+<h2 class="code_sample block bold container_padding">Append()->Set()</h2>
+<div class="container_padding word_break">Sets the code to append.</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+
+use \Tipui\app\Helpers\HTML\Miscellaneous as Miscellaneous;
+
+Miscellaneous::Append() -> Set( '<script>alert( \\'hello world\\' )</script>' );
+" ) );?>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Append()->Get()</h2>
+<div class="container_padding word_break">Returns the handled code to append where is desired.</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+
+use \Tipui\app\Helpers\HTML\Miscellaneous as Miscellaneous;
+
+Miscellaneous::Append() -> Get();
+" ) );?>
+</div>
+
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding word_break">
+For append some specific and common HTML elements, see:<br />
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements' );?>">Builtin\Helpers\HTML->Elements()</a>
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

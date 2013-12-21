@@ -34,17 +34,30 @@ Layout::Top();
 
 <h1 class="container_padding">App\Override</h1>
 
+<br />
+<h2 class="code_sample block bold container_padding">Folders Structure</h2>
+<div class="container_padding word_break ha_left">
+Base: <code class="line">app/Override/</code>
+<br />Builtin: <code class="line">app/Override/Builtin/</code>
+<br />Builtin Libraries: <code class="line">app/Override/Builtin/Libs/</code>
+<br />Builtin Helpers: <code class="line">app/Override/Builtin/Helpers/</code>
+</div>
 
-<div class="container_padding word_break ha_center">
-Base folder for overriding: <code class="line">apps/Override/</code>
+<br />
+<h2 class="code_sample block bold container_padding">Core classes</h2>
+<div class="container_padding word_break ha_left">
+Core: <code class="line">app/Override/Core.php</code>
+<br />Autoloader: <code class="line">app/Override/Builtin/Autoloader.php</code>
+
+<br /><br />*For overrides the <code class="line">Start.php</code> file, just set the path on <code class="line">public/index.php</code> file to desired new one.
 </div>
 
 <br />
 <h2 class="code_sample block bold container_padding">Sample of overriding builtin library "Strings"</h2>
 <div class="container_padding word_break">
 
-For this sample, we will created new method called Foo.
-<br /><br />Folder base: <code class="line">apps/Override/Builtin/Libs/Strings/</code>
+For this sample, we created new method called <code class="line">Foo</code>.
+<br /><br />Folder base: <code class="line">app/Override/Builtin/Libs/Strings/</code>
 <br />File: <code class="line">Foo.php</code>
 </div>
 <h2 class="code_sample block bold container_padding">Code</h2>

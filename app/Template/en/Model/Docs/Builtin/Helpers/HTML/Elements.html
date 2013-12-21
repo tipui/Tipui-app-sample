@@ -1,0 +1,57 @@
+<?php
+
+/**
+* @file   Elements.html
+* @brief  Elements Docs/Builtin/Helpers/HTML module template.
+* @date   2013-12-19 02:48:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-19 02:48:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin HTML Elements Helper Classes' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Useful functions for commons HTML elements' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'documentation, framework php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+<div class="ha_left">
+<h1 class="container_padding">\Tipui\Builtin\Helpers\HTML\Elements</h1>
+
+<br />
+<h2 class="code_sample block bold container_padding">Elements</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/AddDocType' );?>">Elements->AddDocType()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/AddOpenTag' );?>">Elements->AddOpenTag()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/AddHead' );?>">Elements->AddHead()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/AddBody' );?>">Elements->AddBody()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/SetMetatag' );?>">Elements->SetMetatag()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/AddMetatag' );?>">Elements->AddMetatag()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/SetTitle' );?>">Elements->SetTitle()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/AddTitle' );?>">Elements->AddTitle()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/JSFiles' );?>">Elements->JSFiles()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/Stylesheets' );?>">Elements->Stylesheets()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/GetCharset' );?>">Elements->GetCharset()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/SetBaseFolder' );?>">Elements->SetBaseFolder()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/GetBaseFolder' );?>">Elements->GetBaseFolder()</a>
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

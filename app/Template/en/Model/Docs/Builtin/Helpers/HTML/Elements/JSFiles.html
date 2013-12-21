@@ -1,0 +1,131 @@
+<?php
+
+/**
+* @file   JSFiles.html
+* @brief  JSFiles Docs/Builtin/Helpers/HTML/Elements module template.
+* @date   2013-12-19 02:48:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-19 02:48:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin HTML Elements Helper JSFiles Class' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Builds the JavaScript script tag element' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'documentation, framework php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+<div class="ha_left">
+<h1 class="container_padding">\Tipui\Builtin\Helpers\HTML\Elements\JSFiles</h1>
+
+<br />
+
+<h2 class="code_sample block bold container_padding">JSFiles->SetArray()</h2>
+<div class="container_padding word_break">
+The method <code class="line">SetArray()</code> handles the array of js files paths.
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+
+use \Tipui\Builtin\Helpers\HTML\Elements as Elements;
+
+Elements::JSFiles()->SetArray( array( 
+	array( 'file' => 'foo.js' ), 
+	array( 'file' => 'bar.js' ), 
+	array( 'file' => 'test.js', 'base_path' => '/other_base_folder/' ) 
+	) );
+" ) );?>
+</div>
+
+<h2 class="code_sample block bold container_padding">JSFiles->AddArray()</h2>
+<div class="container_padding word_break">
+The method <code class="line">AddArray()</code> builds the codes into HTML.
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+
+use \Tipui\Builtin\Helpers\HTML\Elements as Elements;
+
+Elements::JSFiles()->AddArray();
+
+
+
+/*
+Alternative way, without SetArray() method.
+For cases when is necessary to add directly.
+*/
+
+use \Tipui\Builtin\Helpers\HTML\Elements as Elements;
+
+Elements::JSFiles()->AddArray( array( 
+	array( 'file' => 'foo.js' ), 
+	array( 'file' => 'bar.js' ), 
+	array( 'file' => 'test.js', 'base_path' => '/other_base_folder/' ) 
+	) );
+
+" ) );?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Returns</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '<script type="text/javascript" href="/js/foo.js"></script>
+<script type="text/javascript" href="/js/bar.js"></script>
+<script type="text/javascript" href="/other_base_folder/test.js"></script>
+' ) );?>
+</div>
+
+
+<br />
+
+<h2 class="code_sample block bold container_padding">Array parameters</h2>
+<div class="container_padding word_break">
+(string)file: file name
+<br />(string:[empty])base_path: optional base folder or subfolder
+<br />(string:[empty])add: optional additional <code class="line">&lt;script&gt;</code> tag attributes
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+
+use \Tipui\Builtin\Helpers\HTML\Elements as Elements;
+
+Elements::JSFiles()->SetArray( array( 
+	array( 'file' => 'foo.js', 'base_path' => 'subfolder/', 'add' => 'charset=\"UTF8\"' ) 
+	) );
+" ) );?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Returns</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '<script type="text/javascript" href="/js/subfolder/foo.js" charset="UTF8"></script>
+' ) );?>
+</div>
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/SetBaseFolder' );?>">Elements->SetBaseFolder()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/GetBaseFolder' );?>">Elements->GetBaseFolder()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf' );?>">Core::GetConf()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf/URL' );?>">Core::GetConf()->URL</a>
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

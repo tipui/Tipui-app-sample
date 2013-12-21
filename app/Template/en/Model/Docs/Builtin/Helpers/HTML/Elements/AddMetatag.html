@@ -1,0 +1,83 @@
+<?php
+
+/**
+* @file   AddMetatag.html
+* @brief  AddMetatag Docs/Builtin/Helpers/HTML/Elements module template.
+* @date   2013-12-19 02:48:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-19 02:48:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin HTML Elements Helper AddMetatag Class' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Builds and append the metatags elements' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'documentation, framework php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+<div class="ha_left">
+<h1 class="container_padding">\Tipui\Builtin\Helpers\HTML\Elements\AddMetatag</h1>
+
+<br />
+<h2 class="code_sample block bold container_padding">Parameters</h2>
+<div class="container_padding word_break">
+(string)$type -> Metatag type.
+<br />(string)$index -> Metatag name.
+<br />(string)$value -> Metatag value.
+<br />(string)$default -> Metatag value in runtime.
+</div>
+
+<h2 class="code_sample block bold container_padding">Usage sample</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+
+use \Tipui\Builtin\Helpers\HTML\Elements as Elements;
+
+/*
+* Generaly used in models template files.
+*/
+Elements::AddMetatag( 'name', 'description', 'Builds the metatags elements' );
+Elements::AddMetatag( 'name', 'robots', 'noindex,nofollow' );
+
+/*
+* Used to be placed in another template file like \"top.html\" or \"header.html\" for example.
+*/
+echo Elements::AddMetatag( 'name', 'keywords' );
+echo PHP_EOL . Elements::AddMetatag( 'name', 'robots' );
+echo PHP_EOL . Elements::AddMetatag( 'name', 'owner', null, 'tipui.com' );
+" ) );?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Returns</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '<meta name="keywords" content="Builds the metatags elements" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="owner" content="tipui.com" />
+' ) );?>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Elements/SetMetatag' );?>">Elements->SetMetatag()</a>
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

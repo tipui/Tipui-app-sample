@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-10-27 03:16:00
+* @updated: 2013-12-22 03:25:00
 */
 
 /** Alias to HTML Helper path */
@@ -33,22 +33,22 @@ Layout::Top();
 <div class="container_padding word_break">Display all declared classes of TIPUI Framework engine.<br />PHP native classes or libraries are not included.</div>
 <div class="code_returns container_padding word_break">
 
-<?php highlight_string( html_entity_decode( '&lt;?php
-$rs = get_declared_classes();
+<?php highlight_string( html_entity_decode( "<?php
+\$rs = get_declared_classes();
 
-foreach( $rs as $v )
+foreach( \$rs as \$v )
 {
-	if( strpos( $v, \'Tipui\\\\\' ) === 0 )
+	if( strpos( \$v, 'Tipui\\\\' ) === 0 )
 	{
-		echo \'<br />&amp;nbsp;&amp;nbsp;&amp;nbsp;\' . $v . \'<br />\';
-		$methods = get_class_methods( \'\\\\\' . $v );
-		foreach( $methods as $m )
+		echo '<br />&amp;nbsp;&amp;nbsp;&amp;nbsp;' . \$v . '<br />';
+		\$methods = get_class_methods( '\\\\' . \$v );
+		foreach( \$methods as \$m )
 		{
-			echo \'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;\' . $m . \'<br />\';
+			echo '&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;' . \$m . '<br />';
 		}
 	}
 }
-?>' ) );?>
+" ) );?>
 </div>
 
 

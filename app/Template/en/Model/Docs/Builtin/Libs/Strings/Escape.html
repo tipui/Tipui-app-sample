@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-10-23 21:57:00
+* @updated: 2013-12-22 03:25:00
 */
 
 /** Alias to HTML Helper path */
@@ -37,14 +37,14 @@ Layout::Top();
 <br />
 <h2 class="code_sample block bold container_padding">Static, all filters</h2>
 <div class="code_returns container_padding word_break">
-<?php highlight_string( html_entity_decode( "&lt;?php echo Strings::Escape( '" . $T['str'] . "' );?>" ) );?>
+<?php highlight_string( html_entity_decode( "<?php 
+echo Strings::Escape('" . $T['str'] . "');" ) );?>
 </div>
 <h2 class="code_sample block bold container_padding">Instance, all filters</h2>
 <div class="code_returns container_padding word_break">
-<?php highlight_string( html_entity_decode( '&lt;?php
-$c = new Strings;
-echo $c -> Escape( \'' . $T['str'] . '\' );
-?>' ) );?>
+<?php highlight_string( html_entity_decode( "<?php
+\$c = new Strings;
+echo \$c -> Escape('" . $T['str'] . "');" ) );?>
 </div>
 <h2 class="code_sample block bold container_padding">Results (string)</h2>
 <div class="code_returns container_padding word_break">
@@ -56,9 +56,9 @@ echo $c -> Escape( \'' . $T['str'] . '\' );
 <br /><br />
 <h2 class="code_sample block bold container_padding">Filtering PHP tags only</h2>
 <div class="code_returns container_padding word_break">
-<?php highlight_string( html_entity_decode( '&lt;?php
-echo Strings::Escape( \'' . $T['str'] . '\', array( \'php\' ) );
-?>' ) );?>
+<?php highlight_string( html_entity_decode( "<?php
+echo Strings::Escape( '" . $T['str'] . "', array( 'php' ) );
+" ) );?>
 </div>
 <h2 class="code_sample block bold container_padding">Results (string)</h2>
 <div class="code_returns container_padding word_break">
@@ -69,9 +69,9 @@ echo Strings::Escape( \'' . $T['str'] . '\', array( \'php\' ) );
 <br /><br />
 <h2 class="code_sample block bold container_padding">Filtering PHP and HTML &lt;form> tags only</h2>
 <div class="code_returns container_padding word_break">
-<?php highlight_string( html_entity_decode( '&lt;?php
-echo Strings::Escape( \'' . $T['str'] . '\', array( \'php\', \'form\' ) );
-?>' ) );?>
+<?php highlight_string( html_entity_decode( "<?php
+echo Strings::Escape( '" . $T['str'] . "', array( 'php', 'form' ) );
+" ) );?>
 </div>
 <h2 class="code_sample block bold container_padding">Results (string)</h2>
 <div class="code_returns container_padding word_break">
@@ -83,9 +83,9 @@ echo Strings::Escape( \'' . $T['str'] . '\', array( \'php\', \'form\' ) );
 <br /><br />
 <h2 class="code_sample block bold container_padding">Strip HTML tags with exceptions</h2>
 <div class="code_returns container_padding word_break">
-<?php highlight_string( html_entity_decode( '&lt;?php
-echo Strings::Escape( \'' . $T['str'] . '\', array( \'strip_tags\' ), array( \'<b><i>\' ) );
-?>' ) );?>
+<?php highlight_string( html_entity_decode( "<?php
+echo Strings::Escape( '" . $T['str'] . "', array( 'strip_tags' ), array( '<b><i>' ) );
+" ) );?>
 </div>
 <h2 class="code_sample block bold container_padding">Results (string)</h2>
 <div class="code_returns container_padding word_break">

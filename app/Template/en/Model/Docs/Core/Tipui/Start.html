@@ -1,0 +1,69 @@
+<?php
+
+/**
+* @file   Docs.html
+* @brief  Docs Module template.
+* @date   2013-10-04 15:25:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-08 03:19:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Documentation' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Instantiates the Tipui core engine in procedural style.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'core, start file' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">Core\Tipui\Start</h1>
+
+<br />
+<h2 class="code_sample block bold container_padding">Main functions</h2>
+<div class="container_padding word_break ha_left">
+ - Defines the framework constants
+<br /> - Initializes the Tipui Framework Core Engine in procedural style.
+<br /> - Call the main controller (Core class), responsible for abstract the configurations, build the paths, autoloading, data requests, routing and others minor things.
+<br /> - Call the model and view classes.
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Public index file</h2>
+<div class="container_padding word_break ha_left">
+Just include the Start file to initializes all framework engine and processes.
+</div>
+<div class="code_returns container_padding word_break ha_left">
+<?php highlight_string( "<?php 
+require( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Tipui' . DIRECTORY_SEPARATOR . 'Start.php' );
+" );
+?>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding word_break ha_left">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Public/Htaccess' );?>">Apache htaccess file</a>
+</div>
+
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

@@ -1,0 +1,103 @@
+<?php
+
+/**
+* @file   GetCharset.html
+* @brief  GetCharset Docs/Builtin/Helpers/HTML/Elements module template.
+* @date   2013-12-19 02:48:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-19 02:48:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin HTML Elements Helper GetCharset Class' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Returns the charset defined for the template file' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'documentation, framework php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+<div class="ha_left">
+<h1 class="container_padding">\Tipui\Builtin\Helpers\HTML\Elements\GetCharset</h1>
+<div class="container_padding word_break">
+Returns the charset defined for the template file in <code class="line">App/Model->View()</code> method.
+<br />If not defined in <code class="line">App/Model->View()</code> method, will retrieve from <code class="line">Core::GetConf()->BOOTSTRAP->CHARSET</code>
+</div>
+
+<h2 class="code_sample block bold container_padding">Usage sample</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+
+use \Tipui\Builtin\Helpers\HTML\Elements as Elements;
+
+echo Elements::GetCharset();
+" ) );?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Returns</h2>
+<div class="code_returns container_padding word_break">
+<?php echo HTML\Elements::GetCharset();?>
+</div>
+
+<br />
+
+<h2 class="code_sample block bold container_padding">Practical usage sample</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+
+use \Tipui\Builtin\Helpers\HTML\Elements as Elements;
+
+/*
+The right way, if applying for templates
+*/
+echo Elements::AddMetatag( 'http-equiv', 'content-type', 'text/html; charset=' . Elements::GetCharset() );
+
+/*
+Directly from Core::GetConf()
+*/
+echo Elements::AddMetatag( 'http-equiv', 'content-type', 'text/html; charset=' . \Tipui\Core::GetConf() -> BOOTSTRAP -> CHARSET );
+
+/*
+Is recommended to write statically if the whole application will not change the charset dynamically
+*/
+echo Elements::AddMetatag( 'http-equiv', 'content-type', 'text/html; charset=UTF-8' );
+" ) );?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Returns</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+' ) );?>
+</div>
+
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Model' );?>">App/Model</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Template' );?>">App/Template</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf' );?>">Core::GetConf()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf/BOOTSTRAP' );?>">Core::GetConf()->BOOTSTRAP</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config' );?>">App Configuration Files</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/BOOTSTRAP' );?>">App/Config/env/BOOTSTRAP</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Tipui/Start' );?>">Tipui/Start</a>
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

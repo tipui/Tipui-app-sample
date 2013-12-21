@@ -1,0 +1,101 @@
+<?php
+
+/**
+* @file   Model.html
+* @brief  Docs/App/Model template.
+* @date   2013-12-12 03:26:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-12 03:26:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+use \Tipui\Builtin\Libs\Strings as Strings;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs App Model' );
+HTML\Elements::SetMetatag( 'name', 'description', 'App Model Template usage and functions' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'Model, MVC' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">App\Template</h1>
+<div class="container_padding word_break ha_left">
+The template files displays the app interface layout, navigation and app model outputs.
+</div>
+<br />
+<h2 class="code_sample block bold container_padding">Folders Structure</h2>
+<div class="container_padding word_break ha_left">
+Base: <code class="line">app/[language_code]/</code>
+<br />The language code follows the <a href="http://www.w3schools.com/tags/ref_language_codes.asp" target="_blank">ISO 639-1</a>.
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">HTML Basic Sample bulting with HTML helpers</h2>
+<div class="code_returns container_padding word_break">
+<?php
+highlight_string( "<?php
+
+use \Tipui\Builtin\Helpers\HTML\Elements as Elements;
+use \Tipui\Builtin\Helpers\HTML as HTML;
+
+echo Elements::AddDocType( 'strict' )
+. Elements::AddOpenTag( 'english' )
+. PHP_EOL . Elements::AddHead()
+. PHP_EOL . Elements::AddTitle()
+. PHP_EOL . Elements::AddMetatag( 'name', 'description' )
+. PHP_EOL . Elements::AddMetatag( 'name', 'keywords' )
+. PHP_EOL . Elements::AddMetatag( 'name', 'owner', null, 'tipui.com' )
+. PHP_EOL . Elements::AddMetatag( 'name', 'author', null, 'Daniel Omine' )
+. PHP_EOL . Elements::AddMetatag( 'name', 'rating', null, 'general' )
+. PHP_EOL . Elements::AddMetatag( 'name', 'robots', null, 'index,follow' )
+. PHP_EOL . Elements::AddMetatag( 'name', 'language', null, 'english' )
+. PHP_EOL . Elements::AddMetatag( 'http-equiv', 'content-type', 'text/html; charset=' . Elements::GetCharset() )
+. PHP_EOL . Elements::Stylesheets() -> Add( 'reset.css' )
+. PHP_EOL . Elements::Stylesheets() -> Add( 'commons.css' )
+. PHP_EOL . Elements::Stylesheets() -> Add( 'layout.css' );
+
+Elements::Stylesheets() -> AddArray();
+Elements::JSFiles() -> AddArray();
+
+echo HTML\Miscellaneous::Append() -> Get()
+. PHP_EOL . Elements::AddHead( 'close' )
+. PHP_EOL . Elements::AddBody();
+?>
+
+Content here
+
+<?php
+echo PHP_EOL . Elements::AddBody( 'close' ) . '</html>';
+" );
+?>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Retaled</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML' );?>">HTML Helpers</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config' );?>">App Configuration Files</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Model' );?>">App/Model</a>
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

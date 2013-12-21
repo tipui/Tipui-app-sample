@@ -1,0 +1,110 @@
+<?php
+
+/**
+* @file   Config.html
+* @brief  Docs/App/Config template.
+* @date   2013-12-12 03:26:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-12 03:31:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+use \Tipui\Builtin\Libs\Strings as Strings;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs App Config' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Main app configuration files.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'conf, config, tipui php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">App\Config</h1>
+
+<br />
+<h2 class="code_sample block bold container_padding">Folders Structure</h2>
+<div class="container_padding word_break">
+Base: <code class="line">app/config/</code>
+<br />Environment: <code class="line">app/config/env/</code>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Environment folders</h2>
+<div class="container_padding word_break">
+Path: <code class="line">app/config/env/</code>
+<br />In this path, is located the configuration files folders for each environment.
+<br /><br />Example, the development environment is named "dev" and production is "foo_server":
+<br />dev path: <code class="line">app/config/env/dev/</code>
+<br />vps_onamae path: <code class="line">app/config/env/vps_onamae/</code>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Universal Environment Configuration File</h2>
+<div class="container_padding word_break">
+
+Path: <code class="line">app/config/env/ENV.json</code>
+<br />Format: json
+</div>
+
+<h2 class="code_sample block bold container_padding">ENV.json Structure</h2>
+
+<div class="code_returns container_padding word_break fl_left">
+<?php
+highlight_string( '{
+"PRODUCTION": "vps_onamae",
+"DEV": "dev",
+"CACHE_REGENERATE":false
+}' );
+?>
+</div>
+<div class="container_padding word_break fl_left">
+<span class="bold">PRODUCTION</span>: Name of production environment
+<br /><span class="bold">DEV</span>: Name of development environment
+<br /><span class="bold">CACHE_REGENERATE</span>:
+	<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="line">true</code>: Regenerates the cached configuration files
+	<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="line">false</code>: Use the the cached files located in <code class="line">app/Storage/env</code>
+</div>
+
+<br clear="all" /><br />
+<h2 class="cl_both code_sample block bold container_padding">Environment configuration files</h2>
+<div class="container_padding word_break">
+
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/BOOTSTRAP' );?>">BOOTSTRAP</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/COOKIES' );?>">COOKIES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/MODULES' );?>">MODULES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/PHP' );?>">PHP</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/PHP_INI_SET' );?>">PHP_INI_SET</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/TEMPLATES' );?>">TEMPLATES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/TIME_ZONE' );?>">TIME_ZONE</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/URL' );?>">URL</a>
+
+</div>
+
+<br />
+<h2 class="cl_both code_sample block bold container_padding">Related</h2>
+<div class="container_padding word_break">
+
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf' );?>">Core->GetConf()</a>
+
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

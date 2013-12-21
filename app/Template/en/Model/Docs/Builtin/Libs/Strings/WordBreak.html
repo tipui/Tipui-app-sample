@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-10-24 00:26:00
+* @updated: 2013-12-22 03:25:00
 */
 
 /** Alias to HTML Helper path */
@@ -35,16 +35,17 @@ Layout::Top();
 <br />
 <h2 class="code_sample block bold container_padding">Static</h2>
 <div class="code_returns container_padding word_break">
-<?php highlight_string( html_entity_decode( '&lt;?php echo Strings::WordBreak( \'' . $T['str'] . '\' );?>' ) );?>
+
+<?php highlight_string( html_entity_decode( "<?php 
+echo Strings::WordBreak('" . $T['str'] . "');" ) );?>
 </div>
 
 <br />
 <h2 class="code_sample block bold container_padding">Instance</h2>
 <div class="code_returns container_padding word_break">
-<?php highlight_string( html_entity_decode( '&lt;?php
-$c = new Strings;
-echo $c -> WordBreak( \'' . $T['str'] . '\' );
-?>' ) );?>
+<?php highlight_string( html_entity_decode( "<?php
+\$c = new Strings;
+echo \$c -> WordBreak('" . $T['str'] . "');" ) );?>
 </div>
 
 
