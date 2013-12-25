@@ -1,0 +1,90 @@
+<?php
+
+/**
+* @file   Namespaces.html
+* @brief  Namespaces Docs module template.
+* @date   2013-12-22 16:51:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-22 16:51:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Namespaces' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Tipui namespaces documentation.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, namespaces, documentation' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">Tipui Namespaces</h1>
+
+<br />
+
+<h2 class="code_sample block bold container_padding">Rules</h2>
+<div class="container_padding word_break">
+The Tipui namespaces nomenclatures base are as follows:
+<br />Core: <code class="line">Tipui\Builtin</code>
+<br />App: <code class="line">Tipui\App</code>
+<br />The full namespace nomenclature must be exact same as the name of path where the class is located.
+<br />The names follows the CamelCase pattern for compound words. For single words, must start with uppercase letter.
+</div>
+
+<h2 class="code_sample block bold container_padding">Samples</h2>
+<div class="container_padding word_break">
+Namespace for class called <code class="line">Foo</code>, located in Builtin Library path.
+<br />*For override folder, follows the same nomenclature.
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php
+namespace Tipui\Builtin\Libs;
+
+class Foo
+{
+
+}
+" ) );?>
+</div>
+
+<div class="container_padding word_break">
+For classes located under App Model path.
+<br />For this sample, the class name is <code class="line">Foo</code>.
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php
+namespace Tipui\App\Model;
+
+class Foo
+{
+
+}
+" ) );?>
+</div>
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Autoloader' );?>">Autoloader</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Override' );?>">Override</a>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

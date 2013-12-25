@@ -1,0 +1,81 @@
+<?php
+
+/**
+* @file   Cookie.html
+* @brief  Cookie Docs/Builtin/Libs module template.
+* @date   2013-12-25 19:04:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-25 19:04:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Library Cookie' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Cookie Library methods index.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, cookies, library, documentation, samples, usage' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\HTML\Libs\Cookie{}</h1>
+
+<br />
+
+<h2 class="code_sample block bold container_padding">Instantiating</h2>
+<div class="container_padding word_break">
+Static
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Libs\Cookie as Cookie;
+
+Cookie::MethodName();" ) );?>
+</div>
+<div class="container_padding word_break">
+Instance
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Libs\Cookie as Cookie;
+
+\$c = new Cookie;
+Cookie->MethodName();" ) );?>
+</div>
+<br />
+
+<h2 class="code_sample block bold container_padding">Methods</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Cookie/Set' );?>">Cookie->Set()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Cookie/Get' );?>">Cookie->Get()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Cookie/Del' );?>">Cookie->Del()</a>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Cache' );?>">Libs/Cache</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Encryption' );?>">Libs/Encryption</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf/COOKIES' );?>">Core::GetConf()->COOKIES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config' );?>">App Configuration Files</a>
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

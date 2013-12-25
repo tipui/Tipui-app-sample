@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-12-20 03:33:00
+* @updated: 2013-12-22 16:51:00
 */
 
 /** Alias to HTML Helper path */
@@ -45,13 +45,10 @@ Layout::Top();
 <br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Tipui/Start' );?>">Tipui/Start</a>
 </div>
 
-<h2 class="block bold container_padding">Builtin/Libs</h2>
+<h2 class="block bold container_padding">Builtin</h2>
 <div class="code_returns container_padding word_break">
-<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Browse' );?>">Browse</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Strings' );?>">Strings</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Encryption' );?>">Encryption</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Form' );?>">Form</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules' );?>">DataRules</a>
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Autoloader' );?>">Autoloader</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs' );?>">Libraries</a>
 </div>
 
 <h2 class="block bold container_padding">Builtin/Helpers</h2>
@@ -72,6 +69,7 @@ Layout::Top();
 <h2 class="block bold container_padding">Others</h2>
 <div class="code_returns container_padding word_break">
 <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Apache/Htaccess' );?>">Apache htaccess file</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Namespaces' );?>">Namespaces</a>
 </div>
 
 

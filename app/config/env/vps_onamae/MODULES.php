@@ -16,6 +16,8 @@ $array = array(
 	* session: save in sessions $_SESSION
 	* cookie: save in cookies $_COOKIE
 	* sqlite: save in sqlite (not available)
+	*
+	* (Independent of BOOTSTRAP 'DEFAULT_CACHE_STORAGE_MODE')
 	*/
 	'METHODS_CACHE_STORAGE_MODE' => 'cookie',
 );

@@ -1,0 +1,62 @@
+<?php
+
+/**
+* @file   ReadFile.html
+* @brief  ReadFile Docs/Builtin/Libs module template.
+* @date   2013-12-25 19:04:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-25 19:04:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Library FileSystem ReadFile method' );
+HTML\Elements::SetMetatag( 'name', 'description', 'FileSystem Library ReadFile method.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, files, folders, manipulation, reading, streamming, library, documentation, samples, usage, existence' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\HTML\Libs\FileSystem\ReadFile{}</h1>
+
+<br />
+
+<h2 class="code_sample block bold container_padding">Reading content of files</h2>
+<div class="container_padding word_break">
+Gets the content of files.
+<br />*Do not check if file exists.
+</div>
+<h2 class="code_sample block bold container_padding">Parameters</h2>
+<div class="container_padding word_break">
+(string) <code class="line">$path</code> Full path of file to read.
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Libs\FileSystem as FileSystem;
+
+FileSystem::ReadFile( '/full/path/of/file.txt' );" ) );?>
+</div>
+<h2 class="code_sample block bold container_padding">Returns (string)</h2>
+<div class="container_padding word_break">
+The content of file.
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

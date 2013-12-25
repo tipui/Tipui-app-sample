@@ -1,0 +1,60 @@
+<?php
+
+/**
+* @file   SetURLParts.html
+* @brief  SetURLParts Docs/Builtin/Libs module template.
+* @date   2013-12-25 19:04:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-25 19:04:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Library Request SetURLParts method' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Request Library SetURLParts method.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, url, composition, setting, config, configuration, libraries, documentation, samples, usage' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\HTML\Libs\Request\SetURLParts{}</h1>
+
+<br />
+
+<h2 class="code_sample block bold container_padding">Setting the URL Parts</h2>
+<div class="container_padding word_break">
+Sets properties that composes the URL.
+</div>
+
+<h2 class="code_sample block bold container_padding">Parameters</h2>
+<div class="container_padding word_break">
+<code class="line">(string:/) $href_base</code> Base of URL parameters.
+<br /><code class="line">(string:/)$url_pfs</code> Parameters folders separator character.
+<br /><code class="line">(string:?)$url_param_argumentor</code> URL argumentor.
+</div>
+
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf/URL' );?>">Core::GetConf()->URL</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/URL' );?>">App/Config/env/URL</a>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

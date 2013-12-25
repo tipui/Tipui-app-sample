@@ -17,11 +17,23 @@ $array = array(
 	'PUBLIC_FOLDER_IMAGES'  => 'images',
 	'PUBLIC_FOLDER_JS'      => 'js',
 	'PUBLIC_FOLDER_CSS'     => 'css',
+
+	/**
+	* For library Builtin/Libs/Cache
+	* Defines the default cache storage mode.
+	* session: save in sessions $_SESSION
+	* cookie: save in cookies $_COOKIE
+	* sqlite: save in sqlite (not available)
+	*/
+	'DEFAULT_CACHE_STORAGE_MODE' => 'cookie',
+
 	/**
 	* Core methods results storage
 	* session: save in sessions $_SESSION
 	* cookie: save in cookies $_COOKIE
 	* sqlite: save in sqlite (not available)
+	*
+	* (Independent of 'DEFAULT_CACHE_STORAGE_MODE')
 	*/
 	'CORE_METHODS_CACHE_STORAGE_MODE' => 'cookie',
 

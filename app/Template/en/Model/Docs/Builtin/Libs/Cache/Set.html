@@ -1,0 +1,114 @@
+<?php
+
+/**
+* @file   Set.html
+* @brief  Set Docs/Builtin/Libs/Cache module template.
+* @date   2013-12-22 23:40:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-24 00:44:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Library Cache Set' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Cache Library methods index.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, cache, set, library, documentation' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\Libs\Cache\Set()</h1>
+
+<br />
+
+<h2 class="code_sample block bold container_padding">Cookies</h2>
+<div class="container_padding word_break">
+Sample saving cookie key <code class="line">Foo</code> with string value <code class="line">Bar</code>
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Libs\Cache as Cache;
+
+Cache::Cookie()->Set( array( 
+			'Foo' => 'Bar'
+			)
+		);" ) );?>
+</div>
+<div class="container_padding word_break">
+Sample defining cookie settings
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Libs\Cache as Cache;
+use \Tipui\Core as Core;
+
+Cache::Cookie(
+			Core::GetConf()->COOKIES->COOKIE_TIME,
+			Core::GetConf()->COOKIES->COOKIE_TIME_MODE,
+			Core::GetConf()->BOOTSTRAP->PUBLIC_FOLDER,
+			Core::GetConf()->BOOTSTRAP->DOMAIN,
+			Core::GetConf()->BOOTSTRAP->SUBDOMAIN
+		) -> Set( array(
+				'KeyName' => 'KeyValue',
+				)
+			);" ) );?>
+</div>
+
+<br /><br />
+
+<h2 class="code_sample block bold container_padding">Session</h2>
+<div class="container_padding word_break">
+Sample saving session key <code class="line">Foo</code> with string value <code class="line">Bar</code>
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Libs\Cache as Cache;
+
+Cache::Session()->Set( array( 
+			'Foo' => 'Bar'
+			)
+		);" ) );?>
+</div>
+
+<br /><br />
+
+<h2 class="code_sample block bold container_padding">Auto</h2>
+<div class="container_padding word_break">
+Sample saving to cache without especifies the mode (ie: cookie, session).
+<br />The Library Cache will assumes the cache mode defined in BOOTSTRAP environment file.
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Libs\Cache as Cache;
+
+Cache::Set( array( 
+			'Foo' => 'Bar'
+			)
+		);" ) );?>
+</div>
+
+<br /><br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Cache/Get' );?>">Cache->Get()</a>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

@@ -1,0 +1,96 @@
+<?php
+
+/**
+* @file   Get.html
+* @brief  Get Docs/Builtin/Libs/Cache module template.
+* @date   2013-12-22 23:40:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-22 23:40:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Library Cache Get' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Cache Library methods index.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, cache, get, library, documentation' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\Libs\Cache\Get()</h1>
+
+<br />
+
+<h2 class="code_sample block bold container_padding">Auto Mode</h2>
+<div class="container_padding word_break">
+Retrieving cookie key named <code class="line">Foo</code>.
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Libs\Cache as Cache;
+
+\$rs = Cache::Get( 'Foo' );
+var_dump( \$rs ); exit;
+" ) );?>
+</div>
+<div class="container_padding word_break">
+Returning multiple keys.
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Libs\Cache as Cache;
+
+\$rs = Cache::Get( array( 'Foo', 'Bar' ) );
+var_dump( \$rs ); exit;
+" ) );?>
+</div>
+
+<br /><br />
+
+<h2 class="code_sample block bold container_padding">From especific source like Session or Cookie</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Libs\Cache as Cache;
+
+// From Cookie
+\$rs = Cache::Cookie()->Get( 'Bar' );
+
+// From Session
+\$rs = Cache::Session()->Get( 'Bar' );
+" ) );?>
+</div>
+
+<br /><br />
+
+<h2 class="code_sample block bold container_padding">Builtin Library Encryption</h2>
+<div class="container_padding word_break">
+If returned data is encrypted by builtin Encryption library, decrypt using <code class="line">Encryption->Decode()</code> method.
+</div>
+
+<br /><br />
+
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Cache/Set' );?>">Cache->Set()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Encryption' );?>">Libs/Encryption</a>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

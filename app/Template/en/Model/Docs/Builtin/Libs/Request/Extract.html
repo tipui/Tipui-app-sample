@@ -1,0 +1,60 @@
+<?php
+
+/**
+* @file   Extract.html
+* @brief  Extract Docs/Builtin/Libs module template.
+* @date   2013-12-25 19:04:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-25 19:04:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Library Request Extract method' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Request Library Extract method.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, extracting, post, get, url, forms, libraries, documentation, samples, usage' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\HTML\Libs\Request\Extract{}</h1>
+
+<br />
+
+<h2 class="code_sample block bold container_padding">Extracting parameters</h2>
+<div class="container_padding word_break">
+Responsible for extracting parameters from URL over HTTP or CLI mode.
+<br /><br />HTTP: <code class="line">http://foo.bar/?p=bar&id=x</code>
+<br />HTTP Mode Rewrite (Friendly URL): <code class="line">http://foo.bar/bar/x</code>
+<br />CLI: <code class="line">/path/of/binary/php /path/of/app/public/index.php -p p=Bar%26id=x</code>
+<br />CLI (Friendly): <code class="line">/path/of/binary/php /path/of/app/public/index.php -p Bar/x</code>
+</div>
+
+
+<h2 class="code_sample block bold container_padding">Dependencies</h2>
+<div class="code_returns container_padding word_break">
+1º <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Request/SetDefaults' );?>">Request->SetDefaults()</a>
+<br />2º <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Request/SetSapiMode' );?>">Request->SetSapiMode()</a>
+<br />3º <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Request/SetURLParts' );?>">Request->SetURLParts()</a>
+<br />4º <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Request/GetMethod' );?>">Request->GetMethod()</a>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

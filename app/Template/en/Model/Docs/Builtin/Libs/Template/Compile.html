@@ -1,0 +1,60 @@
+<?php
+
+/**
+* @file   Compile.html
+* @brief  Compile Docs/Builtin/Libs/Template module template.
+* @date   2013-12-25 19:04:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-25 19:04:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Library Template Compile method' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Template Library Compile method' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, templates, compiler, renderer, library, documentation, samples, usage' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\HTML\Libs\Template\Compile{}</h1>
+
+<br />
+
+<h2 class="code_sample block bold container_padding">Parameters</h2>
+<div class="container_padding word_break">
+(array) <code class="line">$data</code> Data to be rendered.
+<br />(string:false) <code class="line">$dir</code> Directory base of template file to be compiled.
+<br />(string:false) <code class="line">$file</code> File name to be compiled.
+</div>
+
+
+<div class="code_sample block bold container_padding word_break">
+Instance
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Libs\Template as Template;
+
+Template::Compile( array('Foo'=>'bar'), '/path/folder/', 'file.html' );" ) );?>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

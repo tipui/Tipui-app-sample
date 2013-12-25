@@ -1,0 +1,98 @@
+<?php
+
+/**
+* @file   Set.html
+* @brief  Set Docs/Builtin/Libs/Cookie module template.
+* @date   2013-12-25 19:04:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-25 19:04:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Library Cookie Set' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Cookie Library methods index.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, cookies, set, library, documentation' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\Libs\Cookie\Set()</h1>
+
+<br />
+
+<h2 class="code_sample block bold container_padding">Setting cookie key</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Libs\Cookie as Cookie;
+
+Cookie::Set( 'Foo', 'bar' );
+" ) );?>
+</div>
+<br />
+
+<h2 class="code_sample block bold container_padding">Custom cookie settings</h2>
+<div class="container_padding word_break">
+<code class="line">(string) $key</code> Array key name.
+<br /><code class="line">(id) $value</code> Value for the key.
+
+<br /><br />[Optional parameters]
+<br /><code class="line">(string) $time</code> Amount of time (ie: +30, +12, -90)
+<br />Default: <code class="line">\Tipui\Core::GetConf() -> COOKIES -> COOKIE_TIME</code>
+
+<br /><br /><code class="line">(string) $time_mode</code> Type of time. See PHP <a href="http://php.net/strtotime" target="_blank">strtotime()</a> function.
+<br />Default: <code class="line">\Tipui\Core::GetConf() -> COOKIES -> COOKIE_TIME_MODE</code>
+
+<br /><br /><code class="line">(string) $path</code> URL bas path to apply cookie data.
+<br />Default: <code class="line">\Tipui\Core::GetConf() -> BOOTSTRAP -> PUBLIC_FOLDER</code>
+
+<br /><br /><code class="line">(string) $domain</code> Targeted full qualified domain name.
+<br />Default: <code class="line">\Tipui\Core::GetConf() -> BOOTSTRAP -> DOMAIN</code>
+
+<br /><br /><code class="line">(string) $subdomain</code> Subdomain name.
+<br />Default: <code class="line">\Tipui\Core::GetConf() -> BOOTSTRAP -> SUBDOMAIN</code>
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Libs\Cookie as Cookie;
+
+/* Escope
+* Cookie::Set( [key], [value], [time], [time_mode], [path], [domain], [subdomain] );
+*/
+
+/* 
+* Sample, cookie key \"Foo\" with value \"Bar\", for domain \"foo.bar\", that will expires in 30 days.
+*/
+Cookie::Set( 'Foo', 'Bar', '+30', 'days', '/', 'foo.bar', '' );
+
+/* 
+* Sample, cookie key \"Foo\" with value \"Bar\", for domain \"foo.bar\" inside subdomain \"subdomain.foo.bar\", that will expires in 30 days.
+*/
+Cookie::Set( 'Foo', 'Bar', '+30', 'days', '/', 'foo.bar', 'subdomain.' );
+
+/* 
+* Sample, cookie key \"Foo\" with value \"Bar\", for domain \"foo.bar\" under folder \"other_folder\", that will expires in 15 hours.
+*/
+Cookie::Set( 'Foo', 'Bar', '+15', 'hours', '/other_folder/', 'foo.bar', '' );
+" ) );?>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

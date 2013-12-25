@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-12-12 03:26:00
+* @updated: 2013-12-25 04:17:00
 */
 
 /** Alias to HTML Helper path */
@@ -40,7 +40,7 @@ The model is responsible for the app business logic, following the basics of <a 
 <h2 class="code_sample block bold container_padding">Folders Structure</h2>
 <div class="container_padding word_break ha_left">
 Base: <code class="line">app/Model/</code>
-<br />Methods: <code class="line">Form()</code>, <code class="line">Prepare()</code>, <code class="line">View()</code>
+<br />Methods: <code class="line">Form()</code>, <code class="line">Prepare()</code>, <code class="line">View()</code>, <code class="line">Header()</code>, <code class="line">Template()</code>
 </div>
 
 <br />
@@ -185,6 +185,65 @@ class Model
 
 	public function View(){
 		return array( 'rs' => \$this->rs );
+	}
+
+}" );
+?>
+</div>
+
+
+<br /><br />
+<h2 class="code_sample block bold container_padding">Header() method</h2>
+<div class="container_padding word_break">
+Customizes the header output.
+<br />Sample bellow, outputs the header HTTP Status 200.
+<br />
+<br />200: General results.
+<br />404: ot found pages.
+<br />For others status codes, must declare the method Header().
+</div>
+<div class="code_returns container_padding word_break">
+<?php
+highlight_string( "<?php
+class Model
+{
+
+	public function View(){}
+
+	public function Header()
+	{
+		return array( 'http_status' => 200 );
+	}
+
+}" );
+?>
+</div>
+
+
+<br /><br />
+<h2 class="code_sample block bold container_padding">Template() method</h2>
+<div class="container_padding word_break">
+Customizes the Template settings.
+<br />Bellow, all the customizables parameters.
+<br />
+</div>
+<div class="code_returns container_padding word_break">
+<?php
+highlight_string( "<?php
+class Model
+{
+
+	public function View(){}
+
+	public function Template()
+	{
+        return array( 
+			'language'     => 'en',
+			'charset'      => 'UTF-8',
+			'content_type' => 'text/html',
+			'dir'          => 'OtherFolder' . DIRECTORY_SEPARATOR,
+			'file'         => 'Test.html',
+		);
 	}
 
 }" );
