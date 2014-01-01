@@ -1,0 +1,62 @@
+<?php
+
+/**
+* @file   SaveToCache.html
+* @brief  Docs/Core/SaveToCache template.
+* @date   2013-12-29 18:34:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-29 18:34:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+use \Tipui\Builtin\Libs\Strings as Strings;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Core SaveToCache' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Core SaveToCache method' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'settings, cache, config, tipui php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Core->SaveToCache</h1>
+<div class="container_padding word_break ha_left">
+Shortcut method called into <code class="line">LoadSettings()</code> method.
+<br />This method groups the executions of <code class="line">SetMethodDataCache()</code> method to saves the cache.
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Dependencies</h2>
+<div class="container_padding word_break ha_left">
+1º <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Tipui/Start' );?>">Tipui/Start</a>
+<br />2º <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Autoloader' );?>">Core->Autoloader()</a>
+<br />3º <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/LoadSettings' );?>">Core->LoadSettings()</a>
+<br />4º <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/SetMethodDataCache' );?>">Core->SetMethodDataCache()</a>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="container_padding word_break ha_left">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/IsCliMode' );?>">Core->IsCliMode</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Routing' );?>">Core->Routing()</a>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-12-25 04:17:00
+* @updated: 2013-12-29 18:34:00
 */
 
 /** Alias to HTML Helper path */
@@ -19,7 +19,7 @@ use \Tipui\Builtin\Libs\Strings as Strings;
 /** HTML headers */
 HTML\Elements::SetTitle( 'TIPUI PHP - Docs App Model' );
 HTML\Elements::SetMetatag( 'name', 'description', 'App Model usage and functions' );
-HTML\Elements::SetMetatag( 'name', 'keywords', 'Model, MVC' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'Model, MVC, template, form, prepare, header' );
 
 /** Add array of (css) stylesheets */
 HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
@@ -77,13 +77,14 @@ The namespace base is composed by
 <br />App Model folder name: <code class="line">Model\</code> +
 <br />Model folder path: <code class="line">Docs\App</code> +
 
-<br /><br />For this example, the Model folder path is <code class="line">Docs\App</code>, then,
-the full namespace is <code class="line">Tipui\App\Model\Docs\App</code>
+<br /><br />For example, we have module called <code class="line">Foo</code> wich folder path is <code class="line">Docs\App</code>, so,
+the full namespace will be <code class="line">Tipui\App\Model\Docs\App</code>
+<br /><br />See more about <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Namespaces' );?>">Namespaces</a>.
 </div>
 
 <h2 class="code_sample block bold container_padding">Model Class name</h2>
 <div class="container_padding word_break">
-The class name is the model name, <code class="line">class Model{}</code>
+The class name is simply the model name, <code class="line">class Model(){}</code>
 </div>
 
 
@@ -199,7 +200,7 @@ Customizes the header output.
 <br />Sample bellow, outputs the header HTTP Status 200.
 <br />
 <br />200: General results.
-<br />404: ot found pages.
+<br />404: Not found pages.
 <br />For others status codes, must declare the method Header().
 </div>
 <div class="code_returns container_padding word_break">

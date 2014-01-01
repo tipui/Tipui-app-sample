@@ -1,0 +1,63 @@
+<?php
+
+/**
+* @file   Request.html
+* @brief  Docs/Core/Request template.
+* @date   2013-12-29 18:34:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-29 18:34:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+use \Tipui\Builtin\Libs\Strings as Strings;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Core Request' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Core Request method' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'parameters, url, requests, get, post, tipui php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Core->Request</h1>
+<div class="container_padding word_break ha_left">
+Abstracts the URL or command line parameters.
+<br />Supports Friendly URL (mod rewrite).
+<br /><br />This method is called by method <code class="line">Routing()</code>, that is invoked by <code class="line">SetMethodDataCache()</code>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Dependencies</h2>
+<div class="container_padding word_break ha_left">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/IsCliMode' );?>">Core->IsCliMode()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Request' );?>">Builtin/Libs/Request()</a>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="container_padding word_break ha_left">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Routing' );?>">Core->Routing()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/RoutingPathScanner' );?>">Core->RoutingPathScanner()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf/URL' );?>">Core->GetConf()->URL</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/URL' );?>">App/Config/env/URL</a>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

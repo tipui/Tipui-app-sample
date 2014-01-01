@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-10-27 03:16:00
+* @updated: 2014-01-02 03:43:00
 */
 
 /** Alias to HTML Helper path */
@@ -17,7 +17,7 @@ use \Tipui\app\Helpers\HTML\Layout as Layout;
 /** HTML headers */
 HTML\Elements::SetTitle( 'TIPUI PHP - Docs Core GetConf()' );
 HTML\Elements::SetMetatag( 'name', 'description', 'Displays builtin Core/GetConf usage.' );
-HTML\Elements::SetMetatag( 'name', 'keywords', 'unit tests, framework php' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'core instance, framework php' );
 
 /** Add array of (css) stylesheets */
 HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
@@ -34,6 +34,14 @@ Layout::Top();
 
 <br />
 
+<div class="container_padding word_break">
+Returns new instance of Core object.
+<br />The properties bellow are virtualy created from magic methods into Core.
+<br />The magic method <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/__get' );?>"><code class="line">__get()</code></a> identifies who is the parent method calling by checking the property <code class="line">Core -> called_from</code>.
+<br />If <code class="line">Core->called_from</code> is equal to <code class="line">Core::CONF_CALLER</code>, then, returns the <code class="line">Core->GetEnv()</code> array indexes.
+</div>
+
+<br />
 <h2 class="code_sample block bold container_padding">Environment Settings</h2>
 <div class="code_returns container_padding word_break">
 <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf/ENV' );?>">GetConf()->ENV</a>

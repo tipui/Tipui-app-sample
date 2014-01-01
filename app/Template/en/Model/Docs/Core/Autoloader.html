@@ -1,0 +1,61 @@
+<?php
+
+/**
+* @file   Autoloader.html
+* @brief  Docs/Core/Autoloader template.
+* @date   2013-12-29 18:34:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-29 18:34:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+use \Tipui\Builtin\Libs\Strings as Strings;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Core Autoloader' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Core Autoloader method' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'autoload, tipui php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Core->Autoloader</h1>
+<div class="container_padding word_break ha_left">
+Prepare and starts the Autoloader class.
+<br />Priorizes the override path. If override file not exists, will load the builtin class.
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Dependencies</h2>
+<div class="container_padding word_break ha_left">
+1º <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Tipui/Start' );?>">Tipui/Start</a>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="container_padding word_break ha_left">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Override' );?>">Override</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Autoloader' );?>">Builtin/Autoloader</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config' );?>">App Configuration Files</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf' );?>">Core::GetConf()</a>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

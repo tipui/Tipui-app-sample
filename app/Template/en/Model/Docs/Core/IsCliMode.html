@@ -1,0 +1,62 @@
+<?php
+
+/**
+* @file   IsCliMode.html
+* @brief  Docs/Core/IsCliMode template.
+* @date   2013-12-29 18:34:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2013-12-29 18:34:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+use \Tipui\Builtin\Libs\Strings as Strings;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Core IsCliMode' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Core IsCliMode method' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'cli, sapi, tipui php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Core->IsCliMode</h1>
+<div class="container_padding word_break ha_left">
+Check request cames from CLI (Command Line Interface) or HTTP protocol.
+<br />If PHP function <a href="http://php.net/php_sapi_name" target="_blank">php_sapi_name()</a> returned string is <code class="line">cli</code>, the Core property <code class="line">sapi_is_cli</code> will be assigned with boolean <code class="line">TRUE</code>. If not, will assigns <code class="line">FALSE</code>.
+</div>
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Cached Core methods</h2>
+<div class="container_padding word_break">
+For read the value, call the GetConf() method, that will retrieves data from the cache, see:
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetMethodDataCache/IsCliMode' );?>">\Tipui\Core::GetConf()->GetMethodDataCache()</a>
+</div>
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="container_padding word_break ha_left">
+<a href="http://php.net/manual/en/features.commandline.php" target="_blank">PHP: Command Line Interface</a>
+<br /><a href="http://en.wikipedia.org/wiki/Command-line_interface" target="_blank">Wikipedia: Command Line Interface</a>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

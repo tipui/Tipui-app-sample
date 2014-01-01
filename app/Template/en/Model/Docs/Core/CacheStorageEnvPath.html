@@ -1,0 +1,60 @@
+<?php
+
+/**
+* @file   CacheStorageEnvPath.html
+* @brief  Docs/Core/CacheStorageEnvPath template.
+* @date   2014-01-02 02:49:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2014-01-02 02:49:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+use \Tipui\Builtin\Libs\Strings as Strings;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Core CacheStorageEnvPath' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Core CacheStorageEnvPath method' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'settings, environment, configuration, cache, cache files, bootstrap, tipui php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Core->CacheStorageEnvPath</h1>
+<div class="container_padding word_break ha_left">
+Returns the full path for cached files of environment configuration settings.
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php
+echo \Tipui\Core::GetConf()->CacheStorageEnvPath();
+" ) );
+?>
+</div>
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="container_padding word_break ha_left">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config' );?>">App Configuration Files</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf' );?>">Core::GetConf()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/SetEnv' );?>">Core->SetEnv()</a>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();
