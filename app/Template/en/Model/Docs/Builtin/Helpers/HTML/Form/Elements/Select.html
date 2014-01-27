@@ -56,20 +56,6 @@ Layout::Top();
 	'type'           => (string)field_type,
 
 	/**
-	* Exact character length permitted
-	*
-	* MaxLength and MinLength can use used also.
-	*/
-	'ExactLength'    => 1,
-
-	/**
-	* Validation type
-	* @see \Tipui\Builtin\Libs\DataValidation
-	* text, number, options
-	*/
-	'validation'     => (string)validation_type,
-
-	/**
 	* Element value property
 	*/
 	'value'          => '',
@@ -91,17 +77,11 @@ Layout::Top();
 	'options'        => (array)( 'key1' => 'value 1', 'key2' => 'value 2'),
 
 	/**
-	* Filter for entries (value property)
-	*
-	* Strings filter
-	* array( array( '\Tipui\Builtin\Libs\Strings', 'Escape' ), array( false ) )
-	*
-	* Numbers Only filter
-	* array( array( '\Tipui\Builtin\Libs\Strings', 'NumbersOnly' ) )
+	* Note:
+	* validation, filters and pre_filter are not necessary since values must match with options
 	*/
-	'pre-filter'     => array( (array)[ [library class], [library class method] ], (array)[library class method arguments] ),
 );
-?>" ) );?>
+" ) );?>
 </div>
 
 <div class="container_padding word_break">Preparing the element on Module Form Rules</div>
@@ -135,7 +115,7 @@ class ModelClass
 
 }
 
-?>' ) );?>
+' ) );?>
 </div>
 <div class="container_padding word_break">Displaying on template.
 </div>
@@ -152,9 +132,9 @@ use \Tipui\Builtin\Helpers\HTML\Form as Form;
 * Printing the element on template
 * @param field_name: field name
 */
-echo Form::AddElement( (string)field_name );
+echo Form::AddElement( (string)field_name ) -> html;
 
-?>' ) );?>
+' ) );?>
 </div>
 
 <br />

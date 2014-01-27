@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-12-04 02:26:00
+* @updated: 2014-01-22 20:30:00
 */
 
 /** Alias to HTML Helper path */
@@ -22,7 +22,9 @@ HTML::SetMetatag( 'name', 'description', 'Sets form element name as array' );
 HTML::SetMetatag( 'name', 'keywords', '' );
 
 /** Add array of (css) stylesheets */
-HTML::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+HTML::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ), 
+array( 'file' => 'Model/docs/builtin/helpers/html/form/elements/input.css' ), 
+array( 'file' => 'Model/docs/builtin/helpers/html/form/elements/input_submit.css' ) ) );
 
 /** header/top */
 Layout::Top();
@@ -32,7 +34,7 @@ Layout::Top();
 
 <div class="ha_left">
 <h1 class="code_sample block bold container_padding">\Tipui\Builtin\HTML\Helpers\Form->SetNameAsArray</h1>
-<div class="container_padding word_break">Defines form element name as array.<br />Each value is an array key index.<br />Multiples values creates names as multidimensional arrays.</div>
+<div class="container_padding word_break">Defines the form element name as array.</div>
 
 
 <h2 class="code_sample block bold container_padding">Single array sample</h2>
@@ -42,12 +44,11 @@ use \Tipui\Builtin\Helpers\HTML\Form as Form;
 
 // Input multiple choices, array
 Form::SetNameAsArray( 'index1' );
-\$options = Form::AddElement( 'array_choices' );
-\$labels  = Form::GetElementProperty( 'array_choices', 'options' );
+\$f = Form::AddElement( 'foo' );
 echo PHP_EOL . '<br /><br /><br />array choices: ';
-foreach( \$options as \$k => \$v )
+foreach( \$f -> html as \$k => \$v )
 {
-	echo PHP_EOL . '<label>' . \$v . ' ' . \$labels[\$k] . '</label>';
+	echo PHP_EOL . '<label>' . \$v . ' ' . \$f -> options[\$k] . '</label>';
 }" ) );
 ?>
 </div>
@@ -58,23 +59,22 @@ foreach( \$options as \$k => \$v )
 <?php 
 // Input multiple choices, array
 Form::SetNameAsArray( 'index1' );
-$options = Form::AddElement( 'foo' );
-$labels  = Form::GetElementProperty( 'foo', 'options' );
-$f = '';
+$f = Form::AddElement( 'foo' );
+$h = '';
 
-foreach( $options as $k => $v )
+foreach( $f -> html as $k => $v )
 {
-    $f .= '<label>' . $v . ' ' . $labels[$k] . '</label>' . PHP_EOL;
+    $h .= '<label>' . $v . ' ' . $f -> options[$k] . '</label>' . PHP_EOL;
 }
 
-echo nl2br( htmlentities( $f ) );
+echo nl2br( htmlentities( $h ) );
 ?>
 
 </div>
 <h2 class="code_sample block bold container_padding">Displays</h2>
 <div class="container_padding word_break">
 <?php 
-echo $f;
+echo $h;
 ?>
 </div>
 
@@ -89,12 +89,11 @@ use \Tipui\Builtin\Helpers\HTML\Form as Form;
 
 // Input multiple choices, array
 Form::SetNameAsArray( array( 'index1', 'index2' ) );
-\$options = Form::AddElement( 'array_choices' );
-\$labels  = Form::GetElementProperty( 'array_choices', 'options' );
+\$f = Form::AddElement( 'foo_checkbox' );
 echo PHP_EOL . '<br /><br /><br />array choices: ';
-foreach( \$options as \$k => \$v )
+foreach( \$f -> html as \$k => \$v )
 {
-	echo PHP_EOL . '<label>' . \$v . ' ' . \$labels[\$k] . '</label>';
+	echo PHP_EOL . '<label>' . \$v . ' ' . \$f -> options[\$k] . '</label>';
 }" ) );
 ?>
 </div>
@@ -103,25 +102,47 @@ foreach( \$options as \$k => \$v )
 <div class="code_returns container_padding word_break">
 
 <?php 
-// Input multiple choices, array
-Form::SetNameAsArray( array( 'index1', 'index2' ) );
-$options = Form::AddElement( 'foo' );
-$labels  = Form::GetElementProperty( 'foo', 'options' );
-$f = '';
+Form::SetNameAsArray( array( 'opt1', 'opt2' ) );
+$f  = Form::AddElement( 'foo_checkbox' );
 
-foreach( $options as $k => $v )
+Form::SetNameAsArray( array( 'txt1', 'txt2' ) );
+$f2 = Form::AddElement( 'foo_text' );
+
+$h  = Form::AddForm();
+$h .= Form::AddURLParam();
+
+foreach( $f -> html as $k => $v )
 {
-    $f .= '<label>' . $v . ' ' . $labels[$k] . '</label>' . PHP_EOL;
+    $h .= '<label>' . $v . ' ' . $f -> options[$k] . '</label>' . PHP_EOL;
+}
+if( $f -> error )
+{
+	$h .= '<br />error: ';
+	$h .= key( $f -> error );
 }
 
-echo nl2br( htmlentities( $f ) );
+$h .= '<br /><br />';
+$h .= $f2 -> html;
+if( $f2 -> error )
+{
+	$h .= '<br />error: ';
+	$h .= key( $f2 -> error );
+}
+
+$h .= '<br /><br /><input type="submit" value="send" class="input_submit" />';
+$h .= '</form>';
+
+echo nl2br( htmlentities( $h ) );
+echo '<br />';
+echo htmlentities( $f2 -> html );
 ?>
 
 </div>
+
 <h2 class="code_sample block bold container_padding">Displays</h2>
-<div class="container_padding word_break">
+<div class="code_returns container_padding word_break">
 <?php 
-echo $f;
+echo $h;
 ?>
 </div>
 

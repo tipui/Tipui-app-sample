@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-12-04 02:56:00
+* @updated: 2014-01-27 18:21:00
 */
 
 /** Alias to HTML Helper path */
@@ -32,7 +32,7 @@ Layout::Top();
 
 <div class="ha_left">
 <h1 class="code_sample block bold container_padding">\Tipui\Builtin\HTML\Helpers\Form->GetElementProperty</h1>
-<div class="container_padding word_break">Retrieves the value of an form element property</div>
+<div class="container_padding word_break">Retrieves the property value of data rule of an form field/parameter</div>
 
 <h2 class="code_sample block bold container_padding">Input type hidden</h2>
 <div class="container_padding word_break">Example to get some properties</div>
@@ -43,11 +43,9 @@ use \Tipui\Builtin\Helpers\HTML\Form as Form;
 
 \$type       = Form::GetElementProperty( 'foo', 'type' );
 \$value      = Form::GetElementProperty( 'foo', 'value' );
-\$validation = Form::GetElementProperty( 'foo', 'validation' );
 
 echo 'type: ' . \$type;
 echo '<br />value: ' . \$value;
-echo '<br />validation: ' . \$validation;
 
 echo '<br /><br />Retrieving all properties: <br />';
 \$properties = Form::GetElementProperty( 'foo' );
@@ -61,15 +59,14 @@ var_dump( \$properties );" ) );
 <?php 
 $type       = Form::GetElementProperty( 'foo', 'type' );
 $value      = Form::GetElementProperty( 'foo', 'value' );
-$validation = Form::GetElementProperty( 'foo', 'validation' );
 
 $f  = 'type: ' . $type;
 $f .= '<br />value: ' . $value;
-$f .= '<br />validation: ' . $validation;
 
 echo $f;
+unset( $f );
 
-echo '<br /><br />Retrieving all properties: <br />';
+echo '<br /><br />Retrieving all properties with var_dump(): <br />';
 $properties = Form::GetElementProperty( 'foo' );
 echo '<pre>';
 var_dump( $properties );
@@ -88,13 +85,15 @@ echo '</pre>';
 use \Tipui\Builtin\Helpers\HTML\Form as Form;
 
 // Input radio
-\$options = Form::AddElement( 'bar' );
-\$labels  = Form::GetElementProperty( 'bar', 'options' );
+\$f = Form::AddElement( 'bar' );
 echo PHP_EOL . 'options: ';
-foreach( \$options as \$k => \$v )
+foreach( \$f -> html as \$k => \$v )
 {
-	echo PHP_EOL . '<label>' . \$v . ' ' . \$labels[\$k] . '</label>';
-}" ) );
+	echo PHP_EOL . '<label>' . \$v . ' ' . \$f -> options[\$k] . '</label>';
+}
+\$h .= ( \$f -> error ) ? '<br />error: ' . key( \$f -> error ) : null;
+echo \$h;
+" ) );
 ?>
 </div>
 
@@ -103,22 +102,21 @@ foreach( \$options as \$k => \$v )
 
 <?php 
 // Input radio
-$options = Form::AddElement( 'bar' );
-$labels  = Form::GetElementProperty( 'bar', 'options' );
-$f = 'options: ';
-foreach( $options as $k => $v )
+$f = Form::AddElement( 'bar' );
+$h = 'options: ';
+foreach( $f -> html as $k => $v )
 {
-    $f .= PHP_EOL . '<label>' . $v . ' ' . $labels[$k] . '</label>';
+    $h .= PHP_EOL . '<label>' . $v . ' ' . $f -> options[$k] . '</label>';
 }
-echo nl2br( htmlentities( $f ) );
+$h .= ( $f -> error ) ? '<br />error: ' . key( $f -> error ) : null;
+echo nl2br( htmlentities( $h ) );
+unset( $f );
 ?>
 
 </div>
 <h2 class="code_sample block bold container_padding">Displays</h2>
 <div class="container_padding word_break">
-<?php 
-echo $f;
-?>
+<?php echo $h; unset( $h );?>
 
 </div>
 

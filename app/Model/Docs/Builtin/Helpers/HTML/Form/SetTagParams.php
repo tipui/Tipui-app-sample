@@ -22,7 +22,7 @@ class SetTagParams
 	*/
     public function Form()
     {
-		Form::SetElement( 'foo', 'input_text' );
+		Form::SetElement( 'foo', 'input_text', false );
 	}
 
 	/**

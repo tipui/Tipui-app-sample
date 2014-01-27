@@ -23,7 +23,9 @@ class GroupingOptionProperty
 	*/
     public function Form()
     {
-		Form::SetElement( 'foo', 'checkbox-array', false, array( DataRules::OPTIONS => array( 1 => 'choice 1', 2 => 'choice 2', 3 => 'choice 3', 4 => 'choice 4' ) ) );
+		Form::SetAction()
+		->SetMethod( 'POST' )
+		->SetElement( 'foo', 'checkbox-array', false, array( DataRules::OPTIONS => array( 1 => 'choice 1', 2 => 'choice 2', 3 => 'choice 3', 4 => 'choice 4' ) ) );
 	}
 
 	/**

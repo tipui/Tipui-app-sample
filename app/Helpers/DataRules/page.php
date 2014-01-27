@@ -1,11 +1,11 @@
 <?php
 $rs = array (
 	'type'           => 'hidden',
-	'MinLength'      => 1,
-	'MaxLength'      => 6,
+	'min_length'     => 1,
+	'max_length'     => 6,
 	'size'           => 25,
 	'validation'     => 'number',
 	'value'          => '',
 	'default'        => '',
-	'pre-filter'     => array( array( '\Tipui\Builtin\Libs\Strings', 'NumbersOnly' ) ),
+	'pre_filter'     => array( array( '\Tipui\Builtin\Libs\Strings', 'NumbersOnly' ) ),
 );

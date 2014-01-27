@@ -1,12 +1,12 @@
 <?php
 $rs = array (
 	'type'           => 'select',
-	'MinLength'      => 2,
-	'MaxLength'      => 6,
+	'min_length'     => 2,
+	'max_length'     => 6,
 	'size'           => 4,
 	'validation'     => 'options',
 	'value'          => '',
 	'default'        => LANG_DEFAULT,
 	'options'        => LanguagesLabels::Get(),
-	'pre-filter'     => array( array( '\Tipui\Builtin\Libs\Strings', 'Escape' ), array( false ) ),
+	'pre_filter'     => array( array( '\Tipui\Builtin\Libs\Strings', 'Escape' ), array( false ) ),
 );

@@ -8,7 +8,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-11-16 12:27:00
+* @updated: 2014-01-19 12:23:00
 */
 
 namespace Tipui\App\Model\Docs\Builtin\Helpers\HTML\Form\Elements\Input;
@@ -22,12 +22,18 @@ class Text
 	*/
     public function Form()
     {
-		Form::SetElement( 'foo', 'input_text' );
+		Form::SetAction()
+		->SetMethod( 'GET' )
+		->SetElement( 'foo', 'input_text', false );
 	}
 
 	/**
 	* @brief Data to be rendered
 	*/
-    public function View(){}
+    public function View(){
+	
+	//print_r( $this -> parameters ); exit;
+	
+	}
 
 }

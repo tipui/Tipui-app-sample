@@ -38,21 +38,25 @@ Layout::Top();
 use \Tipui\Builtin\Helpers\HTML\Form as Form;
 
 Form::SetTagParams( 'id=\"foo\"' );
-echo Form::AddElement( 'foo' );
+\$f = Form::AddElement( 'foo' );
+echo \$f -> html;
+echo ( \$f -> error ) ? '<br />error: ' . key( \$f -> error ) : null;
 " ) );?>
 </div>
 <h2 class="code_sample block bold container_padding">Results</h2>
 <div class="code_returns container_padding word_break">
 <?php
 Form::SetTagParams( 'id="foo"' );
-$f = Form::AddElement( 'foo' );
-echo htmlentities( $f );
+$f  = Form::AddElement( 'foo' );
+$h  = $f -> html;
+$h .= ( $f -> error ) ? '<br />error: ' . key( $f -> error ) : null;
+echo htmlentities( $h );
 ?>
 </div>
 
 <h2 class="code_sample block bold container_padding">Displays</h2>
 <div class="container_padding word_break">
-<?php echo $f;?>
+<?php echo $h; unset( $h );?>
 </div>
 
 <br /><br />
@@ -65,21 +69,27 @@ echo htmlentities( $f );
 use \Tipui\Builtin\Helpers\HTML\Form as Form;
 
 Form::SetTagParams( array( 'id' => 'foo', 'onclick' => 'alert(\'bar\');' ) );
-echo Form::AddElement( 'foo' );
+\$f = Form::AddElement( 'foo' );
+echo \$f -> html;
+echo ( \$f -> error ) ? '<br />error: ' . key( \$f -> error ) : null;
 " ) );?>
 </div>
 <h2 class="code_sample block bold container_padding">Results</h2>
 <div class="code_returns container_padding word_break">
 <?php
 Form::SetTagParams( array( 'id' => 'foo', 'onclick' => 'alert(\'bar\');' ) );
-$f = Form::AddElement( 'foo' );
-echo htmlentities( $f );
+$f  = Form::AddElement( 'foo' );
+$h  = $f -> html;
+$h .= ( $f -> error ) ? '<br />error: ' . key( $f -> error ) : null;
+echo htmlentities( $h );
 ?>
 </div>
 
 <h2 class="code_sample block bold container_padding">Displays</h2>
 <div class="container_padding word_break">
-<?php echo $f;?>
+Click or touch to see whats happen:
+<br />
+<?php echo $h; unset( $h );?>
 </div>
 
 

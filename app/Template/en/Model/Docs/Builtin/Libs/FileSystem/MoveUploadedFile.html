@@ -1,0 +1,69 @@
+<?php
+
+/**
+* @file   MoveUploadedFile.html
+* @brief  MoveUploadedFile Docs/Builtin/Libs module template.
+* @date   2014-01-24 14:17:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2014-01-24 14:17:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Library FileSystem MoveUploadedFile method' );
+HTML\Elements::SetMetatag( 'name', 'description', 'FileSystem Library MoveUploadedFile method.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, files, move, send, upload, library, documentation, samples, usage' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\HTML\Libs\FileSystem\MoveUploadedFile{}</h1>
+
+<br />
+
+<h2 class="code_sample block bold container_padding">Moving uploaded files</h2>
+<div class="container_padding word_break">
+Only for Linux or systems that supports PHP chmod() function.
+</div>
+<h2 class="code_sample block bold container_padding">Parameters</h2>
+<div class="container_padding word_break">
+(string) <code class="line">$from</code> Source path. The temporary path where the file was uploaded.
+<br />(string) <code class="line">$to</code> Destiny path to move the file.
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Libs\FileSystem as FileSystem;
+
+// Basic sample:
+FileSystem::MoveUploadedFile( '/full/source/path/file.name', '/full/destiny/path/file.name' );
+" ) );?>
+</div>
+<h2 class="code_sample block bold container_padding">Returns boolean</h2>
+<div class="container_padding word_break">
+(bool)<code class="line">true</code>: Successful.
+<br />(bool)<code class="line">false</code>: Couldn't be moved.
+</div>
+
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/Elements/File' );?>">Builtin/Helpers/HTML/Form/Elements/File</a>
+</div>
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

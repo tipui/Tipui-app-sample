@@ -1,11 +1,11 @@
 <?php
 $rs = array (
 	'type'           => 'text',
-	'MinLength'      => 5,
-	'MaxLength'      => 220,
+	'min_length'     => 5,
+	'max_length'     => 220,
 	'size'           => 80,
 	'validation'     => 'text',
 	'value'          => '',
 	'default'        => '',
-	'pre-filter'     => array( array( '\Tipui\Builtin\Libs\Strings', 'Escape' ), array( 'url_slash' ) ),
+	'pre_filter'     => array( array( '\Tipui\Builtin\Libs\Strings', 'Escape' ), array( 'url_slash' ) ),
 );

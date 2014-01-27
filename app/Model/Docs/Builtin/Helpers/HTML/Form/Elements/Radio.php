@@ -23,7 +23,9 @@ class Radio
 	*/
     public function Form()
     {
-		Form::SetElement( 'foo', 'input_radio' );
+		Form::SetAction()
+		->SetMethod( 'GET' )
+		->SetElement( 'foo', 'input_radio', false );
 
 		/**
 		* Alternative way, defining options dynamically

@@ -59,12 +59,12 @@ Layout::Top();
 	/**
 	* Minimum character length required
 	*/
-	'MinLength'      => 5,
+	'min_length'     => 5,
 
 	/**
 	* Maximum character length permitted
 	*/
-	'MaxLength'      => 25,
+	'max_length'     => 25,
 
 	/**
 	* Element size
@@ -97,7 +97,7 @@ Layout::Top();
 	* Numbers Only filter
 	* array( array( '\Tipui\Builtin\Libs\Strings', 'NumbersOnly' ) )
 	*/
-	'pre-filter'     => array( (array)[ [library class], [library class method] ], (array)[library class method arguments] ),
+	'pre_filter'     => array( (array)[ [library class], [library class method] ], (array)[library class method arguments] ),
 );
 ?>" ) );?>
 </div>
@@ -150,7 +150,7 @@ use \Tipui\Builtin\Helpers\HTML\Form as Form;
 * Printing the element on template
 * @param field_name: field name
 */
-echo Form::AddElement( (string)field_name );
+echo Form::AddElement( (string)field_name ) -> html;
 
 ?>' ) );?>
 </div>

@@ -23,7 +23,9 @@ class Option
 	*/
     public function Form()
     {
-		Form::SetElement( 'foo', 'select' );
+		Form::SetAction()
+		->SetMethod( 'GET' )
+		->SetElement( 'foo', 'select', false );
 
 		/**
 		* Alternative way, defining options dynamically

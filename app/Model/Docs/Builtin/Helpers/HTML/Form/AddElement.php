@@ -17,13 +17,6 @@ use \Tipui\Builtin\Libs\Form as Form;
 
 class AddElement
 {
-	/**
-	* @brief Form rules
-	*/
-    public function Form()
-    {
-		Form::SetElement( 'id', 'id' );
-	}
 
 	/**
 	* @brief Data to be rendered

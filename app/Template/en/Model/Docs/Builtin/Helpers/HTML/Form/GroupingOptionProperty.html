@@ -42,14 +42,10 @@ Layout::Top();
 <div class="code_returns container_padding word_break">
 <?php highlight_string( html_entity_decode( "&lt;?php
 \$rs = array (
-	'type'           => 'input_checkbox',
-	'size'           => 1,
-	'validation'     => 'number',
-	'multiple'       => true, // indicates that field name must be array with unique indices
+	'type'           => 'checkbox',
 	'options'        => array(1 => 'choice 1', 2 => 'choice 2'), // values and labels
 	'value'          => null,
 	'default'        => array( 1, 3 ),
-	'pre-filter'     => array( array( '\Tipui\Builtin\Libs\Strings', 'NumbersOnly' ) ),
 );" ) );
 ?>
 </div>
@@ -57,42 +53,41 @@ Layout::Top();
 <div class="container_padding word_break">Model Form Rules SetElementAsArray() sample</div>
 <div class="code_returns container_padding word_break">
 <?php highlight_string( html_entity_decode( "&lt;?php
-Form::SetElement( 'foo', 'checkbox-array', false, array( 1 => 'choice 1', 2 => 'choice 2', 3 => 'choice 3', 4 => 'choice 4' ) );" ) );
+Form::SetElement( 'foo', 'checkbox-array', false, array( DataRules::OPTIONS => array( 1 => 'choice 1', 2 => 'choice 2', 3 => 'choice 3', 4 => 'choice 4' ) ) );" ) );
 ?>
 </div>
 
 <h2 class="code_sample block bold container_padding">Template usage</h2>
 <div class="code_returns container_padding word_break">
 <?php highlight_string( html_entity_decode( "&lt;?php
-\$options = Form::AddElement( 'foo' );
-\$labels  = Form::GetElementProperty( 'foo', 'options' );
-\$f = '';
-foreach( \$options as \$k => \$v )
+use \Tipui\Builtin\Helpers\HTML\Form as Form;
+
+\$f = Form::AddElement( 'foo' );
+\$h = '';
+foreach( \$f -> html as \$k => \$v )
 {
-	\$f .= '<label>' . \$v . ' ' . \$labels[\$k] . '</label>' . PHP_EOL;
+	\$h .= '<label>' . \$v . ' ' . \$f -> options[\$k] . '</label>' . PHP_EOL;
 }
-echo \$f;" ) );
+echo \$h;" ) );
 ?>
 </div>
 
 <h2 class="code_sample block bold container_padding">Results (string or array)</h2>
 <div class="code_returns container_padding word_break">
 <?php 
-$options = Form::AddElement( 'foo' );
-$labels  = Form::GetElementProperty( 'foo', 'options' );
-$f = '';
-foreach( $options as $k => $v )
+$f = Form::AddElement( 'foo' );
+$h = '';
+foreach( $f -> html as $k => $v )
 {
-	$f .= '<label>' . $v . ' ' . $labels[$k] . '</label>' . PHP_EOL;
+    $h .= '<label>' . $v . ' ' . $f -> options[$k] . '</label>' . PHP_EOL;
 }
-
-echo nl2br( htmlentities( $f ) );
+echo nl2br( htmlentities( $h ) );
 ?>
 </div>
 
 <h2 class="code_sample block bold container_padding">Displays</h2>
 <div class="container_padding word_break">
-<?php echo $f;?>
+<?php echo $h;?>
 </div>
 
 <br /><br />

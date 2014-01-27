@@ -23,7 +23,9 @@ class Hidden
 	*/
     public function Form()
     {
-		Form::SetElement( 'foo', 'input_hidden' );
+		Form::SetAction()
+		->SetMethod( 'GET' )
+		->SetElement( 'foo', 'input_hidden', false );
 	}
 
 	/**

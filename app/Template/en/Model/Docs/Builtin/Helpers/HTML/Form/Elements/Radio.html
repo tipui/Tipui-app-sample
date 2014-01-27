@@ -46,15 +46,16 @@ Layout::Top();
 
 <div class="code_returns container_padding word_break">
 <?php highlight_string( html_entity_decode( "&lt;?php
+use \Tipui\Builtin\Helpers\HTML\Form as Form;
 
-\$options = Form::AddElement( 'foo' );
-\$labels  = Form::GetElementProperty( 'foo', 'options' );
+\$f = Form::AddElement( 'foo' );
 echo PHP_EOL . 'options: ';
-foreach( \$options as \$k => \$v )
+foreach( \$f -> html as \$k => \$v )
 {
-	echo PHP_EOL . '<label>' . \$v . ' ' . \$labels[\$k] . '</label>';
+	echo PHP_EOL . '<label>' . \$v . ' ' . \$f -> options[\$k] . '</label>';
 }
-" ) );?>
+
+echo ( \$f -> error ) ? '<br />error: ' . key( \$f -> error ) : null;" ) );?>
 </div>
 
 <br />
@@ -62,21 +63,25 @@ foreach( \$options as \$k => \$v )
 <div class="code_returns container_padding word_break">
 
 <?php 
-
-$options = Form::AddElement( 'foo' );
-$labels  = Form::GetElementProperty( 'foo', 'options' );
-$f = PHP_EOL . 'options: ';
-foreach( $options as $k => $v )
+$f  = Form::AddElement( 'foo' );
+$h  = 'options: ';
+foreach( $f -> html as $k => $v )
 {
-	$f .= PHP_EOL . '<label>' . $v . ' ' . $labels[$k] . '</label>';
+	$h .= PHP_EOL . '<label>' . $v . ' ' . $f -> options[$k] . '</label>';
 }
-echo htmlentities( $f );
-echo '<br /><br />';
-echo $f;
 
+$h .= ( $f -> error ) ? '<br />error: ' . key( $f -> error ) : null;
+
+echo nl2br( htmlentities( $h ) );
 ?>
 
 </div>
+
+<h2 class="code_sample block bold container_padding">Displays</h2>
+<div class="container_padding word_break">
+<?php echo $h; unset( $h );?>
+</div>
+
 </div>
 
 <?php

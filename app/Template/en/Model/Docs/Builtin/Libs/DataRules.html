@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-12-08 03:19:00
+* @updated: 2014-01-24 18:48:00
 */
 
 /** Alias to HTML Helper path */
@@ -17,7 +17,7 @@ use \Tipui\app\Helpers\HTML\Layout as Layout;
 /** HTML headers */
 HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Library DataRules' );
 HTML\Elements::SetMetatag( 'name', 'description', 'DataRules Library methods index.' );
-HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, DataRules, library, documentation' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, data rules, library, documentation' );
 
 /** Add array of (css) stylesheets */
 HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
@@ -37,6 +37,52 @@ Layout::Top();
 <h2 class="code_sample block bold container_padding">DataRules Library</h2>
 <div class="container_padding word_break">
 Loads and handles the data rules of HTML form elements.
+</div>
+
+<h2 class="code_sample block bold container_padding">Data rules properties</h2>
+<div class="container_padding word_break">
+
+General
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/Required' );?>">Required</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/Type' );?>">Type</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/Value' );?>">Value</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/Defaults' );?>">Defaults (default)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/ExactValue' );?>">ExactValue (exact_value)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/ExactLength' );?>">ExactLength (exact_length)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/MinLength' );?>">MinLength (min_length)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/MaxLength' );?>">MaxLength (max_length)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/Validation' );?>">Validation</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/PreFilter' );?>">PreFilter (pre_filter)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/Error' );?>">Error</a>
+
+<br /><br />Input text
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/Size' );?>">Size</a>
+
+<br /><br />Textarea
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/Cols' );?>">Cols</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/Rows' );?>">Rows</a>
+
+
+<br /><br />Multiple choices (select, radio, checkbox)
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/Options' );?>">Options</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/Optgroup' );?>">Optgroup</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/SelectExact' );?>">SelectExact (select_exact)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/SelectMin' );?>">SelectMin (select_min)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/SelectMax' );?>">SelectMax (select_max)</a>
+
+<br /><br />File Upload
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/ContentTypes' );?>">ContentTypes (content_types)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/MinSize' );?>">MinSize (min_size)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/MaxSize' );?>">MaxSize (max_size)</a>
+
+<br /><br />Images
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/ExactWidth' );?>">ExactWidth (exact_width)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/ExactHeight' );?>">ExactHeight (exact_height)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/MinWidth' );?>">MinWidth (min_width)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/MaxWidth' );?>">MaxWidth (max_width)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/MinHeight' );?>">MinHeight (min_height)</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules/Property/MaxHeight' );?>">MaxHeight (max_height)</a>
+
 </div>
 
 <h2 class="code_sample block bold container_padding">Builtin data rules</h2>

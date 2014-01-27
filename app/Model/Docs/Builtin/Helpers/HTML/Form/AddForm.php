@@ -17,6 +17,14 @@ use \Tipui\Builtin\Libs\Form as Form;
 
 class AddForm
 {
+	/**
+	* @brief Form rules
+	*/
+    public function Form()
+    {
+		Form::SetAction()
+		->SetMethod();
+	}
 
 	/**
 	* @brief Data to be rendered

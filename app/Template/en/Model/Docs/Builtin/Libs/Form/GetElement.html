@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-12-07 21:06:00
+* @updated: 2014-01-27 18:21:00
 */
 
 /** Alias to HTML Helper path */
@@ -35,9 +35,9 @@ Layout::Top();
 
 <br />
 <h2 class="code_sample block bold container_padding">Parameters</h2>
-<div class="code_returns container_padding word_break">
-(string)$name -> Field name. Default: false
-<br />(string)$property -> DataRule name. Default: false
+<div class="container_padding word_break">
+<code class="line">(string)$name:(bool:false)</code> The parameter/field name. If empty, returns array of all parameters.
+<br /><code class="line">(string)$property</code> The rule parameter.
 
 </div>
 <br />
@@ -73,6 +73,15 @@ echo Form::GetElement( 'foo', 'type' );
 <?php echo Form::GetElement( 'foo', 'type' );?>
 </div>
 
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/AddElement' );?>">Builtin/Helpers/HTML/Form->AddElement</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form' );?>">Builtin/Helpers/HTML/Form</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Model' );?>">App/Model</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/DataRules' );?>">Builtin/Helpers/DataRules</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules' );?>">Builtin/Libs/DataRules</a>
+</div>
 
 </div>
 

@@ -44,11 +44,6 @@ ini_set( 'mbstring.http_output', $bootstrap['CHARSET'] );
 ini_set( 'mbstring.internal_encoding', $bootstrap['CHARSET'] );
 
 /**
-* Directory for temporary uploaded files
-*/
-ini_set( 'upload_tmp_dir', $array['UPLOAD_PATH'] );
-
-/**
 * PHP Sessions general settings
 */
 

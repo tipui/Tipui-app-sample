@@ -23,7 +23,9 @@ class Checkbox
 	*/
     public function Form()
     {
-		Form::SetElement( 'foo', 'input_checkbox' );
+		Form::SetAction()
+		->SetMethod( 'GET' )
+		->SetElement( 'foo', 'input_checkbox', false );
 
 		/**
 		* Alternative way, defining options dynamically

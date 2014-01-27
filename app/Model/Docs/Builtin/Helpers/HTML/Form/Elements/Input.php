@@ -18,14 +18,6 @@ use \Tipui\Builtin\Libs\Form as Form;
 class Input
 {
 	/**
-	* @brief Form rules
-	*/
-    public function Form()
-    {
-		Form::SetElement( 'foo', 'input_hidden' );
-	}
-
-	/**
 	* @brief Data to be rendered
 	*/
     public function View(){}

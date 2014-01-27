@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-12-07 21:06:00
+* @updated: 2014-01-27 18:21:00
 */
 
 /** Alias to HTML Helper path */
@@ -17,7 +17,7 @@ use \Tipui\app\Helpers\HTML\Layout as Layout;
 /** HTML headers */
 HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Library Form->SetElement' );
 HTML\Elements::SetMetatag( 'name', 'description', 'Form library method SetElement.' );
-HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, form, SetElement, library, samples' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, form, Set form element, library, samples' );
 
 /** Add array of (css) stylesheets */
 HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
@@ -36,31 +36,70 @@ Layout::Top();
 
 <br />
 <h2 class="code_sample block bold container_padding">Parameters</h2>
-<div class="code_returns container_padding word_break">
-(string)$name -> Form Field / Element name
-<br />(string)$rule -> Data rule name
-<br />(boolean)$required:(bool)true -> true: required, false: not required.
-<br />(id)$rule_index:(bool)false -> Data rule especific index value.
+<div class="container_padding word_break">
+<code class="line">(string)$name</code> Form Field / Element name
+<br /><code class="line">(string)$rule</code> Data rule name
+<br /><code class="line">(boolean)$required:(bool)true</code> required, <code class="line">false</code> not required.
+<br /><code class="line">(id)$rule_index:(bool)false</code> Data rule especific index value.
 
 </div>
 <br />
-<h2 class="code_sample block bold container_padding">Model Form Rules</h2>
+<h2 class="code_sample block bold container_padding">Example for Model Form() method</h2>
 <div class="code_returns container_padding word_break">
 <?php highlight_string( html_entity_decode( "&lt;?php 
 use \Tipui\Builtin\Libs\Form as Form;
 
-Form::SetElement( 'foo', 'input_text' );
+public function Form()
+{
+	Form::SetElement( 'foo', 'input_text' );
+}
 " ) );?>
 </div>
+
+<h2 class="code_sample block bold container_padding">Setting the element as not required</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "&lt;?php 
+use \Tipui\Builtin\Libs\Form as Form;
+
+public function Form()
+{
+	Form::SetElement( 'foo', 'input_text', false );
+}
+" ) );?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Overriding the element rules parameters</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "&lt;?php 
+use \Tipui\Builtin\Libs\Form as Form;
+use \Tipui\Builtin\Libs\DataRules as DataRules;
+
+public function Form()
+{
+	Form::SetElement( 'foo', 'input_text', true, array( DataRules::DEFAULTS => 'bar' ) );
+}
+" ) );?>
+</div>
+
+
 <h2 class="code_sample block bold container_padding">Template file</h2>
 <div class="code_returns container_padding word_break">
 <?php highlight_string( html_entity_decode( "&lt;?php
 use \Tipui\Builtin\Helpers\HTML\Form as Form;
 
-echo Form::AddElement( 'foo' );
+echo Form::AddElement( 'foo' ) -> html;
 " ) );?>
 </div>
 
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding word_break">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/AddElement' );?>">Builtin/Helpers/HTML/Form->AddElement</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form' );?>">Builtin/Helpers/HTML/Form</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Model' );?>">App/Model</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/DataRules' );?>">Builtin/Helpers/DataRules</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/DataRules' );?>">Builtin/Libs/DataRules</a>
+</div>
 
 </div>
 

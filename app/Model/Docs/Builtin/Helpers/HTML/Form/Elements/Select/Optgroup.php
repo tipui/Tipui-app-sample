@@ -8,7 +8,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-12-08 03:19:00
+* @updated: 2014-01-19 12:23:00
 */
 
 namespace Tipui\App\Model\Docs\Builtin\Helpers\HTML\Form\Elements\Select;
@@ -23,7 +23,9 @@ class Optgroup
 	*/
     public function Form()
     {
-		Form::SetElement( 'foo', 'select_optgroup' );
+		Form::SetAction()
+		->SetMethod( 'GET' )
+		->SetElement( 'foo', 'select_optgroup', false );
 
 		/**
 		* Alternative way, defining options dynamically
