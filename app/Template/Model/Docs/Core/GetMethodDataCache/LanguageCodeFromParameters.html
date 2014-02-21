@@ -1,0 +1,79 @@
+<?php
+
+/**
+* @file   LanguageCodeFromParameters.html
+* @brief  LanguageCodeFromParameters Docs/Core/GetMethodDataCache module template.
+* @date   2014-02-02 00:37:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2014-02-19 16:36:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Core/GetMethodDataCache(\'LanguageCodeFromParameters\')' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Displays builtin Core/GetMethodDataCache of LanguageCodeFromParameters method.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'documentation, language code, interface lang, idiom, framework php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Core::GetConf()->GetMethodDataCache('LanguageCodeFromParameters')</h1>
+
+<br />
+<h2 class="code_sample block bold container_padding">Static</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;?php
+var_dump( \Tipui\Core::GetConf()->GetMethodDataCache(\'LanguageCodeFromParameters\') );
+?>' ) );
+?>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Instance</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;?php
+$c = new \Tipui\Core;
+var_dump( $c -> GetConf()->GetMethodDataCache(\'LanguageCodeFromParameters\') );
+?>' ) );
+?>
+</div>
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Results</h2>
+<div class="container_padding word_break">
+false: null value
+<br />(string): <a href="http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank">ISO 639-1 Language Code</a>
+</div>
+<div class="code_returns container_padding word_break">
+<?php
+var_dump( $T['rs'] );
+?>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="container_padding word_break ha_left">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/LanguageCodeFromParameters' );?>">Core->LanguageCodeFromParameters()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/SaveToCache' );?>">Core->SaveToCache()</a>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

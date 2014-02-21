@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-10-04 14:21:00
+* @updated: 2014-02-19 16:36:00
 */
 
 /** Alias to HTML Helper path */
@@ -15,9 +15,9 @@ use \Tipui\Builtin\Helpers\HTML as HTML;
 use \Tipui\app\Helpers\HTML\Layout as Layout;
 
 /** HTML headers */
-HTML\Elements::SetTitle( 'TIPUI PHP - Docs Browse GetHTTPInfo()' );
-HTML\Elements::SetMetatag( 'name', 'description', 'Displays builtin Core/GetMethodDataCache property IsCliMode (CLI command line or HTTP).' );
-HTML\Elements::SetMetatag( 'name', 'keywords', 'unit tests, framework php' );
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Core/GetMethodDataCache(\'IsCliMode\')' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Displays builtin Core/GetMethodDataCache of IsCliMode method (CLI command line or HTTP).' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'documentation, cli, sapi, framework php' );
 
 /** Add array of (css) stylesheets */
 HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
@@ -30,7 +30,7 @@ Layout::Top();
 
 <div class="ha_left">
 
-<h1 class="container_padding">\Tipui\Core::GetConf()->GetMethodDataCache()</h1>
+<h1 class="container_padding">\Tipui\Core::GetConf()->GetMethodDataCache('IsCliMode')</h1>
 
 <br />
 <h2 class="code_sample block bold container_padding">Static</h2>
@@ -62,6 +62,13 @@ false: running from http
 <?php
 var_dump( $T['rs'] );
 ?>
+</div>
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="container_padding word_break ha_left">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/SaveToCache' );?>">Core->SaveToCache()</a>
 </div>
 
 

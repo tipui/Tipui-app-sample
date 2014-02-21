@@ -1,0 +1,66 @@
+<?php
+
+/**
+* @file   AddForm.html
+* @brief  AddForm Docs/Builtin/Helpers/HTML/Form Module template.
+* @date   2013-08-31 23:35:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2014-02-22 00:58:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\Builtin\Helpers\HTML\Form as Form;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI - Docs Builtin Helper HTML Form AddForm' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Method to add form tag' );
+HTML\Elements::SetMetatag( 'name', 'keywords', '' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+<h1 class="code_sample block bold container_padding">\Tipui\Builtin\HTML\Helpers\Form->AddForm</h1>
+<div class="container_padding word_break">Add HTML Form Tag.
+<br />If language code parameter is present and valid, the hidden field for language code will be appended.
+<br />For test the language code behavior:
+<br /> - <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'en', 'Docs/Builtin/Helpers/HTML/Form/AddForm' );?>">English</a>
+<br /> - <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'pt', 'Docs/Builtin/Helpers/HTML/Form/AddForm' );?>">Portuguese</a>
+<br /><br />* The language code parameter will not be added when the default language is the same of language code parameter value.
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( '&lt;?php
+echo Form::AddForm();
+?>' ) );?>&lt;/form>
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Results</h2>
+<div class="code_returns container_padding word_break">
+
+<?php echo htmlentities( Form::AddForm() . '</form>' );?>
+
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="container_padding word_break ha_left">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML/Form/AddLangParam' );?>">Builtin/Helpers/HTML/Form/AddLangParam</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/LanguageCodeFromParameters' );?>">Core->LanguageCodeFromParameters()</a>
+</div>
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

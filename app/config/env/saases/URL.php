@@ -61,6 +61,12 @@ $array = array(
 	* Composes URLs in normal mode
 	*/
 	'PARAM_SEPARATOR'  => '&',
+
+	/**
+	* Parameter name for interface language code.
+	* ie: http://localhost/?p=Foo will call and load the module called "Foo" if exists in app/Model/Foo.php
+	*/
+	'PARAM_LANG'       => 'l',
 );
 
 /**

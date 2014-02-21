@@ -41,10 +41,18 @@ $array = array(
 
 	/**
 	* Interface default language code
-	* This is the name of Template language folder too.
-	* ie: app/Template/en/
 	*/
 	'DEFAULT_LANGUAGE'       => 'en',
+
+	/**
+	* Indicates the base path of template files organized into separated folders.
+	* ie: 
+	*	app/Template/en/
+	*	app/Template/pt/
+	*
+	* Recommended for cases when the template files must or may have different labels for each language.
+	*/
+	'LANGUAGES_IN_FOLDER'    => false,
 );
 
 /**

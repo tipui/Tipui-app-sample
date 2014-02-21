@@ -33,9 +33,7 @@ class Home
 	*/
     public function View()
     {
-
 		return null;
-
     }
 
 	/**
