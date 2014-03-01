@@ -31,10 +31,7 @@ class Home
 	/**
 	* @brief Data to be rendered
 	*/
-    public function View()
-    {
-		return null;
-    }
+    public function View(){}
 
 	/**
 	* @brief Template settings overriding

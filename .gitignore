@@ -1,5 +1,5 @@
-output_changes.sh
-output_changes.txt
+changes.sh
+changes.txt
 backups/
 logs/
 tmp/

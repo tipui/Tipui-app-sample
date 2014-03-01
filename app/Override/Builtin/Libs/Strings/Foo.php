@@ -21,7 +21,8 @@ class Foo
 	*/
 	public function Exec()
 	{
-		return 'This is for sample purposes only. See: /Docs/App/Override';
+		return \Tipui\Builtin\Helpers\Languages::Label('foo');
+		//return 'This is for sample purposes only. See: /Docs/App/Override';
     }
 
 }

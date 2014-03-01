@@ -7,17 +7,18 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-12-22 16:51:00
+* @updated: 2014-03-01 03:44:00
 */
 
 /** Alias to HTML Helper path */
 use \Tipui\Builtin\Helpers\HTML as HTML;
 use \Tipui\app\Helpers\HTML\Layout as Layout;
+use \Tipui\Builtin\Helpers\Languages as Languages;
 
 /** HTML headers */
-HTML\Elements::SetTitle( 'TIPUI PHP - Documentation' );
-HTML\Elements::SetMetatag( 'name', 'description', 'Docs and Testing Samples of TIPUI PHP Framework' );
-HTML\Elements::SetMetatag( 'name', 'keywords', 'usage, core, libraries, templates, models, modules, overriding, config settings' );
+HTML\Elements::SetTitle( Languages::Base( dirname(dirname(__FILE__)) )->Label('app_name') . ' - ' . Languages::Label('documentation') );
+HTML\Elements::SetMetatag( 'name', 'description', Languages::Label('description') );
+HTML\Elements::SetMetatag( 'name', 'keywords', Languages::Label('keywords') );
 
 /** Add array of (css) stylesheets */
 HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'Model/docs.css' ), array( 'file' => 'code.css' ) ) );
@@ -26,15 +27,16 @@ HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'Model/docs.cs
 Layout::Top();
 
 /** main content */
+
 ?>
 
 <div class="ha_left">
 
-<h1 class="container_padding"><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs' );?>">Documentation</a></h1>
+<h1 class="container_padding"><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs' );?>"><?php echo Languages::Label('documentation');?></a></h1>
 <br />
 
 
-<h2 class="block bold container_padding">Builtin</h2>
+<h2 class="block bold container_padding"><?php echo Languages::Label('builtin');?></h2>
 <div class="code_returns container_padding word_break">
 <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Tipui/Start' );?>">Tipui/Start</a>
 <br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core' );?>">Core</a>
@@ -42,13 +44,13 @@ Layout::Top();
 <br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs' );?>">Libraries</a>
 </div>
 
-<h2 class="block bold container_padding">Builtin/Helpers</h2>
+<h2 class="block bold container_padding"><?php echo Languages::Label('builtin/helpers');?></h2>
 <div class="code_returns container_padding word_break">
 <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML' );?>">HTML</a>
 <br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/DataRules' );?>">DataRules</a>
 </div>
 
-<h2 class="block bold container_padding">App</h2>
+<h2 class="block bold container_padding"><?php echo Languages::Label('app');?></h2>
 <div class="code_returns container_padding word_break">
 <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config' );?>">App Configuration Files</a>
 <br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Routing/Modules' );?>">Routting/Modules</a>
@@ -57,7 +59,7 @@ Layout::Top();
 <br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Template' );?>">App/Template</a>
 </div>
 
-<h2 class="block bold container_padding">Others</h2>
+<h2 class="block bold container_padding"><?php echo Languages::Label('others');?></h2>
 <div class="code_returns container_padding word_break">
 <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Apache/Htaccess' );?>">Apache htaccess file</a>
 <br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Namespaces' );?>">Namespaces</a>

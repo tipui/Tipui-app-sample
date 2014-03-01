@@ -7,11 +7,17 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-09-29 21:59:00
+* @updated: 2014-03-01 03:44:00
 */
 
 use \Tipui\Builtin\Helpers\HTML\Elements as Elements;
 use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\Builtin\Helpers\Languages as Languages;
+
+/**
+* Register the base path of this current file
+*/
+//Languages::Base();
 
 /**
 * Declares the DTD document type
@@ -101,7 +107,7 @@ echo HTML\Miscellaneous::Append() -> Get();
 * This is optional. Of course, for performance reasons, its unnecessary. Just type </head>
 */
 //echo PHP_EOL . Elements::AddHead( 'close' );
-echo PHP_EOL . '</head>';
+//echo PHP_EOL . '</head>';
 
 /**
 * Open body tag
@@ -110,12 +116,14 @@ echo PHP_EOL . '</head>';
 */
 //echo PHP_EOL . Elements::AddBody();
 //echo PHP_EOL . '<body>';
+
 ?>
+</head>
 <body>
 <div id="container_top" class="container_default_width ha_center va_middle block">
 	<div class="container_padding">
-	<div id="container_top_header" class="fl_left"><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values();?>">TIPUI PHP</a></div>
-	<div id="container_top_slogan" class="fl_right">/** Lightweight PHP Framework.<br />From developers to developers. */</div>
+	<div id="container_top_header" class="fl_left"><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values();?>"><?php echo Languages::Label('app_name');?></a></div>
+	<div id="container_top_slogan" class="fl_right"><?php echo nl2br( Languages::Label('app_slogan') );?></div>
 	</div><br clear="all" />
 </div>
 <div id="container_middle" class="container_default_width">
