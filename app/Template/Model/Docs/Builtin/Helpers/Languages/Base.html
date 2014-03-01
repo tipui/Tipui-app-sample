@@ -1,0 +1,97 @@
+<?php
+
+/**
+* @file   Base.html
+* @brief  Base Docs/Builtin/Helpers/Languages module template.
+* @date   2014-03-01 19:25:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2014-03-01 19:25:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Helper Languages, Base Method' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Changes the base path for load an translation file.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, Languages, translations, path base, file, labels, helper, documentation' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\Helpers\Languages\Base</h1>
+
+<div class="container_padding">
+Set the base path of translation file to be loaded.
+<br />Returns the self instance.
+</div>
+
+<h2 class="code_sample block bold container_padding">Path precedence<a name="path_precedence"></a></h2>
+<div class="container_padding">
+If the file calling the method colides with existing folder under same base, the folder prevails to mount the path base.
+<br />ie: <code class="line">app/<?php echo $T['templates_folder'];?>/foo/bar.html</code> calling for <code class="line">Languages::Base()</code>, the path base to load the translation file will be <code class="line">app/<?php echo $T['languages_folder'];?>/foo/</code>, however, 
+if exists the path <code class="line">app/<?php echo $T['templates_folder'];?>/foo/bar/</code>, the folder name <code class="line">bar</code> prevails, mounting the path as <code class="line">app/<?php echo $T['languages_folder'];?>/foo/bar/</code>.
+</div>
+
+<h2 class="code_sample block bold container_padding">Without parameters</h2>
+<div class="container_padding">
+The current script file base as path base reference to load translation file.
+<br />ie: In a file in <code class="line">app/<?php echo $T['templates_folder'];?>/foo/bar.html</code>, the path base to load the translation file will be <code class="line">app/<?php echo $T['languages_folder'];?>/foo/</code>
+</div>
+<div class="code_returns container_padding">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Helpers\Languages as Languages;
+
+Languages::Base();" ) );?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Changing the base</h2>
+<div class="container_padding">
+Setting the base to 1 directory above the current path.
+<br />ie: For <code class="line">app/<?php echo $T['templates_folder'];?>/foo/bar.html</code>, the current path base is <code class="line">app/<?php echo $T['languages_folder'];?>/foo/</code>.
+<br />
+</div>
+<div class="code_returns container_padding">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Helpers\Languages as Languages;
+
+Languages::Base( dirname( dirname( __FILE__ ) ) );" ) );?>
+</div>
+<div class="container_padding">
+For more samples, see <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/Languages/Label' );?>"><code class="line">Languages::Label()</code></a>.
+</div>
+
+<div class="container_padding">
+*Cautions!
+<br /> - Do not use relative paths as <code class="line">../folder/</code>, that may cause unnexpected errors because the library do not provide interpretation for relative paths.
+<br /> - The base path must be inside the app folders, otherwise, will throw fatal errors.
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/LANGUAGES' );?>">Docs/App/Config/env/LANGUAGES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/TEMPLATES' );?>">Docs/App/Config/env/TEMPLATES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf/TEMPLATES' );?>">\Tipui\Core::GetConf()->TEMPLATES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf/LANGUAGES' );?>">\Tipui\Core::GetConf()->LANGUAGES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetMethodDataCache/LanguageCodeFromParameters' );?>">\Tipui\Core::GetConf()->GetMethodDataCache('LanguageCodeFromParameters')</a>
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

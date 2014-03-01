@@ -26,5 +26,6 @@
 date_default_timezone_set('Asia/Tokyo');
 
 // Load Tipui Framework
-require( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'Tipui' . DIRECTORY_SEPARATOR . 'Start.php' );
+require( dirname( dirname( __FILE__ ) ) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'Tipui' . DIRECTORY_SEPARATOR . 'Start.php' );
+//require( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'Tipui' . DIRECTORY_SEPARATOR . 'Start.php' );
 ?>

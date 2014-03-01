@@ -1,0 +1,97 @@
+<?php
+
+/**
+* @file   Label.html
+* @brief  Label Docs/Builtin/Helpers/Languages module template.
+* @date   2014-03-01 19:25:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2014-03-01 19:25:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Helper Languages, Label Method' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Writes the translation for an index.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, Languages, translations, string, text, label, prhase, file, labels, helper, documentation' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\Helpers\Languages\Label</h1>
+
+<div class="container_padding">
+Get the index value of the array loaded from translation file.
+<br />Returns string, but may return objects like <code class="line">Array</code> ou <code class="line">stdClass</code>, depending on what is assigned on array value of translation file.
+</div>
+
+<h2 class="code_sample block bold container_padding">Sample printing a label</h2>
+<div class="code_returns container_padding">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Helpers\Languages as Languages;
+
+echo Languages::Base( 'foo' );" ) );?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Changing the base</h2>
+<div class="container_padding">
+For more details, see <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/Languages/Base' );?>"><code class="line">Languages::Base()</code></a>.
+</div>
+<div class="code_returns container_padding">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Helpers\Languages as Languages;
+
+echo Languages::Base(dirname(dirname(__FILE__)))->Label('foo');" ) );?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Changing the language code</h2>
+<div class="container_padding">
+For more details, see <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/Languages/Lang' );?>"><code class="line">Languages::Lang()</code></a>.
+</div>
+<div class="code_returns container_padding">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Helpers\Languages as Languages;
+
+echo Languages::Lang('pt')->Label('foo');" ) );?>
+</div>
+<div class="container_padding">
+Switching languages: 
+</div>
+<div class="code_returns container_padding">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Helpers\Languages as Languages;
+
+echo Languages::Lang()->Label('foo'); // returns the label for default language code
+echo Languages::Lang('pt')->Label('foo'); // returns the label for changed language code
+echo Languages::Lang()->Label('foo'); // returns the label for default language code" ) );?>
+</div>
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/LANGUAGES' );?>">Docs/App/Config/env/LANGUAGES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/TEMPLATES' );?>">Docs/App/Config/env/TEMPLATES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf/TEMPLATES' );?>">\Tipui\Core::GetConf()->TEMPLATES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf/LANGUAGES' );?>">\Tipui\Core::GetConf()->LANGUAGES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetMethodDataCache/LanguageCodeFromParameters' );?>">\Tipui\Core::GetConf()->GetMethodDataCache('LanguageCodeFromParameters')</a>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

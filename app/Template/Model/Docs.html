@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2014-03-01 03:44:00
+* @updated: 2014-03-01 18:52:00
 */
 
 /** Alias to HTML Helper path */
@@ -38,33 +38,34 @@ Layout::Top();
 
 <h2 class="block bold container_padding"><?php echo Languages::Label('builtin');?></h2>
 <div class="code_returns container_padding word_break">
-<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Tipui/Start' );?>">Tipui/Start</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core' );?>">Core</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Autoloader' );?>">Autoloader</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs' );?>">Libraries</a>
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Tipui/Start' );?>"><?php echo Languages::Label('tipui/start');?></a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core' );?>"><?php echo Languages::Label('core');?></a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Autoloader' );?>"><?php echo Languages::Label('autoloader');?></a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs' );?>"><?php echo Languages::Label('libraries');?></a>
 </div>
 
 <h2 class="block bold container_padding"><?php echo Languages::Label('builtin/helpers');?></h2>
 <div class="code_returns container_padding word_break">
-<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML' );?>">HTML</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/DataRules' );?>">DataRules</a>
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/HTML' );?>"><?php echo Languages::Label('html');?></a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/DataRules' );?>"><?php echo Languages::Label('datarules');?></a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/Languages' );?>"><?php echo Languages::Label('languages');?></a>
 </div>
 
 <h2 class="block bold container_padding"><?php echo Languages::Label('app');?></h2>
 <div class="code_returns container_padding word_break">
-<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config' );?>">App Configuration Files</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Routing/Modules' );?>">Routting/Modules</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Override' );?>">Override</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Model' );?>">App/Model</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Template' );?>">App/Template</a>
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config' );?>"><?php echo Languages::Label('app_configuration_files');?></a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Routing/Modules' );?>"><?php echo Languages::Label('routting/modules');?></a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Override' );?>"><?php echo Languages::Label('override');?></a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Model' );?>"><?php echo Languages::Label('app/model');?></a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Template' );?>"><?php echo Languages::Label('app/template');?></a>
 </div>
 
 <h2 class="block bold container_padding"><?php echo Languages::Label('others');?></h2>
 <div class="code_returns container_padding word_break">
-<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Apache/Htaccess' );?>">Apache htaccess file</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Namespaces' );?>">Namespaces</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/PHP/get_declared_classes' );?>">Tipui Declared Classes</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/PHP/get_defined_constants' );?>">Tipui Defined Constants</a>
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Apache/Htaccess' );?>"><?php echo Languages::Label('apache_htaccess_file');?></a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Namespaces' );?>"><?php echo Languages::Label('namespaces');?></a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/PHP/get_declared_classes' );?>"><?php echo Languages::Label('tipui_declared_classes');?></a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/PHP/get_defined_constants' );?>"><?php echo Languages::Label('tipui_defined_constants');?></a>
 
 </div>
 

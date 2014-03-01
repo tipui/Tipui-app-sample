@@ -1,0 +1,86 @@
+<?php
+
+/**
+* @file   Lang.html
+* @brief  Lang Docs/Builtin/Helpers/Languages module template.
+* @date   2014-03-01 19:25:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2014-03-01 19:25:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Builtin Helper Languages, Lang Method' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Set the language code in runtime.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'tipui, Languages, translations, language code, lang_code, file, labels, helper, documentation' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Builtin\Helpers\Languages\Lang</h1>
+
+<div class="container_padding">
+Set the language code.
+<br />Returns the self instance.
+</div>
+
+<h2 class="code_sample block bold container_padding">Setting the language code</h2>
+<div class="code_returns container_padding">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Helpers\Languages as Languages;
+
+Languages::Base( 'pt' );" ) );?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Setting the default language code</h2>
+<div class="code_returns container_padding">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Helpers\Languages as Languages;
+
+Languages::Base();" ) );?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Holding the instance</h2>
+<div class="code_returns container_padding">
+<?php highlight_string( html_entity_decode( "<?php 
+use \Tipui\Builtin\Helpers\Languages as Languages;
+
+\$lang = Languages::Base( 'pt' );
+echo \$lang -> Label('foo');
+echo \$lang -> Label('bar');" ) );?>
+</div>
+<div class="container_padding">
+For more samples, see <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Helpers/Languages/Label' );?>"><code class="line">Languages::Label()</code></a>.
+</div>
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="code_returns container_padding">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/LANGUAGES' );?>">Docs/App/Config/env/LANGUAGES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config/env/TEMPLATES' );?>">Docs/App/Config/env/TEMPLATES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf/TEMPLATES' );?>">\Tipui\Core::GetConf()->TEMPLATES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf/LANGUAGES' );?>">\Tipui\Core::GetConf()->LANGUAGES</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetMethodDataCache/LanguageCodeFromParameters' );?>">\Tipui\Core::GetConf()->GetMethodDataCache('LanguageCodeFromParameters')</a>
+</div>
+
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();
