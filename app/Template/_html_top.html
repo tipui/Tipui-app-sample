@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2014-03-01 03:44:00
+* @updated: 2014-03-02 19:27:00
 */
 
 use \Tipui\Builtin\Helpers\HTML\Elements as Elements;
@@ -15,9 +15,9 @@ use \Tipui\Builtin\Helpers\HTML as HTML;
 use \Tipui\Builtin\Helpers\Languages as Languages;
 
 /**
-* Register the base path of this current file
+* Retrieving the language name from language code.
 */
-//Languages::Base();
+$language_name = Languages::GetNameFromCode('en');
 
 /**
 * Declares the DTD document type
@@ -33,7 +33,7 @@ echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.or
 * For performance reasons, is unnecessary. Is better type directly
 */
 //echo PHP_EOL . Elements::AddOpenTag( 'english' );
-echo PHP_EOL . '<html lang="english" xmlns="http://www.w3.org/1999/xhtml">';
+echo PHP_EOL . '<html lang="' . $language_name . '" xmlns="http://www.w3.org/1999/xhtml">';
 
 /**
 * Open head tag
@@ -50,7 +50,7 @@ echo PHP_EOL . '<head>'
 . PHP_EOL . Elements::AddMetatag( 'name', 'robots', null, 'index,follow' )
 
 // [review:low] Consider if must check for model Template override settings, if exists
-. PHP_EOL . Elements::AddMetatag( 'name', 'language', null, 'english' )
+. PHP_EOL . Elements::AddMetatag( 'name', 'language', null, $language_name )
 
 /**
 * The charset parameter can be changed by the model on Template() method.
@@ -65,6 +65,11 @@ echo PHP_EOL . '<head>'
 . PHP_EOL . Elements::Stylesheets() -> Add( 'layout.css' );
 //. PHP_EOL . Elements::JSFiles() -> Add( 'jquery/1.8.3/jquery.min.js' );
 //. PHP_EOL . Elements::JSFiles() -> Add( 'jquery/1.10.2/jquery.min.js' );
+
+/**
+* Clear used variable
+*/
+unset( $language_name );
 
 /**
 [important]
