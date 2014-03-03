@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2014-03-01 18:52:00
+* @updated: 2014-03-03 19:28:00
 */
 
 /** Alias to HTML Helper path */
@@ -15,8 +15,10 @@ use \Tipui\Builtin\Helpers\HTML as HTML;
 use \Tipui\app\Helpers\HTML\Layout as Layout;
 use \Tipui\Builtin\Helpers\Languages as Languages;
 
+//echo Languages::Base( dirname(dirname(__FILE__)) )->Label('app_name'); exit;
+
 /** HTML headers */
-HTML\Elements::SetTitle( Languages::Base( dirname(dirname(__FILE__)) )->Label('app_name') . ' - ' . Languages::Label('documentation') );
+HTML\Elements::SetTitle( Languages::Base( '../' )->Label('app_name') . ' - ' . Languages::Label('documentation') );
 HTML\Elements::SetMetatag( 'name', 'description', Languages::Label('description') );
 HTML\Elements::SetMetatag( 'name', 'keywords', Languages::Label('keywords') );
 
