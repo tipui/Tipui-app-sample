@@ -8,7 +8,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: yyyy-mm-dd hh:ii:ss
+* @updated: 2013-06-22 04:07:00
 */
 
 namespace Tipui\App\Model;
@@ -16,14 +16,7 @@ namespace Tipui\App\Model;
 class NotFound
 {
 
-    public function View()
-    {
-
-        return array( 
-			'ClassName' => 'Model: ' . __CLASS__ . PHP_EOL
-		);
-
-    }
+	public function View(){}
 
 	/**
 	* @brief Header output customized

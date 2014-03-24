@@ -24,7 +24,7 @@ class SetNameAsArray
     public function Form()
     {
 		Form::SetAction()
-		->SetMethod( 'POST' )
+		->SetMethod()
 		->SetURLParam( 'Docs/Builtin/Helpers/HTML/Form/SetNameAsArray' )
 		->SetElement( 'foo', 'checkbox-array', false, array( DataRules::OPTIONS => array( 1 => 'choice 1', 2 => 'choice 2', 3 => 'choice 3', 4 => 'choice 4' ) ) )
 		->SetElement( 'foo_checkbox', 'checkbox-array', true, array( DataRules::OPTIONS => array( 1 => 'choice 1', 2 => 'choice 2', 3 => 'choice 3', 4 => 'choice 4' ) ) )
