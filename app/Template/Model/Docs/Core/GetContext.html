@@ -1,0 +1,91 @@
+<?php
+
+/**
+* @file   GetContext.html
+* @brief  Docs/Core/GetContext template.
+* @date   2014-03-29 00:40:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2014-03-29 19:09:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+use \Tipui\Builtin\Libs\Strings as Strings;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Core GetContext' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Global access to data handled by the Core.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'context, core methods, tipui php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Core->GetContext</h1>
+<div class="container_padding word_break ha_left">
+The Core context standardize the storage and the access to the objects inside the Core class.
+<br />The context is setted by the method <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/ContextSet' );?>"><code class="line">Core::ContextSet()</code></a>
+<br />All data is retained by the protected static property <code class="line">Core::$context_holder</code>.
+</div>
+
+<br />
+<h2 class="code_sample block bold container_padding">Objects</h2>
+<div class="container_padding word_break ha_left">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetContext/IsCliMode' );?>">Core::GetContext()->IsCliMode</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetContext/Routing' );?>">Core::GetContext()->Routing</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetContext/LanguageCodeFromParameters' );?>">Core::GetContext()->LanguageCodeFromParameters</a>
+</div>
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Module -> form_data</h2>
+<div class="container_padding">
+Contains the information returned by <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Model#Form' );?>"><code class="line">ModuleName::Form()</code></a> method.
+<br />Escope: <code class="line">Core::GetContext() -> [module_name_including_namespace] -> form_data</code>
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php
+\$c = new \Tipui\Core;
+print_r( \$c::GetContext() -> {'\Tipui\App\Model\Docs\Core'} -> form_data );
+" ) );
+?>
+</div>
+<h2 class="code_sample block bold container_padding">Module -> model_cache</h2>
+<div class="container_padding">
+Contains the information returned by <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Model#Header' );?>"><code class="line">ModuleName::Header()</code></a> and <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Model#Template' );?>"><code class="line">ModuleName::Template()</code></a> methods.
+<br />Escope: <code class="line">Core::GetContext() -> [module_name_including_namespace] -> model_cache</code>
+</div>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php
+\$c = new \Tipui\Core;
+print_r( \$c::GetContext() -> {'\Tipui\App\Model\Docs\Core'} -> model_cache );
+" ) );
+?>
+</div>
+
+
+<br />
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="container_padding word_break ha_left">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/IsCliMode' );?>">Core->IsCliMode()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Routing' );?>">Core->Routing()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/LanguageCodeFromParameters' );?>">Core->LanguageCodeFromParameters()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf' );?>">Core::GetConf()</a>
+</div>
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

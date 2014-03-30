@@ -8,7 +8,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-10-22 21:43:00
+* @updated: 2014-03-28 21:24:00
 */
 
 namespace Tipui\App\Routing;
@@ -23,14 +23,14 @@ class Modules
 		$alias = str_replace( '\\', '/', $alias );
 
 		$arr = array(
-			'Foo2/Bar' => array( 
+			'Foo2/Bar' => (object) array( 
 								'class'            => 'Docs\App\Routing\Modules\Foo\Bar',
 								'default_language' => 'en',
 								'force_language'   => false,
 							),
-			'ダミー'      => array( 
+			'ダミー'      => (object) array( 
 								'class'            => 'Docs\App\Routing\Modules\Foo\Bar',
-								'default_language' => 'ja',
+								'default_language' => 'pt',
 								'force_language'   => true,
 							),
 		);

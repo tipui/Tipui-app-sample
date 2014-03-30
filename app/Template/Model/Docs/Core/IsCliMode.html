@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-12-29 18:34:00
+* @updated: 2014-03-29 02:53:00
 */
 
 /** Alias to HTML Helper path */
@@ -42,15 +42,15 @@ Check request cames from CLI (Command Line Interface) or HTTP protocol.
 <br />
 <h2 class="code_sample block bold container_padding">Cached Core methods</h2>
 <div class="container_padding word_break">
-For read the value, call the GetConf() method, that will retrieves data from the cache, see:
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetMethodDataCache/IsCliMode' );?>">\Tipui\Core::GetConf()->GetMethodDataCache()</a>
+To access the object, use the context object: <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetContext/IsCliMode' );?>"><code class="line">\Tipui\Core::GetContext()->IsCliMode</code></a>
 </div>
 
 
 <br />
 <h2 class="code_sample block bold container_padding">Related</h2>
 <div class="container_padding word_break ha_left">
-<a href="http://php.net/manual/en/features.commandline.php" target="_blank">PHP: Command Line Interface</a>
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/ContextSet' );?>">Core->ContextSet()</a>
+<br /><a href="http://php.net/manual/en/features.commandline.php" target="_blank">PHP: Command Line Interface</a>
 <br /><a href="http://en.wikipedia.org/wiki/Command-line_interface" target="_blank">Wikipedia: Command Line Interface</a>
 </div>
 

@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-12-29 18:34:00
+* @updated: 2014-03-25 00:45:00
 */
 
 /** Alias to HTML Helper path */
@@ -36,7 +36,7 @@ Layout::Top();
 <div class="container_padding word_break ha_left">
 The model is responsible for the app business logic, following the basics of <a href="http://en.wikipedia.org/wiki/Model–view–controller" target="_blank">MVC</a> design pattern.
 </div>
-<br />
+<br /><a name="FolderStructure"></a>
 <h2 class="code_sample block bold container_padding">Folders Structure</h2>
 <div class="container_padding word_break ha_left">
 Base: <code class="line">app/Model/</code>
@@ -68,7 +68,7 @@ class Model
 }" );
 ?>
 </div>
-
+<a name="Namespace"></a>
 <h2 class="code_sample block bold container_padding">Model Namespace</h2>
 <div class="container_padding word_break">
 The namespace base is composed by
@@ -81,14 +81,14 @@ The namespace base is composed by
 the full namespace will be <code class="line">Tipui\App\Model\Docs\App</code>
 <br /><br />See more about <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Namespaces' );?>">Namespaces</a>.
 </div>
-
+<a name="ClassName"></a>
 <h2 class="code_sample block bold container_padding">Model Class name</h2>
 <div class="container_padding word_break">
 The class name is simply the model name, <code class="line">class Model(){}</code>
 </div>
 
 
-<br /><br />
+<br /><br /><a name="View"></a>
 <h2 class="code_sample block bold container_padding">View() method</h2>
 <div class="container_padding word_break">
 If wants to display results from this model, is necessary to declare the method <code class="line">View()</code>.
@@ -132,7 +132,7 @@ For details about app templates, go to the page: <a href="<?php echo HTML\URL::M
 </div>
 
 
-<br /><br />
+<br /><br /><a name="Prepare"></a>
 <h2 class="code_sample block bold container_padding">Prepare() method</h2>
 <div class="container_padding word_break">
 The business logic stuffs must be writen in this method, just to keep the codes organized in their proper layers.
@@ -160,7 +160,7 @@ class Model
 </div>
 
 
-<br /><br />
+<br /><br /><a name="Form"></a>
 <h2 class="code_sample block bold container_padding">Form() method</h2>
 <div class="container_padding word_break">
 Instantiates the Form, parameters rules and request method.
@@ -193,7 +193,7 @@ class Model
 </div>
 
 
-<br /><br />
+<br /><br /><a name="Header"></a>
 <h2 class="code_sample block bold container_padding">Header() method</h2>
 <div class="container_padding word_break">
 Customizes the header output.
@@ -221,7 +221,7 @@ class Model
 </div>
 
 
-<br /><br />
+<br /><br /><a name="Template"></a>
 <h2 class="code_sample block bold container_padding">Template() method</h2>
 <div class="container_padding word_break">
 Customizes the Template settings.

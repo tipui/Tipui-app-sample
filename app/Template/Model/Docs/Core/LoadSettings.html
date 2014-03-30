@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-12-29 18:34:00
+* @updated: 2014-03-29 02:53:00
 */
 
 /** Alias to HTML Helper path */
@@ -19,7 +19,7 @@ use \Tipui\Builtin\Libs\Strings as Strings;
 /** HTML headers */
 HTML\Elements::SetTitle( 'TIPUI PHP - Docs Core LoadSettings' );
 HTML\Elements::SetMetatag( 'name', 'description', 'Core LoadSettings method' );
-HTML\Elements::SetMetatag( 'name', 'keywords', 'settings loader, set cache, conf, config, configuration files, environment, tipui php' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'settings loader, set context, conf, config, configuration files, environment, tipui php' );
 
 /** Add array of (css) stylesheets */
 HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
@@ -34,7 +34,7 @@ Layout::Top();
 
 <h1 class="container_padding">\Tipui\Core->LoadSettings</h1>
 <div class="container_padding word_break ha_left">
-Builds the paths for app environment configuration files and save its contents to cache by calling <code class="line">SaveToCache()</code> method.
+Builds the paths for app environment configuration files and save its contents to Core context by calling <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/SaveToContext' );?>"><code class="line">Core::SaveToContext()</code></a> method.
 </div>
 
 <br />
@@ -48,7 +48,8 @@ Builds the paths for app environment configuration files and save its contents t
 <h2 class="code_sample block bold container_padding">Related</h2>
 <div class="container_padding word_break ha_left">
 <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Config' );?>">App Configuration Files</a>
-<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetConf' );?>">Core::GetConf()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetContext' );?>">Core::GetContext()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/ContextSet' );?>">Core::ContextSet()</a>
 </div>
 
 

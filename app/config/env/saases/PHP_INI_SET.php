@@ -85,6 +85,6 @@ ini_set( 'session.cookie_domain', $bootstrap['DOMAIN'] ); // This is regardless 
 //echo time(); exit;
 
 /**
-* lear variable
+* Clear variable
 */
 unset( $bootstrap );

@@ -1,0 +1,89 @@
+<?php
+
+/**
+* @file   ContextSet.html
+* @brief  ContextSet Docs/Core module template.
+* @date   2014-03-25 00:45:00
+* @license http://opensource.org/licenses/GPL-3.0 GNU Public License
+* @company: Tipui Co. Ltda.
+* @author: Daniel Omine <omine@tipui.com>
+* @updated: 2014-03-29 02:53:00
+*/
+
+/** Alias to HTML Helper path */
+use \Tipui\Builtin\Helpers\HTML as HTML;
+use \Tipui\app\Helpers\HTML\Layout as Layout;
+
+/** HTML headers */
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Core ContextSet' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Set the data for the Core context.' );
+HTML\Elements::SetMetatag( 'name', 'keywords', 'core information, context, set, framework php' );
+
+/** Add array of (css) stylesheets */
+HTML\Elements::Stylesheets() -> SetArray( array( array( 'file' => 'code.css' ) ) );
+
+/** header/top */
+Layout::Top();
+
+/** main content */
+?>
+
+<div class="ha_left">
+
+<h1 class="container_padding">\Tipui\Core::ContextSet()</h1>
+
+<br />
+
+<div class="container_padding">
+Set data to be handled by <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Context' );?>"><code class="line">Core->context</code></a> object.
+</div>
+
+<h2 class="code_sample block bold container_padding">Usage sample, value as array()</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php
+\$c = new \Tipui\Core;
+
+// escope
+// \$c::ContextSet( (string)[key_name], (object)|(array) );
+
+// sample
+\$c::ContextSet( 'foo', array( 'a' => 'bar 1', 'b' => 'bar 2' ) );
+
+echo \$c -> context -> foo -> a;
+// displays \"bar 1\"
+
+echo \$c -> context -> foo -> b;
+// displays \"bar 2\"
+" ) );
+?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Usage sample, value as object (not array)</h2>
+<div class="code_returns container_padding word_break">
+<?php highlight_string( html_entity_decode( "<?php
+\$c = new \Tipui\Core;
+
+// escope
+// \$c::ContextSet( (string)[key_name], (object)|(array) );
+
+// sample
+\$c::ContextSet( 'foo', 'bar' );
+
+echo \$c -> context -> foo;
+// displays \"bar\"
+" ) );
+?>
+</div>
+
+<h2 class="code_sample block bold container_padding">Related</h2>
+<div class="container_padding">
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Context' );?>">Core->context</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetContext' );?>">Core->GetContext</a>
+</div>
+
+
+</div>
+
+<?php
+/** bottom */
+Layout::Bottom();

@@ -2,12 +2,12 @@
 
 /**
 * @file   Routing.html
-* @brief  Routing Docs/Core/GetMethodDataCache module template.
+* @brief  Routing Docs/Core/GetContext module template.
 * @date   2013-10-04 03:08:00
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2014-02-19 16:36:00
+* @updated: 2014-03-29 02:53:00
 */
 
 /** Alias to HTML Helper path */
@@ -15,8 +15,8 @@ use \Tipui\Builtin\Helpers\HTML as HTML;
 use \Tipui\app\Helpers\HTML\Layout as Layout;
 
 /** HTML headers */
-HTML\Elements::SetTitle( 'TIPUI PHP - Docs Core GetMethodDataCache(\'Routing\')' );
-HTML\Elements::SetMetatag( 'name', 'description', 'Displays builtin Core/GetMethodDataCache of Routing method.' );
+HTML\Elements::SetTitle( 'TIPUI PHP - Docs Core GetContext Routing' );
+HTML\Elements::SetMetatag( 'name', 'description', 'Displays builtin Core/GetContext of Routing method.' );
 HTML\Elements::SetMetatag( 'name', 'keywords', 'documentation, url, parameters, module routing, routes, framework php' );
 
 /** Add array of (css) stylesheets */
@@ -30,13 +30,13 @@ Layout::Top();
 
 <div class="ha_left">
 
-<h1 class="container_padding">\Tipui\Core::GetConf()->GetMethodDataCache('Routing')</h1>
+<h1 class="container_padding">\Tipui\Core::GetContext()->Routing</h1>
 
 <br />
 <h2 class="code_sample block bold container_padding">Static</h2>
 <div class="code_returns container_padding word_break">
 <?php highlight_string( html_entity_decode( '&lt;?php
-$rs = \Tipui\Core::GetConf()->GetMethodDataCache(\'Routing\');
+$rs = \Tipui\Core::GetContext()->Routing;
 
 foreach( $rs as $k => $v )
 {
@@ -62,7 +62,7 @@ foreach( $rs as $k => $v )
 <div class="code_returns container_padding word_break">
 <?php highlight_string( html_entity_decode( '&lt;?php
 $c = new \Tipui\Core;
-$rs = $c -> GetConf()->GetMethodDataCache(\'Routing\');
+$rs = $c -> GetContext()->Routing;
 
 foreach( $rs as $k => $v )
 {
@@ -110,7 +110,8 @@ foreach( $T['rs'] as $k => $v )
 <br />
 <h2 class="code_sample block bold container_padding">Related</h2>
 <div class="container_padding word_break ha_left">
-<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/SaveToCache' );?>">Core->SaveToCache()</a>
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Routing' );?>">Core->Routing()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/SaveToContext' );?>">Core->SaveToContext()</a>
 </div>
 
 </div>

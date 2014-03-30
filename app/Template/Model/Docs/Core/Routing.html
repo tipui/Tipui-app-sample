@@ -7,7 +7,7 @@
 * @license http://opensource.org/licenses/GPL-3.0 GNU Public License
 * @company: Tipui Co. Ltda.
 * @author: Daniel Omine <omine@tipui.com>
-* @updated: 2013-12-29 18:34:00
+* @updated: 2014-03-29 02:53:00
 */
 
 /** Alias to HTML Helper path */
@@ -34,20 +34,19 @@ Layout::Top();
 
 <h1 class="container_padding">\Tipui\Core->Routing</h1>
 <div class="container_padding word_break ha_left">
-Call <code class="line">Request()</code> method and builds the paths based on URL or command line parameters.
-<br />Search the path name on <code class="line">app/Routing/Modules.php</code> file for check any aliases, then, proceeds scanning the files and directories until found the right path to load with <code class="line">RoutingPathScanner()</code> method.
-<br />In the This method is called by method , that is invoked by <code class="line">SetMethodDataCache()</code>
+Call <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Request' );?>"><code class="line">Core::Request()</code></a> method and builds the paths based on requested parameters.
 <br />
-<br />For read the cached content, see the page <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetMethodDataCache/Routing' );?>"><code class="line">Core::GetConf()->GetMethodDataCache('Routing')</code></a>.
+<br />To access the object, use the context object: <a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/GetContext/Routing' );?>"><code class="line">\Tipui\Core::GetContext()->Routing</code></a>
 </div>
 
 <br />
 <h2 class="code_sample block bold container_padding">Dependencies</h2>
 <div class="container_padding word_break ha_left">
-<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/SetMethodDataCache' );?>">Core->SetMethodDataCache()</a>
+<a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/ContextSet' );?>">Core->ContextSet()</a>
 <br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/Request' );?>">Core->Request()</a>
 <br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Builtin/Libs/Request' );?>">Builtin/Libs/Request()</a>
 <br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/Core/RoutingPathScanner' );?>">Core->RoutingPathScanner()</a>
+<br /><a href="<?php echo HTML\URL::Make() -> Parameters() -> Values( 'Docs/App/Routing/Modules' );?>">Docs/App/Routing/Modules</a>
 </div>
 
 <br />
