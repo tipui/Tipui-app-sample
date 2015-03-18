@@ -40,8 +40,11 @@ ini_set( 'html_errors', FALSE );
 * Recommended use UTF-8
 */
 ini_set( 'default_charset', $bootstrap['CHARSET'] );
-ini_set( 'mbstring.http_output', $bootstrap['CHARSET'] );
-ini_set( 'mbstring.internal_encoding', $bootstrap['CHARSET'] );
+
+if( PHP_VERSION < 5.6 ){
+	ini_set( 'mbstring.http_output', $bootstrap['CHARSET'] );
+	ini_set( 'mbstring.internal_encoding', $bootstrap['CHARSET'] );
+}
 
 /**
 * PHP Sessions general settings

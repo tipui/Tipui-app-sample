@@ -3,3 +3,7 @@ changes.txt
 backups/
 logs/
 tmp/
+app/Storage/env
+app/config/env/dtiserversman
+public/dtiserversman
+Thumbs.db
